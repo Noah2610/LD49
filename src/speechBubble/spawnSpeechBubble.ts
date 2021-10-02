@@ -81,14 +81,17 @@ export function spawnSpeechBubble(options: SpawnSpeechBubbleOptions) {
 
     const bubbleEl = document.createElement("div");
     bubbleEl.innerText = options.text;
-    bubbleEl.classList.add("speech-bubble");
     bubbleEl.classList.add(
-        `speech-bubble--corner-${getCornerOpposite(corner)}`,
+        "speech-bubble",
+        `speech-bubble--corner-${corner}`,
+        "hidden",
     );
     bubbleEl.style.top = `${pos.y}px`;
     bubbleEl.style.left = `${pos.x}px`;
 
     rootEl.appendChild(bubbleEl);
+
+    setTimeout(() => bubbleEl.classList.remove("hidden"), 1);
 
     setTimeout(() => {
         bubbleEl.classList.add("hidden");

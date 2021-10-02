@@ -38,9 +38,9 @@ function dev() {
                 "Help me.",
                 "Run.",
             ])!,
-            despawnMs: 1000,
+            despawnMs: 5000,
         });
-    }, 1000);
+    }, 2000);
 }
 
 // async function dev() {
