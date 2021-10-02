@@ -1,9 +1,22 @@
+import { Range } from "../util";
+
+export const MOOD_RANGE: Range = {
+    min: -100,
+    max: 100,
+};
+
+export const VELOCITY_RANGE: Range = {
+    min: -5,
+    max: 5,
+};
+
 export interface Mood {
     value: number;
     velocity: number;
     emotion: Emotion;
 
     update(dt: number): void;
+    addVelocity(vel: number): void;
 }
 
 export const EMOTIONS = [
@@ -19,13 +32,8 @@ export const EMOTIONS = [
 export type Emotion = typeof EMOTIONS[number];
 
 export type EmotionMoodMap = {
-    [E in Emotion]: EmotionMoodRange;
+    [E in Emotion]: Range;
 };
-
-export interface EmotionMoodRange {
-    min: number;
-    max: number;
-}
 
 export const EMOTION_MOOD_MAP: EmotionMoodMap = {
     Suicidal: {

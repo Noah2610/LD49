@@ -1,4 +1,4 @@
-import { Emotion, EMOTION_MOOD_MAP, Mood } from ".";
+import { Emotion, EMOTION_MOOD_MAP, Mood, MOOD_RANGE, VELOCITY_RANGE } from ".";
 
 export function createMood(): Mood {
     const emotionForMood = (moodValue: number): Emotion => {
@@ -18,9 +18,19 @@ export function createMood(): Mood {
 
     const emotion = emotionForMood(0);
 
-    const update: Mood["update"] = (dt: number) => {
-        mood.value += mood.velocity * dt;
+    const update: Mood["update"] = (dt) => {
+        mood.value = Math.max(
+            Math.min(mood.value + mood.velocity, MOOD_RANGE.max),
+            MOOD_RANGE.min,
+        );
         mood.emotion = emotionForMood(mood.value);
+    };
+
+    const addVelocity: Mood["addVelocity"] = (vel) => {
+        mood.velocity = Math.max(
+            Math.min(mood.velocity + vel, VELOCITY_RANGE.max),
+            VELOCITY_RANGE.min,
+        );
     };
 
     const mood: Mood = {
@@ -28,6 +38,7 @@ export function createMood(): Mood {
         velocity: 0,
         emotion,
         update,
+        addVelocity,
     };
 
     return mood;

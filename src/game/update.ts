@@ -1,7 +1,10 @@
 import { Timer } from "timesub";
 import { Context } from "../context";
 import { expectEl } from "../util";
-import { UPS } from ".";
+import { GAME_CONFIG } from "../config/game";
+import { moodSwing } from ".";
+
+const UPS = GAME_CONFIG.ups;
 
 export function update(ctx: Context, timer: Timer) {
     if (!ctx.update) {
@@ -24,6 +27,14 @@ export function update(ctx: Context, timer: Timer) {
         characterEl.innerHTML = "";
         emotionChar.spritesheet.insertDom(characterEl);
         ctx.update.lastEmotion = chr.mood.emotion;
+    }
+
+    if (
+        timer.time >
+        ctx.update.lastMoodSwingAt + GAME_CONFIG.moodSwing.intervalMs
+    ) {
+        moodSwing(ctx);
+        ctx.update.lastMoodSwingAt = timer.time;
     }
 
     ctx.update.lastUpdateAt = timer.time;

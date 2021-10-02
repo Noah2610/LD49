@@ -1,7 +1,10 @@
 import { createTimer } from "timesub";
 import { Context, expectContext } from "../context";
 import { expectEl } from "../util";
-import { update, UPS } from ".";
+import { GAME_CONFIG } from "../config/game";
+import { update } from ".";
+
+const UPS = GAME_CONFIG.ups;
 
 export function startGame() {
     const characterEl = expectEl("#game #character");
