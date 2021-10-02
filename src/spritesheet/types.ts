@@ -23,4 +23,6 @@ export interface SpritesheetSprite {
 export interface SpritesheetConfig<SIdx = number> {
     spriteSize: Size;
     spriteNames?: SIdx[];
+    size?: Size;
+    currentIdx?: SIdx;
 }

@@ -47,6 +47,8 @@ export async function loadSpritesheet<SIdx>(
         };
         spritesheet.img.style.left = `${offset.x}px`;
         spritesheet.img.style.top = `${offset.y}px`;
+
+        spritesheet.currentIdx = idx;
     };
 
     const resize: Spritesheet<SIdx>["resize"] = (size) => {
@@ -68,6 +70,8 @@ export async function loadSpritesheet<SIdx>(
         spritesheet.img.style.height = `${imgSize.h}px`;
 
         spritesheet.scale = scale;
+
+        spritesheet.showSprite(spritesheet.currentIdx);
     };
 
     const spritesheet: Spritesheet<SIdx> = {
@@ -83,8 +87,8 @@ export async function loadSpritesheet<SIdx>(
         resize,
     };
 
-    showSprite(currentIdx);
-    resize(spriteSize);
+    showSprite(config.currentIdx ?? currentIdx);
+    resize(config.size ?? spriteSize);
 
     return spritesheet;
 }
