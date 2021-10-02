@@ -1,4 +1,4 @@
-import { Pos, Size } from "../util";
+import { Pos, Size, loadImage } from "../util";
 import { Spritesheet, SpritesheetConfig, SpritesheetSpriteMap } from ".";
 
 export async function createSpritesheet(
@@ -91,13 +91,4 @@ export async function createSpritesheet(
     resize(config.size ?? spriteSize);
 
     return spritesheet;
-}
-
-function loadImage(src: string): Promise<HTMLImageElement> {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.src = src;
-        img.onload = () => resolve(img);
-        img.onerror = (e) => reject(e);
-    });
 }
