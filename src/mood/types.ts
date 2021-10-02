@@ -3,7 +3,7 @@ export interface Mood {
     velocity: number;
     emotion: Emotion;
 
-    update(): void;
+    update(dt: number): void;
 }
 
 export const EMOTIONS = [

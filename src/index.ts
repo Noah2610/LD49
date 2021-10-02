@@ -7,11 +7,13 @@ import { createSpritesheet } from "./spritesheet";
 import { expectEl } from "./util";
 import { createAnimation } from "./animation";
 import { createAnimationContainer } from "./animation/createAnimationContainer";
-import { createContext } from "./context";
+import { createContext, expectContext } from "./context";
+import { startGame } from "./game";
 
-function main() {
+async function main() {
     setupBg();
-    createContext();
+    await createContext();
+    startGame();
 }
 
 function setupBg() {

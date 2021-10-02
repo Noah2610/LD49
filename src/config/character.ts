@@ -42,7 +42,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
 
         Depressed: {
             spritesheet: {
-                src: require("../assets/spr_test_A.png"),
+                src: require("../assets/spr_test_B.png"),
                 spriteSize: {
                     w: 48,
                     h: 80,
@@ -69,7 +69,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
 
         Sad: {
             spritesheet: {
-                src: require("../assets/spr_test_A.png"),
+                src: require("../assets/spr_test_C.png"),
                 spriteSize: {
                     w: 48,
                     h: 80,
@@ -96,7 +96,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
 
         Calm: {
             spritesheet: {
-                src: require("../assets/spr_test_A.png"),
+                src: require("../assets/spr_test_D.png"),
                 spriteSize: {
                     w: 48,
                     h: 80,
@@ -123,7 +123,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
 
         Happy: {
             spritesheet: {
-                src: require("../assets/spr_test_A.png"),
+                src: require("../assets/spr_test_E.png"),
                 spriteSize: {
                     w: 48,
                     h: 80,
@@ -150,7 +150,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
 
         Excited: {
             spritesheet: {
-                src: require("../assets/spr_test_A.png"),
+                src: require("../assets/spr_test_F.png"),
                 spriteSize: {
                     w: 48,
                     h: 80,

@@ -18,8 +18,8 @@ export function createMood(): Mood {
 
     const emotion = emotionForMood(0);
 
-    const update: Mood["update"] = () => {
-        mood.value += mood.velocity;
+    const update: Mood["update"] = (dt: number) => {
+        mood.value += mood.velocity * dt;
         mood.emotion = emotionForMood(mood.value);
     };
 

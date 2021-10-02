@@ -23,9 +23,16 @@ export async function createCharacter(): Promise<Character> {
         ),
     );
 
+    const getCurrentCharacterEmotion: Character["getCurrentCharacterEmotion"] =
+        () => {
+            const emotion = character.mood.emotion;
+            return character.emotions[emotion];
+        };
+
     const character: Character = {
         mood: createMood(),
         emotions: emotions as CharacterEmotions,
+        getCurrentCharacterEmotion,
     };
 
     return character;

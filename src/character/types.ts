@@ -5,6 +5,8 @@ import { Emotion, Mood } from "../mood";
 export interface Character {
     mood: Mood;
     emotions: CharacterEmotions;
+
+    getCurrentCharacterEmotion(): CharacterEmotion;
 }
 
 export type CharacterEmotions = {

@@ -52,5 +52,9 @@ export function createAnimationContainer(
         getCurrentAnimation,
     };
 
+    if (currentAnimation) {
+        container.play(currentAnimation);
+    }
+
     return container;
 }
