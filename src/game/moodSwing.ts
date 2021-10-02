@@ -11,7 +11,5 @@ export function moodSwing(ctx?: Context) {
         strength *= -1;
     }
 
-    console.log(`MOOD SWING ${strength}`);
-
     ctx.character.mood.addVelocity(strength);
 }

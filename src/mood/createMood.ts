@@ -24,6 +24,14 @@ export function createMood(): Mood {
             MOOD_RANGE.min,
         );
         mood.emotion = emotionForMood(mood.value);
+
+        const barEl = document.querySelector<HTMLElement>("#game #mood-bar");
+        if (barEl) {
+            const minAbs = Math.abs(MOOD_RANGE.min);
+            const perc =
+                ((mood.value + minAbs) / (minAbs + MOOD_RANGE.max)) * 100;
+            barEl.style.width = `${perc}%`;
+        }
     };
 
     const addVelocity: Mood["addVelocity"] = (vel) => {
