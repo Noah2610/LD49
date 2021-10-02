@@ -1,10 +1,10 @@
 import { Pos, Size } from "../util";
 import { Spritesheet, SpritesheetConfig, SpritesheetSpriteMap } from ".";
 
-export async function loadSpritesheet<SIdx>(
+export async function loadSpritesheet(
     src: string,
-    config: SpritesheetConfig<SIdx>,
-): Promise<Spritesheet<SIdx>> {
+    config: SpritesheetConfig,
+): Promise<Spritesheet> {
     const img = await loadImage(src);
     const spritesheetSize = {
         w: img.width,
@@ -12,18 +12,18 @@ export async function loadSpritesheet<SIdx>(
     };
     const spriteSize = config.spriteSize;
 
-    const spriteMap: SpritesheetSpriteMap<SIdx> = new Map();
+    const spriteMap: SpritesheetSpriteMap = new Map();
     let i = 0;
     for (let y = 0; y < img.height; y += spriteSize.h) {
         for (let x = 0; x < img.width; x += spriteSize.w) {
-            const sIdx = (config.spriteNames?.[i] ?? i) as SIdx;
+            const sIdx = config.spriteNames?.[i] ?? i;
             spriteMap.set(sIdx, {
                 offset: { x, y },
             });
             i++;
         }
     }
-    const currentIdx = (config.spriteNames?.[0] ?? 0) as SIdx;
+    const currentIdx = config.spriteNames?.[0] ?? 0;
 
     const scale: Pos = { x: 1, y: 1 };
 
@@ -32,10 +32,10 @@ export async function loadSpritesheet<SIdx>(
 
     wrapperEl.appendChild(img);
 
-    const insertDom: Spritesheet<SIdx>["insertDom"] = (el) =>
+    const insertDom: Spritesheet["insertDom"] = (el) =>
         el.appendChild(wrapperEl);
 
-    const showSprite: Spritesheet<SIdx>["showSprite"] = (idx) => {
+    const showSprite: Spritesheet["showSprite"] = (idx) => {
         const sprite = spritesheet.spriteMap.get(idx);
         if (!sprite) {
             console.error(`[showSprite] Couldn't find sprite with idx: ${idx}`);
@@ -51,7 +51,7 @@ export async function loadSpritesheet<SIdx>(
         spritesheet.currentIdx = idx;
     };
 
-    const resize: Spritesheet<SIdx>["resize"] = (size) => {
+    const resize: Spritesheet["resize"] = (size) => {
         const scale: Pos = {
             x: size.w / spritesheet.spriteSize.w,
             y: size.h / spritesheet.spriteSize.h,
@@ -74,7 +74,7 @@ export async function loadSpritesheet<SIdx>(
         spritesheet.showSprite(spritesheet.currentIdx);
     };
 
-    const spritesheet: Spritesheet<SIdx> = {
+    const spritesheet: Spritesheet = {
         wrapperEl,
         img,
         spritesheetSize,

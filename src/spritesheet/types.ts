@@ -1,28 +1,30 @@
 import { Pos, Size } from "../util";
 
-export interface Spritesheet<SIdx = number> {
+export type SpriteIdx = number | string;
+
+export interface Spritesheet {
     wrapperEl: HTMLElement;
     img: HTMLImageElement;
     spritesheetSize: Size;
     spriteSize: Size;
-    spriteMap: SpritesheetSpriteMap<SIdx>;
-    currentIdx: SIdx;
+    spriteMap: SpritesheetSpriteMap;
+    currentIdx: SpriteIdx;
     scale: Pos;
 
     insertDom(el: Element): void;
-    showSprite(idx: SIdx): void;
+    showSprite(idx: SpriteIdx): void;
     resize(size: Size): void;
 }
 
-export type SpritesheetSpriteMap<SIdx> = Map<SIdx, SpritesheetSprite>;
+export type SpritesheetSpriteMap = Map<SpriteIdx, SpritesheetSprite>;
 
 export interface SpritesheetSprite {
     offset: Pos;
 }
 
-export interface SpritesheetConfig<SIdx = number> {
+export interface SpritesheetConfig {
     spriteSize: Size;
-    spriteNames?: SIdx[];
+    spriteNames?: SpriteIdx[];
     size?: Size;
-    currentIdx?: SIdx;
+    currentIdx?: SpriteIdx;
 }
