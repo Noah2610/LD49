@@ -7,25 +7,16 @@ import { createSpritesheet } from "./spritesheet";
 import { expectEl } from "./util";
 import { createAnimation } from "./animation";
 import { createAnimationContainer } from "./animation/createAnimationContainer";
-import { store } from "./store";
+import { createContext } from "./context";
 
 function main() {
-    dev();
-
     setupBg();
-    setupMood();
+    createContext();
 }
 
 function setupBg() {
     const bgEl = expectEl("#game #background");
     bgEl.style.backgroundImage = `url(${bgImg})`;
-}
-
-function setupMood() {}
-
-function dev() {
-    // @ts-ignore
-    window.DBG = { store };
 }
 
 // async function dev() {
