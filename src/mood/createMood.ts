@@ -1,4 +1,5 @@
-import { Emotion, EMOTION_MOOD_MAP, Mood, MOOD_RANGE, VELOCITY_RANGE } from ".";
+import { EMOTION_MOOD_MAP, MOOD_RANGE, VELOCITY_RANGE } from "../config/mood";
+import { Emotion, Mood } from ".";
 
 export function createMood(): Mood {
     const emotionForMood = (moodValue: number): Emotion | null => {
