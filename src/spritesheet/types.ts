@@ -23,6 +23,7 @@ export interface SpritesheetSprite {
 }
 
 export interface SpritesheetConfig {
+    src: string;
     spriteSize: Size;
     spriteNames?: SpriteIdx[];
     size?: Size;

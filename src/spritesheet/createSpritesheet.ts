@@ -2,10 +2,9 @@ import { Pos, Size, loadImage } from "../util";
 import { Spritesheet, SpritesheetConfig, SpritesheetSpriteMap } from ".";
 
 export async function createSpritesheet(
-    src: string,
     config: SpritesheetConfig,
 ): Promise<Spritesheet> {
-    const img = await loadImage(src);
+    const img = await loadImage(config.src);
     const spritesheetSize = {
         w: img.width,
         h: img.height,
