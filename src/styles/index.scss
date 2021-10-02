@@ -7,6 +7,17 @@ body {
     font-size: 20px;
 }
 
+.img {
+    position: relative;
+    overflow: hidden;
+
+    & > img {
+        position: absolute;
+        image-rendering: crisp-edges;
+        image-rendering: pixelated;
+    }
+}
+
 #game {
     display: flex;
     flex-direction: column;
