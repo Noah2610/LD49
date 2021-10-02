@@ -2,18 +2,31 @@ import "./styles/index.scss";
 
 import devImg from "./assets/dev.png";
 import { loadSpritesheet } from "./spritesheet";
+import { expectEl } from "./util";
 
 function main() {
-    loadSpritesheet(devImg, {
+    dev();
+}
+
+async function dev() {
+    const gameEl = expectEl("#game");
+    const charEl = expectEl("#character", gameEl);
+
+    const spritesheet = await loadSpritesheet(devImg, {
         spriteSize: {
             w: 16,
             h: 16,
         },
-    }).then((spritesheet) => {
-        // @ts-ignore
-        window.DBG = { spritesheet };
-        spritesheet.insertDom(document.querySelector("#game")!);
+        size: {
+            w: 64,
+            h: 64,
+        },
+        currentIdx: 2,
     });
+
+    // @ts-ignore
+    window.DBG = { spritesheet };
+    spritesheet.insertDom(charEl);
 }
 
 window.onload = main;
