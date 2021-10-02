@@ -4,12 +4,6 @@ import { Context, expectContext } from "../context";
 
 export function moodSwing(ctx?: Context) {
     ctx = ctx || expectContext();
-
-    let strength = randomRange(GAME_CONFIG.moodSwing.strengthRange);
-
-    if (Math.random() < 0.5) {
-        strength *= -1;
-    }
-
-    ctx.character.mood.addVelocity(strength);
+    const strength = randomRange(GAME_CONFIG.moodSwing.strengthRange);
+    ctx.character.mood.setVelocity(strength);
 }

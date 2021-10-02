@@ -16,6 +16,7 @@ export interface Mood {
     emotion: Emotion;
 
     update(dt: number): void;
+    setVelocity(vel: number): void;
     addVelocity(vel: number): void;
 }
 

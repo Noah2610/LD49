@@ -11,10 +11,10 @@ export interface GameConfig {
 export const GAME_CONFIG: GameConfig = {
     ups: 10,
     moodSwing: {
-        intervalMs: 5000,
+        intervalMs: 2000,
         strengthRange: {
-            min: 1,
-            max: 2,
+            min: -1,
+            max: 1,
         },
     },
 };

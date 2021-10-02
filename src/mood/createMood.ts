@@ -34,11 +34,15 @@ export function createMood(): Mood {
         }
     };
 
-    const addVelocity: Mood["addVelocity"] = (vel) => {
+    const setVelocity: Mood["setVelocity"] = (vel) => {
         mood.velocity = Math.max(
-            Math.min(mood.velocity + vel, VELOCITY_RANGE.max),
+            Math.min(vel, VELOCITY_RANGE.max),
             VELOCITY_RANGE.min,
         );
+    };
+
+    const addVelocity: Mood["addVelocity"] = (vel) => {
+        mood.setVelocity(mood.velocity + vel);
     };
 
     const mood: Mood = {
@@ -46,6 +50,7 @@ export function createMood(): Mood {
         velocity: 0,
         emotion,
         update,
+        setVelocity,
         addVelocity,
     };
 
