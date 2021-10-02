@@ -7,10 +7,10 @@ export interface Mood {
 }
 
 export const EMOTIONS = [
+    "Suicidal",
     "Depressed",
     "Sad",
     "Calm",
-    "Content",
     "Happy",
     "Excited",
     "Manic",
@@ -28,19 +28,19 @@ export interface EmotionMoodRange {
 }
 
 export const EMOTION_MOOD_MAP: EmotionMoodMap = {
-    Depressed: {
+    Suicidal: {
         min: -100,
         max: -69,
     },
-    Sad: {
+    Depressed: {
         min: -70,
         max: -39,
     },
-    Calm: {
+    Sad: {
         min: -40,
         max: -19,
     },
-    Content: {
+    Calm: {
         min: -20,
         max: 20,
     },

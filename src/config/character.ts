@@ -13,6 +13,33 @@ export interface CharacterConfig {
 
 export const CHARACTER_CONFIG: CharacterConfig = {
     emotions: {
+        Suicidal: {
+            spritesheet: {
+                src: require("../assets/spr_test_A.png"),
+                spriteSize: {
+                    w: 48,
+                    h: 80,
+                },
+                size: {
+                    w: 400,
+                    h: 666,
+                },
+            },
+            animations: {
+                defaultAnimation: "default",
+                animations: {
+                    default: {
+                        loop: true,
+                        frames: [
+                            [0, 250],
+                            [1, 250],
+                            [3, 250],
+                        ],
+                    },
+                },
+            },
+        },
+
         Depressed: {
             spritesheet: {
                 src: require("../assets/spr_test_A.png"),
@@ -68,33 +95,6 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         },
 
         Calm: {
-            spritesheet: {
-                src: require("../assets/spr_test_A.png"),
-                spriteSize: {
-                    w: 48,
-                    h: 80,
-                },
-                size: {
-                    w: 400,
-                    h: 666,
-                },
-            },
-            animations: {
-                defaultAnimation: "default",
-                animations: {
-                    default: {
-                        loop: true,
-                        frames: [
-                            [0, 250],
-                            [1, 250],
-                            [3, 250],
-                        ],
-                    },
-                },
-            },
-        },
-
-        Content: {
             spritesheet: {
                 src: require("../assets/spr_test_A.png"),
                 spriteSize: {
