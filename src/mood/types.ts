@@ -39,26 +39,26 @@ export type EmotionMoodMap = {
 export const EMOTION_MOOD_MAP: EmotionMoodMap = {
     Suicidal: {
         min: -100,
-        max: -69,
+        max: -70,
     },
     Depressed: {
         min: -70,
-        max: -39,
+        max: -40,
     },
     Sad: {
         min: -40,
-        max: -19,
+        max: -20,
     },
     Calm: {
         min: -20,
         max: 20,
     },
     Happy: {
-        min: 21,
+        min: 20,
         max: 40,
     },
     Excited: {
-        min: 41,
+        min: 40,
         max: 70,
     },
     Manic: {
