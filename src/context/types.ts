@@ -5,7 +5,10 @@ import { Character } from "../character";
 export interface Context {
     character: Character;
 
-    updateTimer?: Timer;
-    lastUpdateAt?: number;
-    lastEmotion?: Emotion;
+    update?: {
+        timer: Timer;
+        lastUpdateAt: number;
+        lastEmotion?: Emotion;
+        lastMoodSwingAt: number;
+    };
 }

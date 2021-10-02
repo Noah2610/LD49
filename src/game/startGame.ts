@@ -17,17 +17,23 @@ function startUpdateLoop(ctx: Context) {
 
     stopGameLoop(ctx);
 
-    ctx.updateTimer = createTimer({
-        duration: "infinite",
-        updateInterval: delayMs,
-    });
-    ctx.updateTimer.on("update", (timer) => update(ctx, timer));
-    ctx.updateTimer.play();
+    ctx.update = {
+        timer: createTimer({
+            duration: "infinite",
+            updateInterval: delayMs,
+        }),
+        lastUpdateAt: 0,
+        lastEmotion: undefined,
+        lastMoodSwingAt: 0,
+    };
+
+    ctx.update.timer.on("update", (timer) => update(ctx, timer));
+    ctx.update.timer.play();
 }
 
 function stopGameLoop(ctx: Context) {
-    if (ctx.updateTimer) {
-        ctx.updateTimer.pause();
-        delete ctx.updateTimer;
+    if (ctx.update) {
+        ctx.update.timer.pause();
+        delete ctx.update;
     }
 }
