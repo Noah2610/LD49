@@ -1,7 +1,7 @@
 import { Pos, Size } from "../util";
 import { Spritesheet, SpritesheetConfig, SpritesheetSpriteMap } from ".";
 
-export async function loadSpritesheet(
+export async function createSpritesheet(
     src: string,
     config: SpritesheetConfig,
 ): Promise<Spritesheet> {

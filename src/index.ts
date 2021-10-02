@@ -1,7 +1,7 @@
 import "./styles/index.scss";
 
 import devImg from "./assets/dev.png";
-import { loadSpritesheet } from "./spritesheet";
+import { createSpritesheet } from "./spritesheet";
 import { expectEl } from "./util";
 
 function main() {
@@ -12,7 +12,7 @@ async function dev() {
     const gameEl = expectEl("#game");
     const charEl = expectEl("#character", gameEl);
 
-    const spritesheet = await loadSpritesheet(devImg, {
+    const spritesheet = await createSpritesheet(devImg, {
         spriteSize: {
             w: 16,
             h: 16,
