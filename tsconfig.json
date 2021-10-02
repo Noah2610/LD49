@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "lib": ["DOM", "ESNext"],
+        "module": "CommonJS",
+        "allowJs": false,
+        "sourceMap": true,
+        "rootDir": "./",
+        "isolatedModules": false,
+
+        "outDir": "./build",
+        "noEmit": false,
+
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "downlevelIteration": true,
+        "noUncheckedIndexedAccess": true,
+
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": ["src"]
+}
