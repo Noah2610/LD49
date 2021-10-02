@@ -4,21 +4,43 @@ import devImg from "./assets/spr_test_B.png";
 import bgImg from "./assets/bg/bg_test_B.png";
 
 import { createSpritesheet } from "./spritesheet";
-import { expectEl } from "./util";
+import { expectEl, pick } from "./util";
 import { createAnimation } from "./animation";
 import { createAnimationContainer } from "./animation/createAnimationContainer";
 import { createContext, expectContext } from "./context";
 import { startGame } from "./game";
+import { spawnSpeechBubble } from "./speechBubble";
 
 async function main() {
     setupBg();
     await createContext();
     startGame();
+    dev();
 }
 
 function setupBg() {
     const bgEl = expectEl("#game #background");
     bgEl.style.backgroundImage = `url(${bgImg})`;
+}
+
+function dev() {
+    setInterval(() => {
+        spawnSpeechBubble({
+            text: pick([
+                "Lmao",
+                "Yeet",
+                "Owch",
+                "Oh-oh",
+                "Crazy!",
+                "What's going on?!",
+                "Where am I?",
+                "I'm scared.",
+                "Help me.",
+                "Run.",
+            ])!,
+            despawnMs: 1000,
+        });
+    }, 1000);
 }
 
 // async function dev() {

@@ -15,3 +15,7 @@ export function randomBetween(
 export function randomRange(range: Range, asInteger?: boolean): number {
     return randomBetween(range.min, range.max, asInteger);
 }
+
+export function pick<T>(arr: T[] | readonly T[]): T | undefined {
+    return arr[Math.floor(Math.random() * arr.length)];
+}

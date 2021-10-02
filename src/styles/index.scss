@@ -10,6 +10,10 @@ body {
     font-size: 20px;
 }
 
+.hidden {
+    opacity: 0;
+}
+
 #game {
     position: relative;
     width: 100%;
@@ -58,5 +62,39 @@ body {
         width: 50%;
         background-color: #ff0000;
         transition: width 100ms linear;
+    }
+}
+
+.speech-bubbles {
+    position: absolute;
+    top: 5%;
+    bottom: 20%;
+    left: 10%;
+    right: 10%;
+
+    & > .speech-bubble {
+        position: absolute;
+        padding: 2em;
+        background-color: #ffffff;
+        border: 2px solid black;
+        border-radius: 32px;
+        transform: translate(-50%, -50%);
+
+        transition: opacity 500ms ease-in-out;
+
+        &--corner {
+            &-bottom-right {
+                border-bottom-right-radius: 0;
+            }
+            &-bottom-left {
+                border-bottom-left-radius: 0;
+            }
+            &-top-right {
+                border-top-right-radius: 0;
+            }
+            &-top-left {
+                border-top-left-radius: 0;
+            }
+        }
     }
 }
