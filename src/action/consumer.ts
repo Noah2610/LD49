@@ -13,6 +13,10 @@ export function setupActionConsumer(ctx: Context): () => void {
         return unsub;
     };
 
+    listen("Actions", (action) => {
+        action.actions.forEach((a) => emitter.emit(a));
+    });
+
     listen("Debug", (action) => {
         console.log(`[Debug] ${action.message}`);
     });
@@ -21,8 +25,8 @@ export function setupActionConsumer(ctx: Context): () => void {
         ctx.character.mood.addVelocity(randomRange(action.velocity));
     });
 
-    listen("Actions", (action) => {
-        action.actions.forEach((a) => emitter.emit(a));
+    listen("PlaySfx", (action) => {
+        ctx.audio.sfx.play(action.sfx);
     });
 
     return () => unsubs.forEach((cb) => cb());

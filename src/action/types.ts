@@ -9,17 +9,19 @@ export type Action =
           message: any;
       }
     | {
+          type: "Actions";
+          actions: Action[];
+      }
+    | {
           type: "MoodChange";
           velocity: Range;
       }
     | {
-          type: "Actions";
-          actions: Action[];
+          type: "PlaySfx";
+          sfx: string;
       };
 
 export type ActionType = Action["type"];
-
-export const ACTION_TYPES: readonly ActionType[] = ["Debug", "MoodChange"];
 
 export interface ActionEmitter {
     listeners: ActionEmitterListeners;

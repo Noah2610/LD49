@@ -1,9 +1,4 @@
-import {
-    ActionEmitter,
-    ActionEventListener,
-    ActionType,
-    ACTION_TYPES,
-} from ".";
+import { ActionEmitter, ActionEventListener, ActionType } from ".";
 
 export function createActionEmitter(): ActionEmitter {
     const on: ActionEmitter["on"] = (type, cb) => {
