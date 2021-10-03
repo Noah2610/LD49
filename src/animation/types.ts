@@ -32,6 +32,7 @@ export type AnimationConfigFrame = [SpriteIdx, number];
 export interface AnimationContainer {
     animations: Map<string, Animation>;
     currentAnimation?: string;
+    defaultAnimation?: string;
 
     play(anim: string): void;
     getCurrentAnimation(): Animation | null;

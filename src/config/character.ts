@@ -34,9 +34,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                 src: require("../assets/spr_suicidal.png"),
             },
             animations: {
-                defaultAnimation: "default",
                 animations: {
-                    default: {
+                    idle: {
                         loop: true,
                         frames: [
                             [0, 150],
@@ -76,9 +75,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                 src: require("../assets/spr_depressed.png"),
             },
             animations: {
-                defaultAnimation: "default",
                 animations: {
-                    default: {
+                    idle: {
                         loop: true,
                         frames: [
                             [0, 150],
@@ -99,9 +97,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                 src: require("../assets/spr_sad.png"),
             },
             animations: {
-                defaultAnimation: "default",
                 animations: {
-                    default: {
+                    idle: {
                         loop: true,
                         frames: [
                             [0, 170],
@@ -123,9 +120,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                 src: require("../assets/spr_calm.png"),
             },
             animations: {
-                defaultAnimation: "default",
                 animations: {
-                    default: {
+                    idle: {
                         loop: true,
                         frames: [
                             [0, 650],
@@ -167,9 +163,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                 src: require("../assets/spr_happy.png"),
             },
             animations: {
-                defaultAnimation: "default",
                 animations: {
-                    default: {
+                    idle: {
                         loop: true,
                         frames: [
                             [0, 1100],
@@ -218,9 +213,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                 src: require("../assets/spr_excited.png"),
             },
             animations: {
-                defaultAnimation: "default",
                 animations: {
-                    default: {
+                    idle: {
                         loop: true,
                         frames: [
                             [0, 100],
@@ -248,9 +242,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                 src: require("../assets/spr_manic.png"),
             },
             animations: {
-                defaultAnimation: "default",
                 animations: {
-                    default: {
+                    idle: {
                         loop: true,
                         frames: [
                             [0, 40],

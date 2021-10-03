@@ -6,6 +6,10 @@ import { moodSwing } from ".";
 
 const UPS = GAME_CONFIG.ups;
 
+const EMOTION_ANIMATIONS = {
+    idle: "idle",
+};
+
 type ContextWithUpdate = Context & Required<Pick<Context, "update">>;
 
 function isContextWithUpdate(ctx: Context): ctx is ContextWithUpdate {
@@ -32,14 +36,24 @@ export function update(ctx: Context, timer: Timer) {
 function updateMood(ctx: ContextWithUpdate, timer: Timer, dt: number) {
     const chr = ctx.character;
 
+    const prevCharEmotion = chr.getCurrentCharacterEmotion();
+
     chr.mood.update(dt);
 
-    const emotionChar = chr.getCurrentCharacterEmotion();
+    const charEmotion = chr.getCurrentCharacterEmotion();
 
-    if (ctx.update.lastEmotion !== chr.mood.emotion) {
+    if (ctx.update.lastEmotion !== charEmotion.emotion) {
+        const prevAnim =
+            prevCharEmotion.animationContainer.getCurrentAnimation();
+        if (prevAnim) {
+            prevAnim.reset();
+        }
+
         const characterEl = expectEl("#game #character");
         characterEl.innerHTML = "";
-        emotionChar.spritesheet.insertDom(characterEl);
+        charEmotion.animationContainer.play(EMOTION_ANIMATIONS.idle);
+        charEmotion.spritesheet.insertDom(characterEl);
+
         ctx.update.lastEmotion = chr.mood.emotion;
     }
 }

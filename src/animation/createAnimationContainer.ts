@@ -48,6 +48,7 @@ export function createAnimationContainer(
     const container: AnimationContainer = {
         animations,
         currentAnimation,
+        defaultAnimation: config.defaultAnimation,
         play,
         getCurrentAnimation,
     };

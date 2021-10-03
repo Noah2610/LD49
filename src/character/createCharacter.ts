@@ -14,6 +14,7 @@ export async function createCharacter(): Promise<Character> {
             ).then((spritesheet) => {
                 const emotionConfig = CHARACTER_CONFIG.emotions[emotion];
                 emotions[emotion] = {
+                    emotion,
                     spritesheet,
                     animationContainer: createAnimationContainer(
                         spritesheet,

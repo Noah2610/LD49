@@ -72,7 +72,6 @@ export function createAnimation(
         shouldLoop: config.loop,
         currentFrameIdx: 0,
         playingState: { isPlaying: false },
-
         isPlaying,
         play,
         pause,

@@ -14,6 +14,7 @@ export type CharacterEmotions = {
 };
 
 export interface CharacterEmotion {
+    emotion: Emotion;
     spritesheet: Spritesheet;
     animationContainer: AnimationContainer;
     audio: {
