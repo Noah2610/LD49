@@ -1,12 +1,23 @@
 import { createCharacter } from "../character";
 import { setupItems } from "../item";
+import { createActionEmitter, setupActionConsumer } from "../action";
 import { Context } from ".";
 
 export async function createContext(): Promise<Context> {
+    const cleanups: (() => void)[] = [];
+
     const character = await createCharacter();
     const [items, unsubItems] = setupItems();
-    const ctx: Context = { character, items };
+    cleanups.push(unsubItems);
+    const actionEmitter = createActionEmitter();
+    cleanups.push(actionEmitter.reset);
+
+    const ctx: Context = { character, items, actionEmitter };
     window.CTX = ctx;
-    window.onunload = unsubItems;
+
+    const _cleanupActionConsumer = setupActionConsumer(ctx);
+
+    window.onunload = () => cleanups.forEach((cb) => cb());
+
     return ctx;
 }
