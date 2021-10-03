@@ -1,5 +1,6 @@
 import { expectEl, Pos } from "../util";
 import { ITEMS_CONFIG } from "../config/item";
+import { expectContext } from "../context";
 import { Item } from ".";
 
 export function setupItems(): [Item[], () => void] {
@@ -47,7 +48,8 @@ export function setupItems(): [Item[], () => void] {
             const isOnCharacter = doRectsCollide(rect, charRect);
 
             if (isOnCharacter) {
-                console.log("DROP ON CHARACTER!");
+                const ctx = expectContext();
+                ctx.actionEmitter.emit(item.action);
             }
 
             itemEl.classList.remove("item--dragging");
@@ -87,6 +89,7 @@ export function setupItems(): [Item[], () => void] {
             draggingState: {
                 isDragging: false,
             },
+            action: itemConfig.action,
         };
 
         items.push(item);
