@@ -1,0 +1,20 @@
+.mood-bar {
+    position: absolute;
+    width: 50%;
+    height: 2em;
+    top: 10%;
+    margin: auto;
+    background-color: #ffffff;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    opacity: 0.7;
+
+    & > .mood-bar__bar {
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        background-color: #ff0000;
+        transition: width 100ms linear;
+    }
+}

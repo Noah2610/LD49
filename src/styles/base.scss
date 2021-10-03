@@ -1,0 +1,33 @@
+:root {
+    --game-area-width: 1024px;
+    --game-area-height: 576px;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: monospace;
+    font-size: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.img {
+    position: relative;
+    overflow: hidden;
+
+    & > img {
+        position: absolute;
+        image-rendering: crisp-edges;
+        image-rendering: pixelated;
+    }
+}

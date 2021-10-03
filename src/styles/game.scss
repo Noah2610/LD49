@@ -1,0 +1,44 @@
+#game {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 16px;
+
+    & .game-panel {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 16px solid #000000;
+        box-sizing: border-box;
+    }
+
+    & .game-area {
+        position: relative;
+        max-width: var(--game-area-width);
+        max-height: var(--game-area-height);
+
+        & .background {
+            position: absolute;
+            inset: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            image-rendering: crisp-edges;
+            image-rendering: pixelated;
+        }
+    }
+
+    & .toolbar {
+        position: relative;
+        max-width: var(--game-area-width);
+        max-height: 8em;
+    }
+}
