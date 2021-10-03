@@ -27,7 +27,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Suicidal: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/spr_test_A.png"),
+                src: require("../assets/spr_suicidal.png"),
             },
             animations: {
                 defaultAnimation: "default",
@@ -35,9 +35,13 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     default: {
                         loop: true,
                         frames: [
-                            [0, 250],
-                            [1, 250],
-                            [3, 250],
+                            [0, 150],
+                            [1, 150],
+                            [3, 150],
+                            [4, 150],
+                            [5, 150],
+                            [6, 150],
+                            [7, 150],
                         ],
                     },
                 },
@@ -47,7 +51,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Depressed: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/spr_test_B.png"),
+                src: require("../assets/spr_depressed.png"),
             },
             animations: {
                 defaultAnimation: "default",
@@ -67,7 +71,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Sad: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/spr_test_C.png"),
+                src: require("../assets/spr_sad.png"),
             },
             animations: {
                 defaultAnimation: "default",
@@ -87,7 +91,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Calm: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/spr_test_D.png"),
+                src: require("../assets/spr_calm.png"),
             },
             animations: {
                 defaultAnimation: "default",
@@ -107,7 +111,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Happy: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/spr_test_E.png"),
+                src: require("../assets/spr_happy.png"),
             },
             animations: {
                 defaultAnimation: "default",
@@ -127,7 +131,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Excited: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/spr_test_F.png"),
+                src: require("../assets/spr_excited.png"),
             },
             animations: {
                 defaultAnimation: "default",
@@ -147,7 +151,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Manic: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/spr_test_A.png"),
+                src: require("../assets/spr_manic.png"),
             },
             animations: {
                 defaultAnimation: "default",
