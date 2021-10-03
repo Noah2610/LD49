@@ -1,14 +1,18 @@
+import { CharacterEmotion } from "../character";
 import { AnimationContainerConfig } from "../animation";
 import { Emotion } from "../mood";
 import { SpritesheetConfig } from "../spritesheet";
 
 export interface CharacterConfig {
     emotions: {
-        [E in Emotion]: {
-            spritesheet: SpritesheetConfig;
-            animations: AnimationContainerConfig;
-        };
+        [E in Emotion]: CharacterEmotionConfig;
     };
+}
+
+export interface CharacterEmotionConfig {
+    spritesheet: SpritesheetConfig;
+    animations: AnimationContainerConfig;
+    audio: CharacterEmotion["audio"];
 }
 
 const baseSpritesheet: Omit<SpritesheetConfig, "src"> = {
@@ -46,6 +50,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
+            audio: {
+                bgm: "sad3",
+            },
         },
 
         Depressed: {
@@ -65,6 +72,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                         ],
                     },
                 },
+            },
+            audio: {
+                bgm: "sad2",
             },
         },
 
@@ -86,6 +96,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
+            audio: {
+                bgm: "sad1",
+            },
         },
 
         Calm: {
@@ -105,6 +118,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                         ],
                     },
                 },
+            },
+            audio: {
+                bgm: "happy1",
             },
         },
 
@@ -126,6 +142,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
+            audio: {
+                bgm: "happy1",
+            },
         },
 
         Excited: {
@@ -146,6 +165,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
+            audio: {
+                bgm: "happy2",
+            },
         },
 
         Manic: {
@@ -165,6 +187,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                         ],
                     },
                 },
+            },
+            audio: {
+                bgm: "happy2",
             },
         },
     },

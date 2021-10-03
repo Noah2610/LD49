@@ -6,8 +6,14 @@ import { moodSwing } from ".";
 
 const UPS = GAME_CONFIG.ups;
 
+type ContextWithUpdate = Context & Required<Pick<Context, "update">>;
+
+function isContextWithUpdate(ctx: Context): ctx is ContextWithUpdate {
+    return !!ctx.update;
+}
+
 export function update(ctx: Context, timer: Timer) {
-    if (!ctx.update) {
+    if (!isContextWithUpdate(ctx)) {
         console.error(
             "[update] window.CTX.update should exist before update() call",
         );
@@ -16,6 +22,14 @@ export function update(ctx: Context, timer: Timer) {
 
     const dt = (timer.time - (ctx.update.lastUpdateAt ?? 0)) / (1000.0 / UPS);
 
+    updateMood(ctx, timer, dt);
+    updateMoodSwing(ctx, timer);
+    updateBgm(ctx, timer);
+
+    ctx.update.lastUpdateAt = timer.time;
+}
+
+function updateMood(ctx: ContextWithUpdate, timer: Timer, dt: number) {
     const chr = ctx.character;
 
     chr.mood.update(dt);
@@ -28,7 +42,9 @@ export function update(ctx: Context, timer: Timer) {
         emotionChar.spritesheet.insertDom(characterEl);
         ctx.update.lastEmotion = chr.mood.emotion;
     }
+}
 
+function updateMoodSwing(ctx: ContextWithUpdate, timer: Timer) {
     if (
         timer.time >
         ctx.update.lastMoodSwingAt + GAME_CONFIG.moodSwing.intervalMs
@@ -36,6 +52,14 @@ export function update(ctx: Context, timer: Timer) {
         moodSwing(ctx);
         ctx.update.lastMoodSwingAt = timer.time;
     }
+}
 
-    ctx.update.lastUpdateAt = timer.time;
+function updateBgm(ctx: ContextWithUpdate, timer: Timer) {
+    const emotionBgm = ctx.character.getCurrentCharacterEmotion().audio.bgm;
+    if (!emotionBgm) return;
+    const currentBgm = ctx.audio.bgm.currentlyPlaying;
+
+    if (currentBgm !== emotionBgm) {
+        ctx.audio.bgm.switchTo(emotionBgm);
+    }
 }

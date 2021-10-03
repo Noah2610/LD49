@@ -1,6 +1,7 @@
 import { createCharacter } from "../character";
 import { setupItems } from "../item";
 import { createActionEmitter, setupActionConsumer } from "../action";
+import { createAudioManager } from "../audio";
 import { Context } from ".";
 
 export async function createContext(): Promise<Context> {
@@ -11,8 +12,14 @@ export async function createContext(): Promise<Context> {
     cleanups.push(unsubItems);
     const actionEmitter = createActionEmitter();
     cleanups.push(actionEmitter.reset);
+    const audio = createAudioManager();
 
-    const ctx: Context = { character, items, actionEmitter };
+    const ctx: Context = {
+        character,
+        items,
+        actionEmitter,
+        audio,
+    };
     window.CTX = ctx;
 
     const _cleanupActionConsumer = setupActionConsumer(ctx);

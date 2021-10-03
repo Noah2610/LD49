@@ -12,12 +12,14 @@ export async function createCharacter(): Promise<Character> {
             createSpritesheet(
                 CHARACTER_CONFIG.emotions[emotion].spritesheet,
             ).then((spritesheet) => {
+                const emotionConfig = CHARACTER_CONFIG.emotions[emotion];
                 emotions[emotion] = {
                     spritesheet,
                     animationContainer: createAnimationContainer(
                         spritesheet,
-                        CHARACTER_CONFIG.emotions[emotion].animations,
+                        emotionConfig.animations,
                     ),
+                    audio: emotionConfig.audio,
                 };
             }),
         ),

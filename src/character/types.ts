@@ -16,4 +16,8 @@ export type CharacterEmotions = {
 export interface CharacterEmotion {
     spritesheet: Spritesheet;
     animationContainer: AnimationContainer;
+    audio: {
+        bgm?: string;
+        sfx?: string;
+    };
 }
