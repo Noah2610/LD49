@@ -12,20 +12,22 @@
 
     & .game-panel {
         position: relative;
+        display: block;
         width: 100%;
         height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        max-width: var(--game-area-width);
         border: 16px solid #000000;
-        box-sizing: border-box;
+        // box-sizing: border-box;
     }
 
     & .game-area {
         position: relative;
         max-width: var(--game-area-width);
         max-height: var(--game-area-height);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         & .background {
             position: absolute;
@@ -40,7 +42,6 @@
 
     & .toolbar {
         position: relative;
-        max-width: var(--game-area-width);
         max-height: 8em;
         display: flex;
         flex-direction: row;
@@ -73,6 +74,16 @@
                 &.item--toy {
                 }
             }
+        }
+    }
+
+    & .textbox {
+        font-size: 24px;
+        max-height: 4.5em;
+        overflow: auto;
+
+        & > .textbox__part {
+            display: block;
         }
     }
 }

@@ -32,6 +32,7 @@ function createAudioBgm(config: AudioBgmConfig): AudioBgm {
             return;
         }
         bgm.stop();
+        audio.currentTime = 0;
         audio.play().then(
             () => (bgm.currentlyPlaying = name),
             () =>
@@ -97,6 +98,7 @@ function createAudioSfx(config: AudioSfxConfig): AudioSfx {
             console.error(`[sfx.play] Couldn't find audio with name "${name}"`);
             return;
         }
+        audio.currentTime = 0;
         audio.play();
     };
 

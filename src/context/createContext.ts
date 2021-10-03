@@ -2,6 +2,7 @@ import { createCharacter } from "../character";
 import { setupItems } from "../item";
 import { createActionEmitter, setupActionConsumer } from "../action";
 import { createAudioManager } from "../audio";
+import { createTextbox } from "../textbox";
 import { Context } from ".";
 
 export async function createContext(): Promise<Context> {
@@ -13,12 +14,14 @@ export async function createContext(): Promise<Context> {
     const actionEmitter = createActionEmitter();
     cleanups.push(actionEmitter.reset);
     const audio = createAudioManager();
+    const textbox = createTextbox();
 
     const ctx: Context = {
         character,
         items,
         actionEmitter,
         audio,
+        textbox,
     };
     window.CTX = ctx;
 

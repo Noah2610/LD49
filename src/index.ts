@@ -3,14 +3,10 @@ import "./styles/index.scss";
 import devImg from "./assets/spr_test_B.png";
 import bgImg from "./assets/bg/bg_test_B.png";
 
-import { createSpritesheet } from "./spritesheet";
 import { expectEl, pick } from "./util";
-import { createAnimation } from "./animation";
-import { createAnimationContainer } from "./animation/createAnimationContainer";
 import { createContext, expectContext } from "./context";
 import { startGame } from "./game";
 import { spawnSpeechBubble } from "./speechBubble";
-import { setupItems } from "./item";
 
 async function main() {
     setupBg();
@@ -42,6 +38,12 @@ function dev() {
             despawnMs: 5000,
         });
     }, 2000);
+
+    const ctx = expectContext();
+
+    // setInterval(() => {
+    ctx.textbox.add("Hello World!");
+    // }, 5000);
 }
 
 // async function dev() {

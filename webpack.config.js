@@ -26,7 +26,7 @@ module.exports = {
                 use: ["style-loader", "css-loader", "sass-loader"],
             },
             {
-                test: /\.(png|ogg)$/,
+                test: /\.(png|ogg|wav|mp3)$/,
                 type: "asset/resource",
             },
         ],

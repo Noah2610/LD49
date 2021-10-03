@@ -4,12 +4,14 @@ import { Character } from "../character";
 import { Item } from "../item";
 import { ActionEmitter } from "../action";
 import { AudioManager } from "../audio";
+import { Textbox } from "../textbox";
 
 export interface Context {
     character: Character;
     items: Item[];
     actionEmitter: ActionEmitter;
     audio: AudioManager;
+    textbox: Textbox;
 
     update?: {
         timer: Timer;
