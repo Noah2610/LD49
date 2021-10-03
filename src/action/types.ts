@@ -1,3 +1,4 @@
+import { TextboxConfig } from "../textbox";
 import { Range } from "../util";
 
 export type Action =
@@ -19,6 +20,11 @@ export type Action =
     | {
           type: "PlaySfx";
           sfx: string;
+      }
+    | {
+          type: "AddText";
+          text: string;
+          config?: Partial<TextboxConfig>;
       };
 
 export type ActionType = Action["type"];

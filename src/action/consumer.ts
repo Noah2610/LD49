@@ -29,5 +29,9 @@ export function setupActionConsumer(ctx: Context): () => void {
         ctx.audio.sfx.play(action.sfx);
     });
 
+    listen("AddText", (action) => {
+        ctx.textbox.add(action.text, action.config);
+    });
+
     return () => unsubs.forEach((cb) => cb());
 }
