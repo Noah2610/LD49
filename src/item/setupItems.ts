@@ -4,6 +4,7 @@ import { Item } from ".";
 
 export function setupItems(): [Item[], () => void] {
     const toolbarEl = expectEl("#game #toolbar");
+    const characterEl = expectEl("#game #character");
 
     const items: Item[] = [];
     const unsubs: (() => void)[] = [];
@@ -40,6 +41,14 @@ export function setupItems(): [Item[], () => void] {
     ): ((event: MouseEvent | TouchEvent) => void) => {
         return (event) => {
             if (!item.draggingState.isDragging) return;
+
+            const rect = itemEl.getBoundingClientRect();
+            const charRect = characterEl.getBoundingClientRect();
+            const isOnCharacter = doRectsCollide(rect, charRect);
+
+            if (isOnCharacter) {
+                console.log("DROP ON CHARACTER!");
+            }
 
             itemEl.classList.remove("item--dragging");
 
@@ -87,6 +96,9 @@ export function setupItems(): [Item[], () => void] {
 
         const itemEl = document.createElement("div");
         itemEl.classList.add("item", `item--${item.type.toLowerCase()}`);
+        if (itemConfig.label) {
+            itemEl.title = itemConfig.label;
+        }
 
         const onMouseDown = createOnMouseDown(item, itemEl);
         itemEl.addEventListener("mousedown", onMouseDown);
@@ -132,4 +144,25 @@ function getAbsoluteMousePosOfEvent(event: MouseEvent | TouchEvent): Pos {
         x: "pageX" in event ? event.pageX : event.touches[0]!.pageX,
         y: "pageY" in event ? event.pageY : event.touches[0]!.pageY,
     };
+}
+
+function doRectsCollide(a: DOMRect, b: DOMRect): boolean {
+    // prettier-ignore
+    return (
+        (
+            a.left >= b.left &&
+            a.left < b.right
+        ) || (
+            a.left <= b.left &&
+            a.right > b.left
+        )
+    ) && (
+        (
+            a.top >= b.top &&
+            a.top < b.bottom
+        ) || (
+            a.top <= b.top &&
+            a.bottom > b.top
+        )
+    )
 }
