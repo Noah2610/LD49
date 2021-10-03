@@ -6,23 +6,21 @@ import {
 } from ".";
 
 export function createActionEmitter(): ActionEmitter {
-    const generateDefaultListeners = (): ActionEmitter["listeners"] =>
-        ACTION_TYPES.reduce<ActionEmitter["listeners"]>(
-            (acc, a) => ({
-                ...acc,
-                [a]: [],
-            }),
-            {} as ActionEmitter["listeners"],
-        );
-
     const on: ActionEmitter["on"] = (type, cb) => {
-        const idx = emitter.listeners[type].length;
-        emitter.listeners[type][idx] = cb as ActionEventListener<ActionType>;
-        return () => (emitter.listeners[type][idx] = null);
+        if (!emitter.listeners[type]) {
+            emitter.listeners[type] = [];
+        }
+
+        const idx = emitter.listeners[type]!.length;
+        emitter.listeners[type]![idx] = cb as ActionEventListener<ActionType>;
+        return () => (emitter.listeners[type]![idx] = null);
     };
 
     const emit: ActionEmitter["emit"] = (action) => {
-        for (const listener of emitter.listeners[action.type]) {
+        const listeners = emitter.listeners[action.type];
+        if (!listeners) return;
+
+        for (const listener of listeners) {
             if (listener) {
                 (listener as ActionEventListener<ActionType>)(action);
             }
@@ -30,11 +28,11 @@ export function createActionEmitter(): ActionEmitter {
     };
 
     const reset: ActionEmitter["reset"] = () => {
-        emitter.listeners = generateDefaultListeners();
+        emitter.listeners = {};
     };
 
     const emitter: ActionEmitter = {
-        listeners: generateDefaultListeners(),
+        listeners: {},
         on,
         emit,
         reset,

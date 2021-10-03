@@ -24,7 +24,7 @@ export interface ActionEmitter {
 }
 
 export type ActionEmitterListeners = {
-    [A in ActionType]: (ActionEventListener<A> | null)[];
+    [A in ActionType]?: (ActionEventListener<A> | null)[];
 };
 
 export type ActionEventListener<A extends ActionType> = (
