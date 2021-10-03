@@ -10,6 +10,7 @@ import { createAnimationContainer } from "./animation/createAnimationContainer";
 import { createContext, expectContext } from "./context";
 import { startGame } from "./game";
 import { spawnSpeechBubble } from "./speechBubble";
+import { setupItems } from "./item";
 
 async function main() {
     setupBg();

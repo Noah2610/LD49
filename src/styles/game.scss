@@ -8,6 +8,8 @@
     align-items: center;
     grid-gap: 16px;
 
+    user-select: none;
+
     & .game-panel {
         position: relative;
         width: 100%;
@@ -40,5 +42,37 @@
         position: relative;
         max-width: var(--game-area-width);
         max-height: 8em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+        & .item-wrapper {
+            position: relative;
+            width: 64px;
+            height: 64px;
+
+            & .item {
+                width: 64px;
+                height: 64px;
+                cursor: grab;
+
+                background-color: rebeccapurple;
+
+                &:active {
+                    cursor: grabbing;
+                }
+
+                &.item--dragging {
+                    position: fixed;
+                }
+
+                &.item--syringe {
+                }
+
+                &.item--toy {
+                }
+            }
+        }
     }
 }
