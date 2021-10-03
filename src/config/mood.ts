@@ -2,14 +2,20 @@ import { Emotion, EMOTIONS } from "../mood";
 import { Range } from "../util";
 
 export const MOOD_RANGE: Range = {
-    min: -100,
-    max: 100,
+    min: -1000,
+    max: 1000,
 };
 
-export const VELOCITY_RANGE: Range = {
-    min: -5,
-    max: 5,
-};
+export const VELOCITY_CONFIG = {
+    range: {
+        min: -10,
+        max: 10,
+    },
+    smooth: {
+        percent: 0.3,
+        min: 1.0,
+    },
+} as const;
 
 export type EmotionMoodMap = {
     [E in Emotion]: Range;

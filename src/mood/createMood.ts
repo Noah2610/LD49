@@ -3,7 +3,7 @@ import {
     EmotionMoodMap,
     generateLinearEmotionMoodMap,
     MOOD_RANGE,
-    VELOCITY_RANGE,
+    VELOCITY_CONFIG,
 } from "../config/mood";
 import { Emotion, Mood } from ".";
 
@@ -35,6 +35,19 @@ export function createMood(): Mood {
             MOOD_RANGE.min,
         );
 
+        if (
+            mood.velocity > VELOCITY_CONFIG.range.max ||
+            mood.velocity < VELOCITY_CONFIG.range.min
+        ) {
+            mood.velocity +=
+                Math.max(
+                    Math.abs(mood.velocity) * VELOCITY_CONFIG.smooth.percent,
+                    VELOCITY_CONFIG.smooth.min,
+                ) *
+                Math.sign(mood.velocity) *
+                -1;
+        }
+
         const emotion = emotionForMood(mood.value);
         if (emotion) {
             mood.emotion = emotion;
@@ -50,10 +63,11 @@ export function createMood(): Mood {
     };
 
     const setVelocity: Mood["setVelocity"] = (vel) => {
-        mood.velocity = Math.max(
-            Math.min(vel, VELOCITY_RANGE.max),
-            VELOCITY_RANGE.min,
-        );
+        mood.velocity = vel;
+        // mood.velocity = Math.max(
+        //     Math.min(vel, VELOCITY_RANGE.max),
+        //     VELOCITY_RANGE.min,
+        // );
     };
 
     const addVelocity: Mood["addVelocity"] = (vel) => {
