@@ -22,7 +22,10 @@ export const ITEMS_CONFIG: ItemsConfig = [
                 },
                 {
                     type: "MoodChange",
-                    velocity: -5,
+                    velocity: {
+                        min: -5,
+                        max: -1,
+                    },
                 },
             ],
         },
@@ -39,7 +42,10 @@ export const ITEMS_CONFIG: ItemsConfig = [
                 },
                 {
                     type: "MoodChange",
-                    velocity: 5,
+                    velocity: {
+                        min: 1,
+                        max: 5,
+                    },
                 },
             ],
         },

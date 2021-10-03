@@ -1,5 +1,6 @@
-import { ActionEmitter } from ".";
+import { randomRange } from "../util";
 import { Context } from "../context";
+import { ActionEmitter } from ".";
 
 export function setupActionConsumer(ctx: Context): () => void {
     const emitter = ctx.actionEmitter;
@@ -17,7 +18,7 @@ export function setupActionConsumer(ctx: Context): () => void {
     });
 
     listen("MoodChange", (action) => {
-        ctx.character.mood.addVelocity(action.velocity);
+        ctx.character.mood.addVelocity(randomRange(action.velocity));
     });
 
     listen("Actions", (action) => {

@@ -1,3 +1,5 @@
+import { Range } from "../util";
+
 export type Action =
     | {
           type: "Noop";
@@ -8,7 +10,7 @@ export type Action =
       }
     | {
           type: "MoodChange";
-          velocity: number;
+          velocity: Range;
       }
     | {
           type: "Actions";
