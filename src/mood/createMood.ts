@@ -1,11 +1,21 @@
-import { EMOTION_MOOD_MAP, MOOD_RANGE, VELOCITY_RANGE } from "../config/mood";
+import { Range } from "../util";
+import {
+    EmotionMoodMap,
+    generateLinearEmotionMoodMap,
+    MOOD_RANGE,
+    VELOCITY_RANGE,
+} from "../config/mood";
 import { Emotion, Mood } from ".";
 
 export function createMood(): Mood {
+    const emotionMoodMap = createMappedEmotionMoodMap(
+        generateLinearEmotionMoodMap(),
+    );
+
     const emotionForMood = (moodValue: number): Emotion | null => {
-        const emotion = (Object.keys(EMOTION_MOOD_MAP) as Emotion[]).find(
+        const emotion = (Object.keys(emotionMoodMap) as Emotion[]).find(
             (emotion) => {
-                const range = EMOTION_MOOD_MAP[emotion]!;
+                const range = emotionMoodMap[emotion]!;
                 return moodValue >= range.min && moodValue <= range.max;
             },
         );
@@ -60,4 +70,24 @@ export function createMood(): Mood {
     };
 
     return mood;
+}
+
+function createMappedEmotionMoodMap(
+    percentMap: EmotionMoodMap,
+): EmotionMoodMap {
+    const map = (perc: number): number => lerp(MOOD_RANGE, perc);
+    return (Object.keys(percentMap) as Emotion[]).reduce<EmotionMoodMap>(
+        (acc, emotion) => ({
+            ...acc,
+            [emotion]: {
+                min: map(percentMap[emotion].min),
+                max: map(percentMap[emotion].max),
+            },
+        }),
+        {} as EmotionMoodMap,
+    );
+}
+
+function lerp(range: Range, perc: number): number {
+    return range.min + perc * (range.max - range.min);
 }
