@@ -18,12 +18,13 @@ export const ACTION_TYPES: readonly ActionType[] = ["Debug", "MoodChange"];
 export interface ActionEmitter {
     listeners: ActionEmitterListeners;
 
-    on<A extends ActionType>(type: A, cb: ActionEventListener<A>): void;
+    on<A extends ActionType>(type: A, cb: ActionEventListener<A>): () => void;
     emit(action: Action): void;
+    reset(): void;
 }
 
 export type ActionEmitterListeners = {
-    [A in ActionType]: ActionEventListener<A>[];
+    [A in ActionType]: (ActionEventListener<A> | null)[];
 };
 
 export type ActionEventListener<A extends ActionType> = (
