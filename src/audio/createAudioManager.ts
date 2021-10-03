@@ -121,5 +121,6 @@ function createAudio(config: AudioFileConfig): HTMLAudioElement {
     audio.preload = "auto";
     audio.volume = config.volume ?? 1.0;
     audio.loop = !!config.loop;
+    audio.playbackRate = config.playbackRate ?? 1.0;
     return audio;
 }

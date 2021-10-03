@@ -39,4 +39,5 @@ export interface AudioFileConfig {
     src: string;
     volume?: number;
     loop?: boolean;
+    playbackRate?: number;
 }
