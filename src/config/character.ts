@@ -11,19 +11,23 @@ export interface CharacterConfig {
     };
 }
 
+const baseSpritesheet: Omit<SpritesheetConfig, "src"> = {
+    spriteSize: {
+        w: 48,
+        h: 80,
+    },
+    size: {
+        w: 192,
+        h: 320,
+    },
+};
+
 export const CHARACTER_CONFIG: CharacterConfig = {
     emotions: {
         Suicidal: {
             spritesheet: {
+                ...baseSpritesheet,
                 src: require("../assets/spr_test_A.png"),
-                spriteSize: {
-                    w: 48,
-                    h: 80,
-                },
-                size: {
-                    w: 400,
-                    h: 666,
-                },
             },
             animations: {
                 defaultAnimation: "default",
@@ -42,15 +46,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
 
         Depressed: {
             spritesheet: {
+                ...baseSpritesheet,
                 src: require("../assets/spr_test_B.png"),
-                spriteSize: {
-                    w: 48,
-                    h: 80,
-                },
-                size: {
-                    w: 400,
-                    h: 666,
-                },
             },
             animations: {
                 defaultAnimation: "default",
@@ -69,15 +66,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
 
         Sad: {
             spritesheet: {
+                ...baseSpritesheet,
                 src: require("../assets/spr_test_C.png"),
-                spriteSize: {
-                    w: 48,
-                    h: 80,
-                },
-                size: {
-                    w: 400,
-                    h: 666,
-                },
             },
             animations: {
                 defaultAnimation: "default",
@@ -96,15 +86,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
 
         Calm: {
             spritesheet: {
+                ...baseSpritesheet,
                 src: require("../assets/spr_test_D.png"),
-                spriteSize: {
-                    w: 48,
-                    h: 80,
-                },
-                size: {
-                    w: 400,
-                    h: 666,
-                },
             },
             animations: {
                 defaultAnimation: "default",
@@ -123,15 +106,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
 
         Happy: {
             spritesheet: {
+                ...baseSpritesheet,
                 src: require("../assets/spr_test_E.png"),
-                spriteSize: {
-                    w: 48,
-                    h: 80,
-                },
-                size: {
-                    w: 400,
-                    h: 666,
-                },
             },
             animations: {
                 defaultAnimation: "default",
@@ -150,15 +126,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
 
         Excited: {
             spritesheet: {
+                ...baseSpritesheet,
                 src: require("../assets/spr_test_F.png"),
-                spriteSize: {
-                    w: 48,
-                    h: 80,
-                },
-                size: {
-                    w: 400,
-                    h: 666,
-                },
             },
             animations: {
                 defaultAnimation: "default",
@@ -177,15 +146,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
 
         Manic: {
             spritesheet: {
+                ...baseSpritesheet,
                 src: require("../assets/spr_test_A.png"),
-                spriteSize: {
-                    w: 48,
-                    h: 80,
-                },
-                size: {
-                    w: 400,
-                    h: 666,
-                },
             },
             animations: {
                 defaultAnimation: "default",
