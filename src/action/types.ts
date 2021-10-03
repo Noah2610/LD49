@@ -9,6 +9,10 @@ export type Action =
     | {
           type: "MoodChange";
           velocity: number;
+      }
+    | {
+          type: "Actions";
+          actions: Action[];
       };
 
 export type ActionType = Action["type"];

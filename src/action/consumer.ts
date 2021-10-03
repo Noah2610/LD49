@@ -20,5 +20,9 @@ export function setupActionConsumer(ctx: Context): () => void {
         ctx.character.mood.addVelocity(action.velocity);
     });
 
+    listen("Actions", (action) => {
+        action.actions.forEach((a) => emitter.emit(a));
+    });
+
     return () => unsubs.forEach((cb) => cb());
 }

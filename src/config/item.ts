@@ -14,16 +14,34 @@ export const ITEMS_CONFIG: ItemsConfig = [
         type: "Syringe",
         label: "Syringe",
         action: {
-            type: "Debug",
-            message: "SYRINGE!",
+            type: "Actions",
+            actions: [
+                {
+                    type: "Debug",
+                    message: "SYRINGE!",
+                },
+                {
+                    type: "MoodChange",
+                    velocity: -5,
+                },
+            ],
         },
     },
     {
         type: "Toy",
         label: "Toy",
         action: {
-            type: "Debug",
-            message: "TOY!",
+            type: "Actions",
+            actions: [
+                {
+                    type: "Debug",
+                    message: "TOY!",
+                },
+                {
+                    type: "MoodChange",
+                    velocity: 5,
+                },
+            ],
         },
     },
 ];
