@@ -1,5 +1,6 @@
 import { randomRange } from "../util";
 import { Context } from "../context";
+import { spawnSpeechBubble } from "../speechBubble";
 import { ActionEmitter } from ".";
 
 export function setupActionConsumer(ctx: Context): () => void {
@@ -31,6 +32,10 @@ export function setupActionConsumer(ctx: Context): () => void {
 
     listen("AddText", (action) => {
         ctx.textbox.add(action.text, action.config);
+    });
+
+    listen("SpawnSpeechBubble", (action) => {
+        spawnSpeechBubble(action.options);
     });
 
     return () => unsubs.forEach((cb) => cb());

@@ -1,3 +1,4 @@
+import { SpawnSpeechBubbleOptions } from "../speechBubble";
 import { TextboxConfig } from "../textbox";
 import { Range } from "../util";
 
@@ -25,6 +26,10 @@ export type Action =
           type: "AddText";
           text: string;
           config?: Partial<TextboxConfig>;
+      }
+    | {
+          type: "SpawnSpeechBubble";
+          options: SpawnSpeechBubbleOptions;
       };
 
 export type ActionType = Action["type"];
