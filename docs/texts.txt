@@ -1,0 +1,154 @@
+
+Manic:
+----------------------------------------------------
+RANDOM:
+"ÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆ"
+" 	� 	� 	� 	� 	�"
+"GNIDNECSA MA I"
+"GGGNNNIIIDDDNNNEEECCCSSSAAA MMMAAA III"
+"RIVERRUN ... FROM SWERVE OF SHORE ... VICUS OF RECIRCULATION"
+
+
+
+NARRATION:
+"Is this a bad time to get a coffee?"
+"Don't take this the wrong way, but I think you need a haircut."
+I believe the scientific term for what's about to commence is "Spontaneous Combustion"
+"Mom!! Get the Camera!"
+"Yo. This is metal as fuck."
+The subject seems a little... *unstable*
+
+ACTION (DOWNER):
+"Let's cool down a little, ye"?
+
+
+ACTION (UPPER):
+"Don't worry, it's just chemicals bro"
+"Well, here goes nothing..."
+"Can't have too much of a good thing! ...right?"
+"Ok mate, now take a deeeeeeep breath..."
+
+
+
+Excited:
+----------------------------------------------------
+RANDOM:
+"ekEkkKEKKEkEekKEkEKKEkE"
+"AAAAAAAAAAAAAAAAAAAAAA"
+"oksoheresthethingifchickenfromeggandeggfromchickesnthennwhrecmoetehuorignslhicknefro-"
+"OkSoHeresTheThingIfChickenFromEggAndEggFromChickesnThennWhreCmoeTehuOrignslhCickneFro-"
+"Woww it's.. heh.. i mean. isn't it? Ye? Like, i mean, really hot, isn't it? heh.. he-"
+
+NARRATION:
+"Anything good on?"
+"Don't worry about your face, common side-effect, y'know."
+"Woah buddy, what's that on your face? You should really get that checked..."
+"Say *CHEEEEESE*..."
+
+ACTION (DOWNER):
+"Let's not get TOO excited, m'kay?"
+"FINEEEE... you're such a buzzkill.."
+
+ACTION (UPPER):
+"Don't worry, this should get you fixed up. ...oops, wrong one."
+"No need to worry - I'm a professional!"
+"What? What about your liver? It'll grow back."
+"What do you mean, "yOu'Re aBoUt To eXpLoDe"? 
+"Don't worry, bro. The ladies dig guys with acute heart failure"
+
+
+
+Happy:
+----------------------------------------------------
+RANDOM:
+"This is nice.."
+
+NARRATION:
+"Aww, it seems delighted! How nice!"
+
+ACTION (DOWNER):
+
+ACTION (UPPER):
+"No such thing as too much happiness, amirite?"
+"What could go wrong?"
+"Let's take it up a notch, shall we?"
+
+
+
+Calm:
+----------------------------------------------------
+RANDOM:
+"Hmm..."
+"C'est la vie. ...I guess"
+
+NARRATION:
+
+ACTION (DOWNER):
+"This might sting a little"
+"Okok but... why not?"
+
+ACTION (UPPER):
+"You seem exceptionally stable and healthy. How boring..."
+
+
+
+Sad:
+----------------------------------------------------
+RANDOM:
+
+NARRATION:
+
+ACTION (DOWNER):
+"Oh, don't give me that look.."
+
+ACTION (UPPER):
+
+
+
+Depressed:
+----------------------------------------------------
+RANDOM:
+".........."
+"................"
+*gulp*
+"Oh.... oh God"
+
+NARRATION:
+"Why the long face?"
+"So..... what's your favorite movie?"
+"What's wrong, buddy? Did you see a ghost"?
+
+ACTION (DOWNER):
+"No risk no fun"
+"Oops..."
+
+ACTION (UPPER):
+"Okok... happy now?"
+
+
+
+Suicidal:
+----------------------------------------------------
+RANDOM:
+"..."
+"Komm, süsser Tod....."
+"I..... I can see the light"
+"... so bright..!"
+
+NARRATION:
+"Aaalwayys look onnn the briiiiiight sideee of Life!"
+"OH NO. This is bad. I think i left my stove on."
+"So... what's your opinion on deez?"
+"BOO! .......well, it was worth a try."
+
+ACTION (DOWNER):
+"Don't worry, it's just chemicals bro"
+"I am become death, conductor of irresponsible experiments"
+""Risk breeds innovation" - Someone, probably"
+""No risk no progress" - or something like that..."
+"Your sacrifice will not be in vain! ...ok I lied."
+"What was his name again? uh, i mean, what is your name again? Paperwork, y'know... Hello?"
+
+ACTION (UPPER):
+"Wakey wakey, sunshine!"
+"Now now, don't be such a baby..."
