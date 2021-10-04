@@ -2,6 +2,8 @@ import { expectContext } from "../context";
 import { expectEl, shuffle } from "../util";
 import { Item } from ".";
 
+const SFX_NAME = "syringe";
+
 export function applyItem(item: Item, itemEl: HTMLElement) {
     const ctx = expectContext();
 
@@ -19,6 +21,10 @@ export function applyItem(item: Item, itemEl: HTMLElement) {
     const emotionAction = item.emotionActions?.[ctx.character.mood.emotion];
     if (emotionAction) {
         ctx.actionEmitter.emit(emotionAction);
+    }
+
+    if (ctx.audio.sfx.audio.has(SFX_NAME)) {
+        ctx.audio.sfx.play(SFX_NAME);
     }
 
     shuffleItemElements();
