@@ -362,7 +362,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                     "Status: Subject seems exceptionally stable and healthy! ",
                                     "Subject exhibits no signs of unusual behavior. ",
                                     "Status: Subject seems exceptionally stable and healthy! ",
-                                    "Subject stabalized.",
+                                    "Subject stabilized.",
                                 ],
                             },
                             {
