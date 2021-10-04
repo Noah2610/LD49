@@ -128,6 +128,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
+                                    scrollConfig: {
+                                        sfx: "text-suicidal1",
+                                    },
                                 },
                             },
                         ],
@@ -144,6 +147,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     ],
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                        scrollConfig: {
+                            sfx: "text-suicidal1",
+                        },
                     },
                 },
             },
@@ -197,6 +203,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
+                                    scrollConfig: {
+                                        sfx: "text-sad2",
+                                    },
                                 },
                             },
                         ],
@@ -217,6 +226,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     ],
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                        scrollConfig: {
+                            sfx: "text-sad2",
+                        },
                     },
                 },
             },
@@ -268,9 +280,30 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
+                                    scrollConfig: {
+                                        sfx: "text-sad1",
+                                    },
                                 },
                             },
                         ],
+                    },
+                },
+                random: {
+                    type: "SpawnSpeechBubble",
+                    randomText: [
+                        "I...",
+                        "I'm feeling kind of down... ",
+                        ".....disgusting.",
+                        "I... Can I get some new pants, please?",
+                        "I always wanted to be a janitor...",
+                        "...I could really use a hug right now",
+                        "Man... this is awful.",
+                    ],
+                    options: {
+                        despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                        scrollConfig: {
+                            sfx: "text-sad1",
+                        },
                     },
                 },
             },
@@ -344,6 +377,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
+                                    scrollConfig: {
+                                        sfx: "text-calm1",
+                                    },
                                 },
                             },
                         ],
@@ -361,6 +397,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     ],
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                        scrollConfig: {
+                            sfx: "text-calm1",
+                        },
                     },
                 },
             },
@@ -440,6 +479,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
+                                    scrollConfig: {
+                                        sfx: "text-happy1",
+                                    },
                                 },
                             },
                         ],
@@ -456,6 +498,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     ],
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                        scrollConfig: {
+                            sfx: "text-happy1",
+                        },
                     },
                 },
             },
@@ -518,6 +563,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
+                                    scrollConfig: {
+                                        sfx: "text-happy2",
+                                    },
                                 },
                             },
                         ],
@@ -539,6 +587,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
                         scrollConfig: {
+                            sfx: "text-happy2",
                             updatePartEl(el) {
                                 el.classList.add("text", "text--shake");
                                 return el;
@@ -616,6 +665,11 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
                                     scrollConfig: {
+                                        sfx: [
+                                            "text-manic1",
+                                            "text-manic2",
+                                            "text-manic3",
+                                        ],
                                         updatePartEl(el) {
                                             el.classList.add(
                                                 "text",
@@ -644,6 +698,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
                         scrollConfig: {
+                            sfx: ["text-manic1", "text-manic2", "text-manic3"],
                             updatePartEl(el) {
                                 el.classList.add("text", "text--shake");
                                 return el;
