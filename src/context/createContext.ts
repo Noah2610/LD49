@@ -23,6 +23,7 @@ export function createContext(): Context {
         audio,
         textbox,
         difficulty: 1.0,
+        isGameOver: false,
     };
     window.CTX = ctx;
 

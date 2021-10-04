@@ -13,6 +13,7 @@ export interface Context {
     audio: AudioManager;
     textbox: Textbox;
     difficulty: number;
+    isGameOver: boolean;
 
     update?: {
         timer: Timer;

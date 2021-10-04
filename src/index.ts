@@ -2,14 +2,11 @@ import "./styles/index.scss";
 
 import bgImg from "./assets/bg/bg_test_C.png";
 
-import { expectEl, pick } from "./util";
-import { createContext, expectContext } from "./context";
+import { expectEl } from "./util";
 import { startGame } from "./game";
-import { spawnSpeechBubble } from "./speechBubble";
 
 function main() {
     setupBg();
-    createContext();
     startGame();
     dev();
 }
