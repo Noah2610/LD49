@@ -28,7 +28,7 @@ const baseSpritesheet: Omit<SpritesheetConfig, "src"> = {
 };
 
 const defaultSpeechBubbleDespawnMs = 3000;
-const DEFAULT_ENTER_DELAY_MS = 1000;
+const DEFAULT_ENTER_DELAY_MS = 3000;
 
 export const CHARACTER_CONFIG: CharacterConfig = {
     emotions: {
@@ -276,7 +276,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                             {
                                 type: "AddText",
                                 randomText: [
-                                    "You seem exceptionally stable and healthy. How boring...",
+                                    "Subject seems exceptionally stable and healthy",
+                                    "Status: Subject seems exceptionally stable and healthy!",
                                 ],
                             },
                             {
@@ -354,7 +355,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     delayMs: DEFAULT_ENTER_DELAY_MS,
                     action: {
                         type: "SpawnSpeechBubble",
-                        text: "Funny!",
+                        randomText: ["Now that's a good one..", "hehe.."],
                         options: {
                             despawnMs: defaultSpeechBubbleDespawnMs,
                         },
@@ -409,9 +410,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                 randomText: [
                                     "ekEkkKEKKEkEekKEkEKKEkE",
                                     "AAAAAAAAAAAAAAAAAAAAAA",
-                                    "oksoheresthethingifchickenfromeggandeggfromchickesnthennwhrecmoetehuorignslhicknefro-",
-                                    "OkSoHeresTheThingIfChickenFromEggAndEggFromChickesnThennWhreCmoeTehuOrignslhCickneFro-",
-                                    "Woww it's.. heh.. i mean. isn't it? Ye? Like, i mean, really hot, isn't it? heh.. he-",
+                                    "are- heh- you sure tha- that this is a go-od idea ?",
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
