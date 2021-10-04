@@ -75,15 +75,20 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                         {
                             type: "AddText",
                             randomText: [
-                                "He's not looking too happy...",
-                                "Better make him happy quick...",
+                                "Aaalwayys look onnn the briiiiiight sideee of Life!",
+                                "OH NO. This... this is bad. I think i left my stove on.",
+                                "So... what's your opinion on deez?",
+                                "BOO! .......well, it was worth a try.",
                             ],
                         },
                         {
                             type: "SpawnSpeechBubble",
                             randomText: [
-                                "Life fucking sucks, dude.",
-                                "I'm about to head out.",
+                                "...",
+                                "...Make it stop...",
+                                "Komm, süsser Tod.....",
+                                "I..... I can see the light",
+                                "... so bright..!",
                             ],
                             options: {
                                 despawnMs: defaultSpeechBubbleDespawnMs,
@@ -93,7 +98,13 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                 },
                 random: {
                     type: "SpawnSpeechBubble",
-                    text: "Can't take it much longer.",
+                    randomText: [
+                        "...",
+                        "...Make it stop...",
+                        "Komm, süsser Tod.....",
+                        "I..... I can see the light",
+                        "... so bright..!",
+                    ],
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
                     },
@@ -121,10 +132,40 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             bgm: "sad2",
             events: {
                 enter: {
+                    type: "Actions",
+                    actions: [
+                        {
+                            type: "AddText",
+                            randomText: [
+                                "Why the long face?",
+                                "So..... what's your favorite movie?",
+                                "What's wrong, buddy? Did you see a ghost?",
+                            ],
+                        },
+                        {
+                            type: "SpawnSpeechBubble",
+                            randomText: [
+                                "..........",
+                                "................",
+                                "*gulp*",
+                                "Oh.... oh God",
+                            ],
+                            options: {
+                                despawnMs: defaultSpeechBubbleDespawnMs,
+                            },
+                        },
+                    ],
+                },
+                random: {
                     type: "SpawnSpeechBubble",
-                    text: "Life sucks.",
+                    randomText: [
+                        "..........",
+                        "................",
+                        "*gulp*",
+                        "Oh.... oh God",
+                    ],
                     options: {
-                        despawnMs: defaultSpeechBubbleDespawnMs,
+                        despawnMs: defaultSpeechBubbleDespawnMs / 2,
                     },
                 },
             },
@@ -201,10 +242,28 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             bgm: "happy1",
             events: {
                 enter: {
+                    type: "Actions",
+                    actions: [
+                        {
+                            type: "AddText",
+                            randomText: [
+                                "You seem exceptionally stable and healthy. How boring...",
+                            ],
+                        },
+                        {
+                            type: "SpawnSpeechBubble",
+                            randomText: ["Hmm...", "C'est la vie. ...I guess"],
+                            options: {
+                                despawnMs: defaultSpeechBubbleDespawnMs,
+                            },
+                        },
+                    ],
+                },
+                random: {
                     type: "SpawnSpeechBubble",
-                    text: "It's cool.",
+                    randomText: ["Hmm...", "C'est la vie. ...I guess"],
                     options: {
-                        despawnMs: defaultSpeechBubbleDespawnMs,
+                        despawnMs: defaultSpeechBubbleDespawnMs / 2,
                     },
                 },
             },
@@ -294,10 +353,43 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             bgm: "happy2",
             events: {
                 enter: {
+                    type: "Actions",
+                    actions: [
+                        {
+                            type: "AddText",
+                            randomText: [
+                                "Anything good on?",
+                                "Don't worry about your face, common side-effect, y'know.",
+                                "Woah buddy, what's that on your face? You should really get that checked...",
+                                "Say CHEEEEESE...",
+                            ],
+                        },
+                        {
+                            type: "SpawnSpeechBubble",
+                            randomText: [
+                                "ekEkkKEKKEkEekKEkEKKEkE",
+                                "AAAAAAAAAAAAAAAAAAAAAA",
+                                "oksoheresthethingifchickenfromeggandeggfromchickesnthennwhrecmoetehuorignslhicknefro-",
+                                "OkSoHeresTheThingIfChickenFromEggAndEggFromChickesnThennWhreCmoeTehuOrignslhCickneFro-",
+                                "Woww it's.. heh.. i mean. isn't it? Ye? Like, i mean, really hot, isn't it? heh.. he-",
+                            ],
+                            options: {
+                                despawnMs: defaultSpeechBubbleDespawnMs,
+                            },
+                        },
+                    ],
+                },
+                random: {
                     type: "SpawnSpeechBubble",
-                    text: "Hahahaa, this is great!",
+                    randomText: [
+                        "ekEkkKEKKEkEekKEkEKKEkE",
+                        "AAAAAAAAAAAAAAAAAAAAAA",
+                        "oksoheresthethingifchickenfromeggandeggfromchickesnthennwhrecmoetehuorignslhicknefro-",
+                        "OkSoHeresTheThingIfChickenFromEggAndEggFromChickesnThennWhreCmoeTehuOrignslhCickneFro-",
+                        "Woww it's.. heh.. i mean. isn't it? Ye? Like, i mean, really hot, isn't it? heh.. he-",
+                    ],
                     options: {
-                        despawnMs: defaultSpeechBubbleDespawnMs,
+                        despawnMs: defaultSpeechBubbleDespawnMs / 2,
                     },
                 },
             },
@@ -344,13 +436,23 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                         {
                             type: "AddText",
                             randomText: [
-                                "He's too excited!",
-                                "He's gonna lose it!",
+                                "Is this a bad time to get a coffee?",
+                                "Don't take this the wrong way, but I think you need a haircut.",
+                                `I believe the scientific term for what's about to commence is "Spontaneous Combustion"`,
+                                "Mom!! Get the Camera!",
+                                "Yo. This is metal as fuck.",
+                                "The subject seems a little... unstable",
                             ],
                         },
                         {
                             type: "SpawnSpeechBubble",
-                            text: "I can do SO many THINGS!",
+                            randomText: [
+                                "ÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆ",
+                                " 	� 	� 	� 	� 	�",
+                                "GNIDNECSA MA I",
+                                "GGGNNNIIIDDDNNNEEECCCSSSAAA MMMAAA III",
+                                "RIVERRUN ... FROM SWERVE OF SHORE ... VICUS OF RECIRCULATION",
+                            ],
                             options: {
                                 despawnMs: defaultSpeechBubbleDespawnMs,
                             },
@@ -359,7 +461,13 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                 },
                 random: {
                     type: "SpawnSpeechBubble",
-                    randomText: ["AWESOME", "Hell Yeah!"],
+                    randomText: [
+                        "ÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆ",
+                        " 	� 	� 	� 	� 	�",
+                        "GNIDNECSA MA I",
+                        "GGGNNNIIIDDDNNNEEECCCSSSAAA MMMAAA III",
+                        "RIVERRUN ... FROM SWERVE OF SHORE ... VICUS OF RECIRCULATION",
+                    ],
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
                     },
