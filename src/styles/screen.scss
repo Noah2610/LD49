@@ -21,7 +21,9 @@
             align-items: center;
 
             & .main-menu__title {
-                font-size: 3em;
+                font-family: sans-serif;
+                letter-spacing: 16px;
+                font-size: 4em;
                 font-weight: normal;
             }
         }
