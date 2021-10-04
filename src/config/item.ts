@@ -97,6 +97,7 @@ export const ITEM_CONFIG: ItemConfig = {
                             type: "AddText",
                             randomText: [
                                 "You seem exceptionally stable and healthy. How boring... ",
+                                "Let's put a smile on that face of yours! ",
                             ],
                         },
                     ],
@@ -110,6 +111,7 @@ export const ITEM_CONFIG: ItemConfig = {
                                 "No such thing as too much happiness, amirite? ",
                                 "What could go wrong? ",
                                 "Let's take it up a notch, shall we? ",
+                                "Let's get funky. ",
                             ],
                         },
                     ],
@@ -120,6 +122,7 @@ export const ITEM_CONFIG: ItemConfig = {
                         {
                             type: "AddText",
                             randomText: [
+                                "Don't worry, this should get you fixed up. ...oops, wrong one.  ",
                                 "No need to worry - I'm a professional! ",
                                 "What? What about your liver? It'll grow back. ",
                                 `What do you mean, "yOu'Re aBoUt To eXpLoDe"? `,
@@ -181,7 +184,10 @@ export const ITEM_CONFIG: ItemConfig = {
                     actions: [
                         {
                             type: "AddText",
-                            randomText: ["No risk no fun", "Oops... "],
+                            randomText: [
+                                "Why do I always get these mixed up...",
+                                "Oops... ",
+                            ],
                         },
                     ],
                 },
@@ -190,7 +196,10 @@ export const ITEM_CONFIG: ItemConfig = {
                     actions: [
                         {
                             type: "AddText",
-                            randomText: ["Oh, don't give me that look... "],
+                            randomText: [
+                                "Oh, don't give me that look... ",
+                                "For SCIENCE!",
+                            ],
                         },
                     ],
                 },

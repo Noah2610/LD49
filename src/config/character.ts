@@ -217,11 +217,27 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     type: "Delay",
                     delayMs: DEFAULT_ENTER_DELAY_MS,
                     action: {
-                        type: "SpawnSpeechBubble",
-                        text: "I'm sad.",
-                        options: {
-                            despawnMs: defaultSpeechBubbleDespawnMs,
-                        },
+                        type: "Actions",
+                        actions: [
+                            {
+                                type: "AddText",
+                                randomText: [
+                                    "...Nice weather, huh? ",
+                                    "You okay there, buddy? ",
+                                ],
+                            },
+                            {
+                                type: "SpawnSpeechBubble",
+                                randomText: [
+                                    "I...",
+                                    "I'm feeling kind of down... ",
+                                    ".....disgusting.",
+                                ],
+                                options: {
+                                    despawnMs: defaultSpeechBubbleDespawnMs,
+                                },
+                            },
+                        ],
                     },
                 },
             },
@@ -276,8 +292,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                             {
                                 type: "AddText",
                                 randomText: [
-                                    "Subject seems exceptionally stable and healthy",
-                                    "Status: Subject seems exceptionally stable and healthy!",
+                                    "Subject exhibits no signs of unusual behavior. ",
+                                    "Status: Subject seems exceptionally stable and healthy! ",
                                 ],
                             },
                             {
@@ -411,6 +427,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                     "ekEkkKEKKEkEekKEkEKKEkE",
                                     "AAAAAAAAAAAAAAAAAAAAAA",
                                     "are- heh- you sure tha- that this is a go-od idea ?",
+                                    "I- i help with the need plea-",
+                                    "CROSSAINTS!",
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
