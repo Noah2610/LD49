@@ -7,9 +7,9 @@ import { createContext, expectContext } from "./context";
 import { startGame } from "./game";
 import { spawnSpeechBubble } from "./speechBubble";
 
-async function main() {
+function main() {
     setupBg();
-    await createContext();
+    createContext();
     startGame();
     dev();
 }

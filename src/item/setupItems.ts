@@ -1,11 +1,15 @@
-import { expectEl, Pos } from "../util";
-import { ITEMS_CONFIG } from "../config/item";
+import { expectEl, pick, Pos, shuffle } from "../util";
+import { ITEM_CONFIG } from "../config/item";
 import { expectContext } from "../context";
-import { Item } from ".";
+import { createSpritesheet } from "../spritesheet";
+import { Item, ItemType, ITEM_TYPES } from ".";
+
+type PickedTypeCounts = { [T in ItemType]: number };
 
 export function setupItems(): [Item[], () => void] {
     const toolbarEl = expectEl("#game #toolbar");
     const characterEl = expectEl("#game #character");
+    const config = ITEM_CONFIG;
 
     const items: Item[] = [];
     const unsubs: (() => void)[] = [];
@@ -83,9 +87,34 @@ export function setupItems(): [Item[], () => void] {
         };
     };
 
-    for (const itemConfig of ITEMS_CONFIG) {
+    const randomItems = shuffle(config.randomItems);
+    const pickedTypeCounts: PickedTypeCounts = ITEM_TYPES.reduce(
+        (acc, t) => ({
+            ...acc,
+            [t]: 0,
+        }),
+        {} as PickedTypeCounts,
+    );
+
+    const nextItemType = (): ItemType => {
+        let fewestTypes: ItemType = pick(ITEM_TYPES)!;
+        for (const itemType of ITEM_TYPES) {
+            if (pickedTypeCounts[itemType] < pickedTypeCounts[fewestTypes]) {
+                fewestTypes = itemType;
+            }
+        }
+        pickedTypeCounts[fewestTypes]++;
+        return fewestTypes;
+    };
+
+    for (const randomItem of randomItems) {
+        const itemConfig = ITEM_CONFIG.types[nextItemType()];
+
+        const spritesheet = createSpritesheet(randomItem.spritesheet);
+
         const item: Item = {
             type: itemConfig.type,
+            spritesheet,
             draggingState: {
                 isDragging: false,
             },

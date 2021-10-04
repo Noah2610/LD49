@@ -73,6 +73,19 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     type: "Actions",
                     actions: [
                         {
+                            type: "Random",
+                            actions: [
+                                {
+                                    type: "PlayCharacterAnimation",
+                                    animation: "idle",
+                                },
+                                {
+                                    type: "PlayCharacterAnimation",
+                                    animation: "other",
+                                },
+                            ],
+                        },
+                        {
                             type: "AddText",
                             randomText: [
                                 "He's not looking too happy...",
