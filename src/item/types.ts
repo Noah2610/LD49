@@ -9,6 +9,8 @@ export interface Item {
     draggingState: ItemDraggingState;
     action?: Action;
     emotionActions?: EmotionActions;
+    label?: string;
+    labelRevealed?: string;
 }
 
 export type ItemDraggingState =

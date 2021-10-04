@@ -12,6 +12,7 @@ export interface ItemConfig {
 export interface ItemTypeConfig {
     type: ItemType;
     label?: string;
+    labelRevealed?: string;
     action?: Action;
     emotionActions?: EmotionActions;
 }
@@ -60,7 +61,8 @@ export const ITEM_CONFIG: ItemConfig = {
     types: {
         Upper: {
             type: "Upper",
-            label: "Toy",
+            label: "Syringe",
+            labelRevealed: "Upper Syringe",
             emotionActions: {
                 Suicidal: {
                     type: "Actions",
@@ -164,6 +166,7 @@ export const ITEM_CONFIG: ItemConfig = {
         Downer: {
             type: "Downer",
             label: "Syringe",
+            labelRevealed: "Downer Syringe",
             emotionActions: {
                 Suicidal: {
                     type: "Actions",
