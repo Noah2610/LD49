@@ -59,22 +59,7 @@ export function setupItems(): [Item[], () => void] {
                     characterEl.getBoundingClientRect(),
                 )
             ) {
-                const ctx = expectContext();
-
-                if (item.labelRevealed) {
-                    item.label = item.labelRevealed;
-                    itemEl.title = item.label;
-                }
-
-                if (item.action) {
-                    ctx.actionEmitter.emit(item.action);
-                }
-
-                const emotionAction =
-                    item.emotionActions?.[ctx.character.mood.emotion];
-                if (emotionAction) {
-                    ctx.actionEmitter.emit(emotionAction);
-                }
+                applyItem(item, itemEl);
             }
 
             itemEl.classList.remove("item--dragging");
@@ -188,6 +173,33 @@ export function setupItems(): [Item[], () => void] {
     }
 
     return [items, () => unsubs.forEach((cb) => cb())];
+}
+
+function applyItem(item: Item, itemEl: HTMLElement) {
+    const ctx = expectContext();
+
+    if (item.labelRevealed) {
+        item.label = item.labelRevealed;
+        itemEl.title = item.label;
+    }
+
+    if (item.action) {
+        ctx.actionEmitter.emit(item.action);
+    }
+
+    const emotionAction = item.emotionActions?.[ctx.character.mood.emotion];
+    if (emotionAction) {
+        ctx.actionEmitter.emit(emotionAction);
+    }
+
+    shuffleItemElements();
+}
+
+function shuffleItemElements() {
+    const toolbarEl = expectEl("#game #toolbar");
+    const els = shuffle(Array.from(toolbarEl.children));
+    toolbarEl.innerHTML = "";
+    toolbarEl.append(...els);
 }
 
 function getAbsoluteElementPos(el: HTMLElement): Pos {
