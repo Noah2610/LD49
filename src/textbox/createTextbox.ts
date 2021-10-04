@@ -44,13 +44,13 @@ export function createTextbox(): Textbox {
         textbox.rootEl.appendChild(partEl);
 
         const timer = createTimer({
-            duration: chars.length * opts.delayMs,
+            duration: (chars.length + 2) * opts.delayMs,
             updateInterval: opts.delayMs,
         });
 
         timer.on("update", () => updateTextbox(opts));
         timer.on("finish", () => {
-            updateTextbox(opts);
+            // updateTextbox(opts);
             textbox.parts.splice(0, 1);
 
             const nextPart = textbox.parts[0];
