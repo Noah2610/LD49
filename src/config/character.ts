@@ -113,7 +113,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                         frames: [
                             [0, 150],
                             [1, 150],
-                            [3, 150],
+                            [2, 150],
                         ],
                     },
                 },
