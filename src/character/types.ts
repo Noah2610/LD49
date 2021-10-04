@@ -2,6 +2,7 @@ import { AnimationContainer } from "../animation";
 import { Spritesheet } from "../spritesheet";
 import { Emotion, Mood } from "../mood";
 import { Action } from "../action";
+import { Pos } from "../util";
 
 export interface Character {
     mood: Mood;
@@ -29,6 +30,7 @@ export interface CharacterPresentation {
     spritesheet: Spritesheet;
     animationContainer: AnimationContainer;
     bgm?: string;
+    posOffset?: Pos;
 }
 
 export interface CharacterEmotionEvents {

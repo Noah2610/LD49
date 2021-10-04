@@ -58,5 +58,6 @@ function genCharacterPresentationFromConfig(
         spritesheet,
         animationContainer,
         bgm: config.bgm,
+        posOffset: config.posOffset,
     };
 }

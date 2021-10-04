@@ -2,6 +2,7 @@ import { CharacterEmotion, CharacterEmotionEvents } from "../character";
 import { AnimationContainerConfig } from "../animation";
 import { Emotion } from "../mood";
 import { SpritesheetConfig } from "../spritesheet";
+import { Pos } from "../util";
 
 export interface CharacterConfig {
     emotions: {
@@ -23,6 +24,7 @@ export interface CharacterPresentationConfig {
     spritesheet: SpritesheetConfig;
     animations: AnimationContainerConfig;
     bgm?: CharacterEmotion["bgm"];
+    posOffset?: Pos;
 }
 
 const baseSpritesheet: Omit<SpritesheetConfig, "src"> = {
@@ -561,6 +563,10 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                         ],
                     },
                 },
+            },
+            posOffset: {
+                x: 0,
+                y: 128,
             },
         },
 

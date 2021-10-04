@@ -161,5 +161,13 @@ function switchCharacterPresentation(
     if (pres.animationContainer.animations.has(ANIMATION_NAMES.idle)) {
         pres.animationContainer.play(ANIMATION_NAMES.idle);
     }
+
+    const parentEl = pres.spritesheet.img.parentElement;
+    if (parentEl) {
+        parentEl.style.transform = pres.posOffset
+            ? `translate(${pres.posOffset.x}px, ${pres.posOffset.y}px)`
+            : "none";
+    }
+
     pres.spritesheet.insertDom(characterEl);
 }
