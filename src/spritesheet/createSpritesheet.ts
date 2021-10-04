@@ -1,14 +1,8 @@
-import { Pos, Size, loadImage } from "../util";
+import { Pos, Size, createImage } from "../util";
 import { Spritesheet, SpritesheetConfig, SpritesheetSpriteMap } from ".";
 
-export async function createSpritesheet(
-    config: SpritesheetConfig,
-): Promise<Spritesheet> {
-    const img = await loadImage(config.src);
-    const spritesheetSize = {
-        w: img.width,
-        h: img.height,
-    };
+export function createSpritesheet(config: SpritesheetConfig): Spritesheet {
+    const img = createImage(config.src);
     const spriteSize = config.spriteSize;
 
     const spriteMap: SpritesheetSpriteMap = new Map();
@@ -76,7 +70,7 @@ export async function createSpritesheet(
     const spritesheet: Spritesheet = {
         wrapperEl,
         img,
-        spritesheetSize,
+        spritesheetSize: { w: 0, h: 0 },
         spriteSize,
         spriteMap,
         currentIdx,
@@ -87,7 +81,14 @@ export async function createSpritesheet(
     };
 
     showSprite(config.currentIdx ?? currentIdx);
-    resize(config.size ?? spriteSize);
+
+    img.onload = () => {
+        spritesheet.spritesheetSize = {
+            w: spritesheet.img.width,
+            h: spritesheet.img.height,
+        };
+        spritesheet.resize(config.size ?? spritesheet.spriteSize);
+    };
 
     return spritesheet;
 }

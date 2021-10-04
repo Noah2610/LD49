@@ -81,15 +81,9 @@
 
         & .item-wrapper {
             position: relative;
-            width: 64px;
-            height: 64px;
 
             & .item {
-                width: 64px;
-                height: 64px;
                 cursor: grab;
-
-                background-color: rebeccapurple;
 
                 &:active {
                     cursor: grabbing;

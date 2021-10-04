@@ -4,28 +4,25 @@ import { createMood, EMOTIONS } from "../mood";
 import { CHARACTER_CONFIG } from "../config/character";
 import { Character, CharacterEmotions } from ".";
 
-export async function createCharacter(): Promise<Character> {
+export function createCharacter(): Character {
     const emotions: Partial<CharacterEmotions> = {};
 
-    await Promise.all(
-        EMOTIONS.map((emotion) =>
-            createSpritesheet(
-                CHARACTER_CONFIG.emotions[emotion].spritesheet,
-            ).then((spritesheet) => {
-                const emotionConfig = CHARACTER_CONFIG.emotions[emotion];
-                emotions[emotion] = {
-                    emotion,
-                    spritesheet,
-                    animationContainer: createAnimationContainer(
-                        spritesheet,
-                        emotionConfig.animations,
-                    ),
-                    bgm: emotionConfig.bgm,
-                    events: emotionConfig.events,
-                };
-            }),
-        ),
-    );
+    EMOTIONS.forEach((emotion) => {
+        const spritesheet = createSpritesheet(
+            CHARACTER_CONFIG.emotions[emotion].spritesheet,
+        );
+        const emotionConfig = CHARACTER_CONFIG.emotions[emotion];
+        emotions[emotion] = {
+            emotion,
+            spritesheet,
+            animationContainer: createAnimationContainer(
+                spritesheet,
+                emotionConfig.animations,
+            ),
+            bgm: emotionConfig.bgm,
+            events: emotionConfig.events,
+        };
+    });
 
     const getCurrentCharacterEmotion: Character["getCurrentCharacterEmotion"] =
         () => {

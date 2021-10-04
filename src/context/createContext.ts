@@ -5,10 +5,10 @@ import { createAudioManager } from "../audio";
 import { createTextbox } from "../textbox";
 import { Context } from ".";
 
-export async function createContext(): Promise<Context> {
+export function createContext(): Context {
     const cleanups: (() => void)[] = [];
 
-    const character = await createCharacter();
+    const character = createCharacter();
     const [items, unsubItems] = setupItems();
     cleanups.push(unsubItems);
     const actionEmitter = createActionEmitter();
