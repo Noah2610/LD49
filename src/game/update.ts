@@ -105,36 +105,25 @@ function updateDifficulty(ctx: ContextWithUpdate, timer: Timer) {
 function updateGameOver(ctx: ContextWithUpdate, timer: Timer) {
     const mood = ctx.character.mood.value;
 
-    let didGameOver = false;
-
     if (mood >= MOOD_RANGE.max) {
-        didGameOver = true;
-        const prevPres = ctx.character.getCurrentCharacterEmotion();
-        const nextPres = ctx.character.gameOver.Manic;
-        switchCharacterPresentation(ctx, nextPres, prevPres);
-        if (
-            nextPres.animationContainer.animations.has(ANIMATION_NAMES.gameOver)
-        ) {
-            nextPres.animationContainer.play(ANIMATION_NAMES.gameOver);
-        }
+        gameOver(ctx, "Manic");
+    } else if (mood <= MOOD_RANGE.min) {
+        gameOver(ctx, "Suicidal");
+    }
+}
+
+function gameOver(ctx: ContextWithUpdate, type: "Suicidal" | "Manic") {
+    const prevPres = ctx.character.getCurrentCharacterEmotion();
+    const nextPres = ctx.character.gameOver[type];
+    switchCharacterPresentation(ctx, nextPres, prevPres);
+    if (nextPres.animationContainer.animations.has(ANIMATION_NAMES.gameOver)) {
+        nextPres.animationContainer.play(ANIMATION_NAMES.gameOver);
     }
 
-    if (mood <= MOOD_RANGE.min) {
-        didGameOver = true;
-        const prevPres = ctx.character.getCurrentCharacterEmotion();
-        const nextPres = ctx.character.gameOver.Suicidal;
-        switchCharacterPresentation(ctx, nextPres, prevPres);
-        if (
-            nextPres.animationContainer.animations.has(ANIMATION_NAMES.gameOver)
-        ) {
-            nextPres.animationContainer.play(ANIMATION_NAMES.gameOver);
-        }
-    }
+    ctx.audio.bgm.stop();
 
-    if (didGameOver) {
-        ctx.isGameOver = true;
-        ctx.update.timer.reset();
-    }
+    ctx.isGameOver = true;
+    ctx.update.timer.reset();
 }
 
 function switchCharacterPresentation(
@@ -160,9 +149,9 @@ function switchCharacterPresentation(
         pres.animationContainer.play(animName);
     }
 
-    const parentEl = pres.spritesheet.img.parentElement;
-    if (parentEl) {
-        parentEl.style.transform = pres.posOffset
+    const wrapperEl = pres.spritesheet.wrapperEl;
+    if (wrapperEl) {
+        wrapperEl.style.transform = pres.posOffset
             ? `translate(${pres.posOffset.x}px, ${pres.posOffset.y}px)`
             : "none";
     }

@@ -15,7 +15,7 @@ const genBgm = (
     opts?: Partial<AudioFileConfig>,
 ): AudioFileConfig =>
     genFileConfig(name, "bgm", {
-        volume: 0.5,
+        volume: 1.0,
         loop: true,
         ...opts,
     });
