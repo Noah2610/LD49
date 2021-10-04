@@ -1,11 +1,22 @@
 import { expectEl, pick, Pos, randomRange, Range, Size } from "../util";
 
 export interface SpawnSpeechBubbleOptions {
-    text: string;
     despawnMs: number;
 }
 
-export function spawnSpeechBubble(options: SpawnSpeechBubbleOptions) {
+const DEFAULT_SPAWN_SPEECH_BUBBLE_OPTIONS: SpawnSpeechBubbleOptions = {
+    despawnMs: 3000,
+};
+
+export function spawnSpeechBubble(
+    text: string,
+    options?: Partial<SpawnSpeechBubbleOptions>,
+) {
+    const opts = {
+        ...DEFAULT_SPAWN_SPEECH_BUBBLE_OPTIONS,
+        ...options,
+    };
+
     const rootEl = expectEl("#game #speech-bubbles");
 
     const corner = pick(SPEECH_BUBBLE_CORNERS)!;
@@ -80,7 +91,7 @@ export function spawnSpeechBubble(options: SpawnSpeechBubbleOptions) {
     };
 
     const bubbleEl = document.createElement("div");
-    bubbleEl.innerText = options.text;
+    bubbleEl.innerText = text;
     bubbleEl.classList.add(
         "speech-bubble",
         `speech-bubble--corner-${corner}`,
@@ -96,7 +107,7 @@ export function spawnSpeechBubble(options: SpawnSpeechBubbleOptions) {
     setTimeout(() => {
         bubbleEl.classList.add("speech-bubble--fade-out");
         setTimeout(() => rootEl.removeChild(bubbleEl), 500);
-    }, options.despawnMs);
+    }, opts.despawnMs);
 }
 
 const SPEECH_BUBBLE_CORNERS = [

@@ -36,11 +36,15 @@ export function setupActionConsumer(ctx: Context): () => void {
     });
 
     listen("AddText", (action) => {
-        ctx.textbox.add(action.text, action.config);
+        const text = "text" in action ? action.text : pick(action.randomText);
+        if (!text) return;
+        ctx.textbox.add(text, action.config);
     });
 
     listen("SpawnSpeechBubble", (action) => {
-        spawnSpeechBubble(action.options);
+        const text = "text" in action ? action.text : pick(action.randomText);
+        if (!text) return;
+        spawnSpeechBubble(text, action.options);
     });
 
     return () => unsubs.forEach((cb) => cb());

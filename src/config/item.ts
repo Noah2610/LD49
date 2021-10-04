@@ -29,12 +29,18 @@ export const ITEMS_CONFIG: ItemsConfig = [
                 },
                 {
                     type: "AddText",
-                    text: "This should calm him down.",
+                    randomText: [
+                        "This should calm him down.",
+                        "Take this.",
+                        "Cool down.",
+                        "Take a rest.",
+                        "This'll make you relax.",
+                    ],
                 },
                 {
                     type: "SpawnSpeechBubble",
+                    randomText: ["Drugs!", "No more.", "Don't do it!"],
                     options: {
-                        text: "Drugs!",
                         despawnMs: 2000,
                     },
                 },
@@ -60,12 +66,17 @@ export const ITEMS_CONFIG: ItemsConfig = [
                 },
                 {
                     type: "AddText",
-                    text: "Life can be fun!",
+                    randomText: [
+                        "Life can be fun!",
+                        "Let's play!",
+                        "Play with me!",
+                        "You want this?",
+                    ],
                 },
                 {
                     type: "SpawnSpeechBubble",
+                    randomText: ["Yeah!", "Let's go!", "This'll be fun!"],
                     options: {
-                        text: "Yeah!",
                         despawnMs: 2000,
                     },
                 },

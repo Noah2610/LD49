@@ -32,8 +32,19 @@ export type Action =
           config?: Partial<TextboxConfig>;
       }
     | {
+          type: "AddText";
+          randomText: string[];
+          config?: Partial<TextboxConfig>;
+      }
+    | {
           type: "SpawnSpeechBubble";
-          options: SpawnSpeechBubbleOptions;
+          text: string;
+          options?: Partial<SpawnSpeechBubbleOptions>;
+      }
+    | {
+          type: "SpawnSpeechBubble";
+          randomText: string[];
+          options?: Partial<SpawnSpeechBubbleOptions>;
       };
 
 export type ActionType = Action["type"];

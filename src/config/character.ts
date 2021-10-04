@@ -74,12 +74,18 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     actions: [
                         {
                             type: "AddText",
-                            text: "Better make him happy quick...",
+                            randomText: [
+                                "He's not looking too happy...",
+                                "Better make him happy quick...",
+                            ],
                         },
                         {
                             type: "SpawnSpeechBubble",
+                            randomText: [
+                                "Life fucking sucks, dude.",
+                                "I'm about to head out.",
+                            ],
                             options: {
-                                text: "Life fucking sucks, dude.",
                                 despawnMs: defaultSpeechBubbleDespawnMs,
                             },
                         },
@@ -87,8 +93,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                 },
                 random: {
                     type: "SpawnSpeechBubble",
+                    text: "Can't take it much longer.",
                     options: {
-                        text: "Can't take it much longer.",
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
                     },
                 },
@@ -116,8 +122,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             events: {
                 enter: {
                     type: "SpawnSpeechBubble",
+                    text: "Life sucks.",
                     options: {
-                        text: "Life sucks.",
                         despawnMs: defaultSpeechBubbleDespawnMs,
                     },
                 },
@@ -146,8 +152,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             events: {
                 enter: {
                     type: "SpawnSpeechBubble",
+                    text: "I'm sad.",
                     options: {
-                        text: "I'm sad.",
                         despawnMs: defaultSpeechBubbleDespawnMs,
                     },
                 },
@@ -196,8 +202,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             events: {
                 enter: {
                     type: "SpawnSpeechBubble",
+                    text: "It's cool.",
                     options: {
-                        text: "It's cool.",
                         despawnMs: defaultSpeechBubbleDespawnMs,
                     },
                 },
@@ -253,8 +259,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             events: {
                 enter: {
                     type: "SpawnSpeechBubble",
+                    text: "Funny!",
                     options: {
-                        text: "Funny!",
                         despawnMs: defaultSpeechBubbleDespawnMs,
                     },
                 },
@@ -289,8 +295,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             events: {
                 enter: {
                     type: "SpawnSpeechBubble",
+                    text: "Hahahaa, this is great!",
                     options: {
-                        text: "Hahahaa, this is great!",
                         despawnMs: defaultSpeechBubbleDespawnMs,
                     },
                 },
@@ -337,12 +343,15 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     actions: [
                         {
                             type: "AddText",
-                            text: "Too excited, he's gonna lose it!",
+                            randomText: [
+                                "He's too excited!",
+                                "He's gonna lose it!",
+                            ],
                         },
                         {
                             type: "SpawnSpeechBubble",
+                            text: "I can do SO many THINGS!",
                             options: {
-                                text: "I can do SO many THINGS!",
                                 despawnMs: defaultSpeechBubbleDespawnMs,
                             },
                         },
@@ -350,8 +359,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                 },
                 random: {
                     type: "SpawnSpeechBubble",
+                    randomText: ["AWESOME", "Hell Yeah!"],
                     options: {
-                        text: "AWESOME",
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
                     },
                 },
