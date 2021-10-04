@@ -178,6 +178,8 @@ export function setupItems(): [Item[], () => void] {
 function applyItem(item: Item, itemEl: HTMLElement) {
     const ctx = expectContext();
 
+    if (ctx.isGameOver) return;
+
     if (item.labelRevealed) {
         item.label = item.labelRevealed;
         itemEl.title = item.label;
