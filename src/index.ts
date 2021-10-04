@@ -1,6 +1,6 @@
 import "./styles/index.scss";
 
-import bgImg from "./assets/bg/bg_test_B.png";
+import bgImg from "./assets/bg/bg_test_C.png";
 
 import { expectEl, pick } from "./util";
 import { createContext, expectContext } from "./context";
