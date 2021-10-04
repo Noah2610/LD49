@@ -35,6 +35,10 @@ export function setupActionConsumer(ctx: Context): () => void {
         ctx.audio.sfx.play(action.sfx);
     });
 
+    listen("PauseSfx", (action) => {
+        ctx.audio.sfx.pause(action.sfx);
+    });
+
     listen("AddText", (action) => {
         const text = "text" in action ? action.text : pick(action.randomText);
         if (!text) return;

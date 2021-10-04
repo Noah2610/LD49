@@ -23,6 +23,6 @@ export interface TextScrollPart {
 export interface TextScrollConfig {
     charDelayMs: number;
     sfxDelayMs: number;
-    sfx?: string;
+    sfx?: string | string[];
     updatePartEl?(partEl: HTMLElement): HTMLElement;
 }
