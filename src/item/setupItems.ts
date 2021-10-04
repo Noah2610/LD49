@@ -2,7 +2,7 @@ import { expectEl, pick, Pos, shuffle } from "../util";
 import { ITEM_CONFIG } from "../config/item";
 import { expectContext } from "../context";
 import { createSpritesheet } from "../spritesheet";
-import { Item, ItemType, ITEM_TYPES } from ".";
+import { applyItem, Item, ItemType, ITEM_TYPES } from ".";
 
 type PickedTypeCounts = { [T in ItemType]: number };
 
@@ -80,7 +80,7 @@ export function setupItems(): [Item[], () => void] {
         return (event) => {
             if (!item.draggingState.isDragging) return;
 
-            const curPos = getAbsoluteElementPos(itemEl);
+            // const curPos = getAbsoluteElementPos(itemEl);
             const mousePos = getAbsoluteMousePosOfEvent(event);
 
             const newPos: Pos = {
@@ -173,35 +173,6 @@ export function setupItems(): [Item[], () => void] {
     }
 
     return [items, () => unsubs.forEach((cb) => cb())];
-}
-
-function applyItem(item: Item, itemEl: HTMLElement) {
-    const ctx = expectContext();
-
-    if (ctx.isGameOver) return;
-
-    if (item.labelRevealed) {
-        item.label = item.labelRevealed;
-        itemEl.title = item.label;
-    }
-
-    if (item.action) {
-        ctx.actionEmitter.emit(item.action);
-    }
-
-    const emotionAction = item.emotionActions?.[ctx.character.mood.emotion];
-    if (emotionAction) {
-        ctx.actionEmitter.emit(emotionAction);
-    }
-
-    shuffleItemElements();
-}
-
-function shuffleItemElements() {
-    const toolbarEl = expectEl("#game #toolbar");
-    const els = shuffle(Array.from(toolbarEl.children));
-    toolbarEl.innerHTML = "";
-    toolbarEl.append(...els);
 }
 
 function getAbsoluteElementPos(el: HTMLElement): Pos {
