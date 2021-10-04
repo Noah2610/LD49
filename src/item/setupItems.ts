@@ -61,6 +61,11 @@ export function setupItems(): [Item[], () => void] {
             ) {
                 const ctx = expectContext();
 
+                if (item.labelRevealed) {
+                    item.label = item.labelRevealed;
+                    itemEl.title = item.label;
+                }
+
                 if (item.action) {
                     ctx.actionEmitter.emit(item.action);
                 }
@@ -137,6 +142,8 @@ export function setupItems(): [Item[], () => void] {
             },
             action: itemConfig.action,
             emotionActions: itemConfig.emotionActions,
+            label: itemConfig.label,
+            labelRevealed: itemConfig.labelRevealed,
         };
 
         items.push(item);
@@ -146,8 +153,8 @@ export function setupItems(): [Item[], () => void] {
 
         const itemEl = document.createElement("div");
         itemEl.classList.add("item", `item--${item.type.toLowerCase()}`);
-        if (itemConfig.label) {
-            itemEl.title = itemConfig.label;
+        if (item.label) {
+            itemEl.title = item.label;
         }
 
         const onMouseDown = createOnMouseDown(item, itemEl);
