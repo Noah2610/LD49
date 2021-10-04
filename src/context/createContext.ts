@@ -22,6 +22,7 @@ export function createContext(): Context {
         actionEmitter,
         audio,
         textbox,
+        difficulty: 1.0,
     };
     window.CTX = ctx;
 

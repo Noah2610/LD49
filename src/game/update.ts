@@ -30,6 +30,7 @@ export function update(ctx: Context, timer: Timer) {
     updateEmotionRandomEvent(ctx, timer);
     updateMoodSwing(ctx, timer);
     updateBgm(ctx, timer);
+    updateDifficulty(ctx, timer);
 
     ctx.update.lastUpdateAt = timer.time;
 }
@@ -39,7 +40,7 @@ function updateMood(ctx: ContextWithUpdate, timer: Timer) {
 
     const prevCharEmotion = chr.getCurrentCharacterEmotion();
 
-    chr.mood.update();
+    chr.mood.update(ctx);
 
     const charEmotion = chr.getCurrentCharacterEmotion();
 
@@ -99,5 +100,14 @@ function updateEmotionRandomEvent(ctx: ContextWithUpdate, timer: Timer) {
         }
 
         ctx.update.lastRandomEventAt = timer.time;
+    }
+}
+
+function updateDifficulty(ctx: ContextWithUpdate, timer: Timer) {
+    const timeSinceDifficultyIncrease =
+        timer.time - ctx.update.lastDifficultyIncreaseAt;
+    if (timeSinceDifficultyIncrease > GAME_CONFIG.difficulty.increaseEveryMs) {
+        ctx.difficulty += GAME_CONFIG.difficulty.increaseBy;
+        ctx.update.lastDifficultyIncreaseAt = timer.time;
     }
 }

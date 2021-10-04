@@ -29,6 +29,7 @@ function startUpdateLoop(ctx: Context) {
         lastEmotion: undefined,
         lastMoodSwingAt: 0,
         lastRandomEventAt: 0,
+        lastDifficultyIncreaseAt: 0,
     };
 
     ctx.update.timer.on("update", (timer) => update(ctx, timer));
