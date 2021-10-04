@@ -1,5 +1,6 @@
 import { TextboxConfig } from "../textbox";
 
 export const TEXTBOX_CONFIG: TextboxConfig = {
-    delayMs: 20,
+    charDelayMs: 20,
+    sfxDelayMs: 130,
 };

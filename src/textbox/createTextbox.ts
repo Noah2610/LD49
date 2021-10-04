@@ -18,11 +18,22 @@ export function createTextbox(): Textbox {
         part.partEl.innerHTML += chr;
         part.partEl.scrollIntoView(false);
 
-        if (config.sfx) {
-            const ctx = expectContext();
-            if (ctx.audio.sfx.audio.has(config.sfx)) {
-                ctx.audio.sfx.play(config.sfx);
-            }
+        // if (config.sfx) {
+        //     const ctx = expectContext();
+        //     if (ctx.audio.sfx.audio.has(config.sfx)) {
+        //         ctx.audio.sfx.play(config.sfx);
+        //     }
+        // }
+    };
+
+    const updateSfx = (config: TextboxConfig) => {
+        if (!config.sfx) return;
+        const part = textbox.parts[0];
+        if (!part) return;
+
+        const ctx = expectContext();
+        if (ctx.audio.sfx.audio.has(config.sfx)) {
+            ctx.audio.sfx.play(config.sfx);
         }
     };
 
@@ -43,32 +54,46 @@ export function createTextbox(): Textbox {
 
         textbox.rootEl.appendChild(partEl);
 
-        const timer = createTimer({
-            duration: (chars.length + 2) * opts.delayMs,
-            updateInterval: opts.delayMs,
+        const charTimer = createTimer({
+            duration: (chars.length + 2) * opts.charDelayMs,
+            updateInterval: opts.charDelayMs,
         });
 
-        timer.on("update", () => updateTextbox(opts));
-        timer.on("finish", () => {
+        charTimer.on("update", () => updateTextbox(opts));
+        charTimer.on("finish", () => {
             // updateTextbox(opts);
-            textbox.parts.splice(0, 1);
+            const [part] = textbox.parts.splice(0, 1);
+
+            if (part) {
+                part.sfxTimer.reset();
+            }
 
             const nextPart = textbox.parts[0];
             if (nextPart) {
-                nextPart.timer.play();
+                nextPart.charTimer.play();
+                nextPart.sfxTimer.play();
             }
         });
 
+        const sfxTimer = createTimer({
+            duration: "infinite",
+            updateInterval: opts.sfxDelayMs,
+        });
+
+        sfxTimer.on("update", () => updateSfx(opts));
+
         const part: TextboxPart = {
             chars,
-            timer,
+            charTimer,
+            sfxTimer,
             partEl,
         };
 
         textbox.parts.push(part);
 
         if (textbox.parts.length === 1) {
-            timer.play();
+            charTimer.play();
+            sfxTimer.play();
         }
     };
 

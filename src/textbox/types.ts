@@ -10,12 +10,14 @@ export interface Textbox {
 
 export interface TextboxPart {
     chars: string[];
-    timer: Timer;
+    charTimer: Timer;
+    sfxTimer: Timer;
     partEl: HTMLElement;
 }
 
 export interface TextboxConfig {
-    delayMs: number;
+    charDelayMs: number;
+    sfxDelayMs: number;
     sfx?: string;
     updatePartEl?(partEl: HTMLElement): HTMLElement;
 }
