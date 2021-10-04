@@ -2,8 +2,8 @@ import { Emotion, EMOTIONS } from "../mood";
 import { Range } from "../util";
 
 export const MOOD_RANGE: Range = {
-    min: -1000,
-    max: 1000,
+    min: -1500,
+    max: 1500,
 };
 
 export const VELOCITY_CONFIG = {

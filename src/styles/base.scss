@@ -20,6 +20,9 @@ body {
     justify-content: center;
     align-items: center;
 
+    color: #ffffff;
+    background-color: #000000;
+
     overflow: hidden;
 }
 
@@ -46,9 +49,9 @@ main {
 
 .btn {
     padding: 1em 2em;
-    border: 16px solid black;
-    background-color: #ffffff;
-    color: #000000;
+    border: 8px solid #ffffff;
+    background-color: #000000;
+    color: #ffffff;
     font-size: 1.25em;
     font-weight: bold;
 
