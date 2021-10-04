@@ -57,6 +57,9 @@ export const AUDIO_CONFIG: AudioManagerConfig = {
             genSfx("text-sad2"),
             genSfx("text-suicidal1"),
             genSfx("syringe"),
+            genSfx("scarydeathsound"),
+            genSfx("vomit"),
+            genSfx("explosion"),
         ],
     },
 };

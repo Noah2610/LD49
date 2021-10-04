@@ -739,8 +739,8 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     gameOver: {
                         loop: false,
                         frames: [
-                            [0, 600],
-                            [1, 400],
+                            [0, 12450],
+                            [1, 200],
                             [2, 200],
                             [3, 200],
                             [4, 200],
@@ -753,9 +753,28 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
+            events: {
+                enter: {
+                    type: "Actions",
+                    actions: [
+                        {
+                            type: "PlaySfx",
+                            sfx: "scarydeathsound",
+                        },
+                        {
+                            type: "Delay",
+                            delayMs: 12850,
+                            action: {
+                                type: "PlaySfx",
+                                sfx: "vomit",
+                            },
+                        },
+                    ],
+                },
+            },
             posOffset: {
-                x: 0,
-                y: 128,
+                x: -96,
+                y: 176,
             },
         },
 
@@ -799,6 +818,25 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                             [20, 1000],
                         ],
                     },
+                },
+            },
+            events: {
+                enter: {
+                    type: "Actions",
+                    actions: [
+                        {
+                            type: "PlaySfx",
+                            sfx: "explosion",
+                        },
+                        {
+                            type: "Delay",
+                            delayMs: 5050,
+                            action: {
+                                type: "PlaySfx",
+                                sfx: "scarydeathsound",
+                            },
+                        },
+                    ],
                 },
             },
         },
