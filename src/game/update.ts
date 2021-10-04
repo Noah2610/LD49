@@ -1,6 +1,6 @@
 import { Timer } from "timesub";
 import { Context } from "../context";
-import { expectEl } from "../util";
+import { expectEl, pick } from "../util";
 import { GAME_CONFIG } from "../config/game";
 import { MOOD_RANGE } from "../config/mood";
 import { moodSwing } from ".";
@@ -9,7 +9,6 @@ import { CharacterPresentation } from "../character";
 const UPS = GAME_CONFIG.ups;
 
 const ANIMATION_NAMES = {
-    idle: "idle",
     gameOver: "gameOver",
 } as const;
 
@@ -154,8 +153,11 @@ function switchCharacterPresentation(
 
     const characterEl = expectEl("#game #character");
     characterEl.innerHTML = "";
-    if (pres.animationContainer.animations.has(ANIMATION_NAMES.idle)) {
-        pres.animationContainer.play(ANIMATION_NAMES.idle);
+    const animName = pick(
+        Array.from(pres.animationContainer.animations.keys()),
+    );
+    if (animName) {
+        pres.animationContainer.play(animName);
     }
 
     const parentEl = pres.spritesheet.img.parentElement;
