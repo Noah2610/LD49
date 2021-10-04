@@ -39,6 +39,10 @@ const baseSpritesheet: Omit<SpritesheetConfig, "src"> = {
 
 const defaultSpeechBubbleDespawnMs = 4000;
 const DEFAULT_ENTER_DELAY_MS = 3500;
+const defaultPosOffset = {
+    x: 0,
+    y: 64,
+};
 
 export const CHARACTER_CONFIG: CharacterConfig = {
     emotions: {
@@ -153,6 +157,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
+            posOffset: defaultPosOffset,
         },
 
         Depressed: {
@@ -232,6 +237,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
+            posOffset: defaultPosOffset,
         },
 
         Sad: {
@@ -307,6 +313,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
+            posOffset: defaultPosOffset,
         },
 
         Calm: {
@@ -403,6 +410,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
+            posOffset: defaultPosOffset,
         },
 
         Happy: {
@@ -504,6 +512,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
+            posOffset: defaultPosOffset,
         },
 
         Excited: {
@@ -596,6 +605,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
+            posOffset: defaultPosOffset,
         },
 
         Manic: {
@@ -707,6 +717,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
+            posOffset: defaultPosOffset,
         },
     },
 
