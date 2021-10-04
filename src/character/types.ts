@@ -18,7 +18,6 @@ export type CharacterEmotions = {
 
 export interface CharacterEmotion extends CharacterPresentation {
     emotion: Emotion;
-    events?: CharacterEmotionEvents;
 }
 
 export interface CharacterGameOver {
@@ -30,6 +29,7 @@ export interface CharacterPresentation {
     spritesheet: Spritesheet;
     animationContainer: AnimationContainer;
     bgm?: string;
+    events?: CharacterEmotionEvents;
     posOffset?: Pos;
 }
 

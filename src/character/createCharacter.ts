@@ -11,13 +11,11 @@ export function createCharacter(): Character {
     const emotions: Partial<CharacterEmotions> = {};
 
     EMOTIONS.forEach((emotion) => {
-        const emotionConfig = CHARACTER_CONFIG.emotions[emotion];
         emotions[emotion] = {
             ...genCharacterPresentationFromConfig(
                 CHARACTER_CONFIG.emotions[emotion],
             ),
             emotion,
-            events: emotionConfig.events,
         };
     });
 
@@ -58,6 +56,7 @@ function genCharacterPresentationFromConfig(
         spritesheet,
         animationContainer,
         bgm: config.bgm,
+        events: config.events,
         posOffset: config.posOffset,
     };
 }

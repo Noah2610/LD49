@@ -25,7 +25,7 @@ export const GAME_CONFIG: GameConfig = {
         },
     },
     randomEvent: {
-        intervalMs: 2000,
+        intervalMs: 10000,
     },
     difficulty: {
         increaseEveryMs: 2000,

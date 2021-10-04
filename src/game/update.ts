@@ -53,15 +53,7 @@ function updateMood(ctx: ContextWithUpdate, timer: Timer) {
     const charEmotion = chr.getCurrentCharacterEmotion();
 
     if (ctx.update.lastEmotion !== charEmotion.emotion) {
-        if (prevCharEmotion.events?.leave) {
-            ctx.actionEmitter.emit(prevCharEmotion.events?.leave);
-        }
-
         switchCharacterPresentation(ctx, charEmotion, prevCharEmotion);
-
-        if (charEmotion.events?.enter) {
-            ctx.actionEmitter.emit(charEmotion.events?.enter);
-        }
 
         ctx.update.lastEmotion = chr.mood.emotion;
         ctx.update.lastRandomEventAt = timer.time; // reset on emotion switch
@@ -151,6 +143,10 @@ function switchCharacterPresentation(
     pres: CharacterPresentation,
     prevPres: CharacterPresentation,
 ) {
+    if (prevPres.events?.leave) {
+        ctx.actionEmitter.emit(prevPres.events?.leave);
+    }
+
     const prevAnim = prevPres.animationContainer.getCurrentAnimation();
     if (prevAnim) {
         prevAnim.reset();
@@ -170,4 +166,8 @@ function switchCharacterPresentation(
     }
 
     pres.spritesheet.insertDom(characterEl);
+
+    if (pres.events?.enter) {
+        ctx.actionEmitter.emit(pres.events?.enter);
+    }
 }

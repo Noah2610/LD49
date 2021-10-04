@@ -11,9 +11,7 @@ export interface CharacterConfig {
     gameOver: CharacterGameOverConfig;
 }
 
-export interface CharacterEmotionConfig extends CharacterPresentationConfig {
-    events?: CharacterEmotionEvents;
-}
+export interface CharacterEmotionConfig extends CharacterPresentationConfig {}
 
 export interface CharacterGameOverConfig {
     Suicidal: CharacterPresentationConfig;
@@ -24,6 +22,7 @@ export interface CharacterPresentationConfig {
     spritesheet: SpritesheetConfig;
     animations: AnimationContainerConfig;
     bgm?: CharacterEmotion["bgm"];
+    events?: CharacterEmotionEvents;
     posOffset?: Pos;
 }
 
