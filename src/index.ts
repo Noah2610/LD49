@@ -1,6 +1,5 @@
 import "./styles/index.scss";
 
-import devImg from "./assets/spr_test_B.png";
 import bgImg from "./assets/bg/bg_test_B.png";
 
 import { expectEl, pick } from "./util";
@@ -21,28 +20,28 @@ function setupBg() {
 }
 
 function dev() {
-    setInterval(() => {
-        spawnSpeechBubble({
-            text: pick([
-                "Lmao",
-                "Yeet",
-                "Owch",
-                "Oh-oh",
-                "Crazy!",
-                "What's going on?!",
-                "Where am I?",
-                "I'm scared.",
-                "Help me.",
-                "Run.",
-            ])!,
-            despawnMs: 5000,
-        });
-    }, 2000);
-
-    const ctx = expectContext();
-
     // setInterval(() => {
-    ctx.textbox.add("Hello World!");
+    //     spawnSpeechBubble({
+    //         text: pick([
+    //             "Lmao",
+    //             "Yeet",
+    //             "Owch",
+    //             "Oh-oh",
+    //             "Crazy!",
+    //             "What's going on?!",
+    //             "Where am I?",
+    //             "I'm scared.",
+    //             "Help me.",
+    //             "Run.",
+    //         ])!,
+    //         despawnMs: 5000,
+    //     });
+    // }, 2000);
+    //
+    // const ctx = expectContext();
+    //
+    // setInterval(() => {
+    // ctx.textbox.add("Hello World!");
     // }, 5000);
 }
 

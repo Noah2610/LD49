@@ -1,4 +1,4 @@
-import { CharacterEmotion } from "../character";
+import { CharacterEmotion, CharacterEmotionEvents } from "../character";
 import { AnimationContainerConfig } from "../animation";
 import { Emotion } from "../mood";
 import { SpritesheetConfig } from "../spritesheet";
@@ -12,7 +12,8 @@ export interface CharacterConfig {
 export interface CharacterEmotionConfig {
     spritesheet: SpritesheetConfig;
     animations: AnimationContainerConfig;
-    audio: CharacterEmotion["audio"];
+    bgm?: CharacterEmotion["bgm"];
+    events?: CharacterEmotionEvents;
 }
 
 const baseSpritesheet: Omit<SpritesheetConfig, "src"> = {
@@ -25,6 +26,8 @@ const baseSpritesheet: Omit<SpritesheetConfig, "src"> = {
         h: 320,
     },
 };
+
+const defaultSpeechBubbleDespawnMs = 3000;
 
 export const CHARACTER_CONFIG: CharacterConfig = {
     emotions: {
@@ -64,8 +67,31 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
-            audio: {
-                bgm: "sad3",
+            bgm: "sad3",
+            events: {
+                enter: {
+                    type: "Actions",
+                    actions: [
+                        {
+                            type: "AddText",
+                            text: "Better make him happy quick...",
+                        },
+                        {
+                            type: "SpawnSpeechBubble",
+                            options: {
+                                text: "Life fucking sucks, dude.",
+                                despawnMs: defaultSpeechBubbleDespawnMs,
+                            },
+                        },
+                    ],
+                },
+                random: {
+                    type: "SpawnSpeechBubble",
+                    options: {
+                        text: "Can't take it much longer.",
+                        despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                    },
+                },
             },
         },
 
@@ -86,8 +112,15 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
-            audio: {
-                bgm: "sad2",
+            bgm: "sad2",
+            events: {
+                enter: {
+                    type: "SpawnSpeechBubble",
+                    options: {
+                        text: "Life sucks.",
+                        despawnMs: defaultSpeechBubbleDespawnMs,
+                    },
+                },
             },
         },
 
@@ -109,8 +142,15 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
-            audio: {
-                bgm: "sad1",
+            bgm: "sad1",
+            events: {
+                enter: {
+                    type: "SpawnSpeechBubble",
+                    options: {
+                        text: "I'm sad.",
+                        despawnMs: defaultSpeechBubbleDespawnMs,
+                    },
+                },
             },
         },
 
@@ -152,8 +192,15 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
-            audio: {
-                bgm: "happy1",
+            bgm: "happy1",
+            events: {
+                enter: {
+                    type: "SpawnSpeechBubble",
+                    options: {
+                        text: "It's cool.",
+                        despawnMs: defaultSpeechBubbleDespawnMs,
+                    },
+                },
             },
         },
 
@@ -202,8 +249,15 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
-            audio: {
-                bgm: "happy1",
+            bgm: "happy1",
+            events: {
+                enter: {
+                    type: "SpawnSpeechBubble",
+                    options: {
+                        text: "Funny!",
+                        despawnMs: defaultSpeechBubbleDespawnMs,
+                    },
+                },
             },
         },
 
@@ -231,8 +285,15 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
-            audio: {
-                bgm: "happy2",
+            bgm: "happy2",
+            events: {
+                enter: {
+                    type: "SpawnSpeechBubble",
+                    options: {
+                        text: "Hahahaa, this is great!",
+                        despawnMs: defaultSpeechBubbleDespawnMs,
+                    },
+                },
             },
         },
 
@@ -269,8 +330,31 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
-            audio: {
-                bgm: "happy2",
+            bgm: "happy2",
+            events: {
+                enter: {
+                    type: "Actions",
+                    actions: [
+                        {
+                            type: "AddText",
+                            text: "Too excited, he's gonna lose it!",
+                        },
+                        {
+                            type: "SpawnSpeechBubble",
+                            options: {
+                                text: "I can do SO many THINGS!",
+                                despawnMs: defaultSpeechBubbleDespawnMs,
+                            },
+                        },
+                    ],
+                },
+                random: {
+                    type: "SpawnSpeechBubble",
+                    options: {
+                        text: "AWESOME",
+                        despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                    },
+                },
             },
         },
     },

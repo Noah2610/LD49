@@ -6,6 +6,9 @@ export interface GameConfig {
         intervalMs: number;
         strengthRange: Range;
     };
+    randomEvent: {
+        intervalMs: number;
+    };
 }
 
 export const GAME_CONFIG: GameConfig = {
@@ -16,5 +19,8 @@ export const GAME_CONFIG: GameConfig = {
             min: -1,
             max: 1,
         },
+    },
+    randomEvent: {
+        intervalMs: 2000,
     },
 };

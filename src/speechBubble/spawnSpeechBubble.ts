@@ -84,17 +84,17 @@ export function spawnSpeechBubble(options: SpawnSpeechBubbleOptions) {
     bubbleEl.classList.add(
         "speech-bubble",
         `speech-bubble--corner-${corner}`,
-        "hidden",
+        // "hidden",
     );
     bubbleEl.style.top = `${pos.y}px`;
     bubbleEl.style.left = `${pos.x}px`;
 
     rootEl.appendChild(bubbleEl);
 
-    setTimeout(() => bubbleEl.classList.remove("hidden"), 1);
+    // setTimeout(() => bubbleEl.classList.remove("hidden"), 10);
 
     setTimeout(() => {
-        bubbleEl.classList.add("hidden");
+        bubbleEl.classList.add("speech-bubble--fade-out");
         setTimeout(() => rootEl.removeChild(bubbleEl), 500);
     }, options.despawnMs);
 }

@@ -13,7 +13,12 @@
         border-radius: 32px;
         box-shadow: 0 0 16px 4px;
 
-        transition: opacity 500ms ease-in-out;
+        // transition: opacity 500ms ease-in-out;
+        animation: fadeIn 500ms ease-in-out forwards;
+
+        &--fade-out {
+            animation: fadeOut 500ms ease-in-out forwards;
+        }
 
         &--corner {
             &-top-left {
@@ -33,5 +38,23 @@
                 transform: translate(0, 0);
             }
         }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
     }
 }

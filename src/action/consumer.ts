@@ -1,4 +1,4 @@
-import { randomRange } from "../util";
+import { pick, randomRange } from "../util";
 import { Context } from "../context";
 import { spawnSpeechBubble } from "../speechBubble";
 import { ActionEmitter } from ".";
@@ -16,6 +16,11 @@ export function setupActionConsumer(ctx: Context): () => void {
 
     listen("Actions", (action) => {
         action.actions.forEach((a) => emitter.emit(a));
+    });
+
+    listen("Random", (action) => {
+        if (action.actions.length === 0) return;
+        emitter.emit(pick(action.actions)!);
     });
 
     listen("Debug", (action) => {

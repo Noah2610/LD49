@@ -20,7 +20,8 @@ export async function createCharacter(): Promise<Character> {
                         spritesheet,
                         emotionConfig.animations,
                     ),
-                    audio: emotionConfig.audio,
+                    bgm: emotionConfig.bgm,
+                    events: emotionConfig.events,
                 };
             }),
         ),

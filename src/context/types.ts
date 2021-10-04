@@ -18,5 +18,6 @@ export interface Context {
         lastUpdateAt: number;
         lastEmotion?: Emotion;
         lastMoodSwingAt: number;
+        lastRandomEventAt: number;
     };
 }

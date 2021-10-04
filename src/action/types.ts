@@ -15,6 +15,10 @@ export type Action =
           actions: Action[];
       }
     | {
+          type: "Random";
+          actions: Action[];
+      }
+    | {
           type: "MoodChange";
           velocity: Range;
       }

@@ -29,7 +29,7 @@ export function createMood(): Mood {
 
     const emotion = emotionForMood(0) || "Calm";
 
-    const update: Mood["update"] = (dt) => {
+    const update: Mood["update"] = () => {
         mood.value = Math.max(
             Math.min(mood.value + mood.velocity, MOOD_RANGE.max),
             MOOD_RANGE.min,

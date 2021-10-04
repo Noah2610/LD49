@@ -1,6 +1,7 @@
 import { AnimationContainer } from "../animation";
 import { Spritesheet } from "../spritesheet";
 import { Emotion, Mood } from "../mood";
+import { Action } from "../action";
 
 export interface Character {
     mood: Mood;
@@ -17,8 +18,12 @@ export interface CharacterEmotion {
     emotion: Emotion;
     spritesheet: Spritesheet;
     animationContainer: AnimationContainer;
-    audio: {
-        bgm?: string;
-        sfx?: string;
-    };
+    bgm?: string;
+    events?: CharacterEmotionEvents;
+}
+
+export interface CharacterEmotionEvents {
+    enter?: Action;
+    leave?: Action;
+    random?: Action;
 }

@@ -3,7 +3,7 @@ export interface Mood {
     velocity: number;
     emotion: Emotion;
 
-    update(dt: number): void;
+    update(): void;
     setVelocity(vel: number): void;
     addVelocity(vel: number): void;
 }
