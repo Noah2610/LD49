@@ -52,5 +52,9 @@ export function setupActionConsumer(ctx: Context): () => void {
         charEmotion.animationContainer.play(action.animation);
     });
 
+    listen("Delay", (action) => {
+        setTimeout(() => ctx.actionEmitter.emit(action.action), action.delayMs);
+    });
+
     return () => unsubs.forEach((cb) => cb());
 }

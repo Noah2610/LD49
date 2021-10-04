@@ -28,6 +28,7 @@ const baseSpritesheet: Omit<SpritesheetConfig, "src"> = {
 };
 
 const defaultSpeechBubbleDespawnMs = 3000;
+const DEFAULT_ENTER_DELAY_MS = 1000;
 
 export const CHARACTER_CONFIG: CharacterConfig = {
     emotions: {
@@ -70,44 +71,48 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             bgm: "sad3",
             events: {
                 enter: {
-                    type: "Actions",
-                    actions: [
-                        {
-                            type: "Random",
-                            actions: [
-                                {
-                                    type: "PlayCharacterAnimation",
-                                    animation: "idle",
-                                },
-                                {
-                                    type: "PlayCharacterAnimation",
-                                    animation: "other",
-                                },
-                            ],
-                        },
-                        {
-                            type: "AddText",
-                            randomText: [
-                                "Aaalwayys look onnn the briiiiiight sideee of Life!",
-                                "OH NO. This... this is bad. I think i left my stove on.",
-                                "So... what's your opinion on deez?",
-                                "BOO! .......well, it was worth a try.",
-                            ],
-                        },
-                        {
-                            type: "SpawnSpeechBubble",
-                            randomText: [
-                                "...",
-                                "...Make it stop...",
-                                "Komm, süsser Tod.....",
-                                "I..... I can see the light",
-                                "... so bright..!",
-                            ],
-                            options: {
-                                despawnMs: defaultSpeechBubbleDespawnMs,
+                    type: "Delay",
+                    delayMs: DEFAULT_ENTER_DELAY_MS,
+                    action: {
+                        type: "Actions",
+                        actions: [
+                            {
+                                type: "Random",
+                                actions: [
+                                    {
+                                        type: "PlayCharacterAnimation",
+                                        animation: "idle",
+                                    },
+                                    {
+                                        type: "PlayCharacterAnimation",
+                                        animation: "other",
+                                    },
+                                ],
                             },
-                        },
-                    ],
+                            {
+                                type: "AddText",
+                                randomText: [
+                                    "Aaalwayys look onnn the briiiiiight sideee of Life!",
+                                    "OH NO. This... this is bad. I think i left my stove on.",
+                                    "So... what's your opinion on deez?",
+                                    "BOO! .......well, it was worth a try.",
+                                ],
+                            },
+                            {
+                                type: "SpawnSpeechBubble",
+                                randomText: [
+                                    "...",
+                                    "...Make it stop...",
+                                    "Komm, süsser Tod.....",
+                                    "I..... I can see the light",
+                                    "... so bright..!",
+                                ],
+                                options: {
+                                    despawnMs: defaultSpeechBubbleDespawnMs,
+                                },
+                            },
+                        ],
+                    },
                 },
                 random: {
                     type: "SpawnSpeechBubble",
@@ -145,29 +150,33 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             bgm: "sad2",
             events: {
                 enter: {
-                    type: "Actions",
-                    actions: [
-                        {
-                            type: "AddText",
-                            randomText: [
-                                "Why the long face?",
-                                "So..... what's your favorite movie?",
-                                "What's wrong, buddy? Did you see a ghost?",
-                            ],
-                        },
-                        {
-                            type: "SpawnSpeechBubble",
-                            randomText: [
-                                "..........",
-                                "................",
-                                "*gulp*",
-                                "Oh.... oh God",
-                            ],
-                            options: {
-                                despawnMs: defaultSpeechBubbleDespawnMs,
+                    type: "Delay",
+                    delayMs: DEFAULT_ENTER_DELAY_MS,
+                    action: {
+                        type: "Actions",
+                        actions: [
+                            {
+                                type: "AddText",
+                                randomText: [
+                                    "Why the long face?",
+                                    "So..... what's your favorite movie?",
+                                    "What's wrong, buddy? Did you see a ghost?",
+                                ],
                             },
-                        },
-                    ],
+                            {
+                                type: "SpawnSpeechBubble",
+                                randomText: [
+                                    "..........",
+                                    "................",
+                                    "*gulp*",
+                                    "Oh.... oh God",
+                                ],
+                                options: {
+                                    despawnMs: defaultSpeechBubbleDespawnMs,
+                                },
+                            },
+                        ],
+                    },
                 },
                 random: {
                     type: "SpawnSpeechBubble",
@@ -205,10 +214,14 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             bgm: "sad1",
             events: {
                 enter: {
-                    type: "SpawnSpeechBubble",
-                    text: "I'm sad.",
-                    options: {
-                        despawnMs: defaultSpeechBubbleDespawnMs,
+                    type: "Delay",
+                    delayMs: DEFAULT_ENTER_DELAY_MS,
+                    action: {
+                        type: "SpawnSpeechBubble",
+                        text: "I'm sad.",
+                        options: {
+                            despawnMs: defaultSpeechBubbleDespawnMs,
+                        },
                     },
                 },
             },
@@ -255,22 +268,29 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             bgm: "happy1",
             events: {
                 enter: {
-                    type: "Actions",
-                    actions: [
-                        {
-                            type: "AddText",
-                            randomText: [
-                                "You seem exceptionally stable and healthy. How boring...",
-                            ],
-                        },
-                        {
-                            type: "SpawnSpeechBubble",
-                            randomText: ["Hmm...", "C'est la vie. ...I guess"],
-                            options: {
-                                despawnMs: defaultSpeechBubbleDespawnMs,
+                    type: "Delay",
+                    delayMs: DEFAULT_ENTER_DELAY_MS,
+                    action: {
+                        type: "Actions",
+                        actions: [
+                            {
+                                type: "AddText",
+                                randomText: [
+                                    "You seem exceptionally stable and healthy. How boring...",
+                                ],
                             },
-                        },
-                    ],
+                            {
+                                type: "SpawnSpeechBubble",
+                                randomText: [
+                                    "Hmm...",
+                                    "C'est la vie. ...I guess",
+                                ],
+                                options: {
+                                    despawnMs: defaultSpeechBubbleDespawnMs,
+                                },
+                            },
+                        ],
+                    },
                 },
                 random: {
                     type: "SpawnSpeechBubble",
@@ -330,10 +350,14 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             bgm: "happy1",
             events: {
                 enter: {
-                    type: "SpawnSpeechBubble",
-                    text: "Funny!",
-                    options: {
-                        despawnMs: defaultSpeechBubbleDespawnMs,
+                    type: "Delay",
+                    delayMs: DEFAULT_ENTER_DELAY_MS,
+                    action: {
+                        type: "SpawnSpeechBubble",
+                        text: "Funny!",
+                        options: {
+                            despawnMs: defaultSpeechBubbleDespawnMs,
+                        },
                     },
                 },
             },
@@ -366,31 +390,35 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             bgm: "happy2",
             events: {
                 enter: {
-                    type: "Actions",
-                    actions: [
-                        {
-                            type: "AddText",
-                            randomText: [
-                                "Anything good on?",
-                                "Don't worry about your face, common side-effect, y'know.",
-                                "Woah buddy, what's that on your face? You should really get that checked...",
-                                "Say CHEEEEESE...",
-                            ],
-                        },
-                        {
-                            type: "SpawnSpeechBubble",
-                            randomText: [
-                                "ekEkkKEKKEkEekKEkEKKEkE",
-                                "AAAAAAAAAAAAAAAAAAAAAA",
-                                "oksoheresthethingifchickenfromeggandeggfromchickesnthennwhrecmoetehuorignslhicknefro-",
-                                "OkSoHeresTheThingIfChickenFromEggAndEggFromChickesnThennWhreCmoeTehuOrignslhCickneFro-",
-                                "Woww it's.. heh.. i mean. isn't it? Ye? Like, i mean, really hot, isn't it? heh.. he-",
-                            ],
-                            options: {
-                                despawnMs: defaultSpeechBubbleDespawnMs,
+                    type: "Delay",
+                    delayMs: DEFAULT_ENTER_DELAY_MS,
+                    action: {
+                        type: "Actions",
+                        actions: [
+                            {
+                                type: "AddText",
+                                randomText: [
+                                    "Anything good on?",
+                                    "Don't worry about your face, common side-effect, y'know.",
+                                    "Woah buddy, what's that on your face? You should really get that checked...",
+                                    "Say CHEEEEESE...",
+                                ],
                             },
-                        },
-                    ],
+                            {
+                                type: "SpawnSpeechBubble",
+                                randomText: [
+                                    "ekEkkKEKKEkEekKEkEKKEkE",
+                                    "AAAAAAAAAAAAAAAAAAAAAA",
+                                    "oksoheresthethingifchickenfromeggandeggfromchickesnthennwhrecmoetehuorignslhicknefro-",
+                                    "OkSoHeresTheThingIfChickenFromEggAndEggFromChickesnThennWhreCmoeTehuOrignslhCickneFro-",
+                                    "Woww it's.. heh.. i mean. isn't it? Ye? Like, i mean, really hot, isn't it? heh.. he-",
+                                ],
+                                options: {
+                                    despawnMs: defaultSpeechBubbleDespawnMs,
+                                },
+                            },
+                        ],
+                    },
                 },
                 random: {
                     type: "SpawnSpeechBubble",
@@ -444,33 +472,37 @@ export const CHARACTER_CONFIG: CharacterConfig = {
             bgm: "happy2",
             events: {
                 enter: {
-                    type: "Actions",
-                    actions: [
-                        {
-                            type: "AddText",
-                            randomText: [
-                                "Is this a bad time to get a coffee?",
-                                "Don't take this the wrong way, but I think you need a haircut.",
-                                `I believe the scientific term for what's about to commence is "Spontaneous Combustion"`,
-                                "Mom!! Get the Camera!",
-                                "Yo. This is metal as fuck.",
-                                "The subject seems a little... unstable",
-                            ],
-                        },
-                        {
-                            type: "SpawnSpeechBubble",
-                            randomText: [
-                                "ÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆ",
-                                " 	� 	� 	� 	� 	�",
-                                "GNIDNECSA MA I",
-                                "GGGNNNIIIDDDNNNEEECCCSSSAAA MMMAAA III",
-                                "RIVERRUN ... FROM SWERVE OF SHORE ... VICUS OF RECIRCULATION",
-                            ],
-                            options: {
-                                despawnMs: defaultSpeechBubbleDespawnMs,
+                    type: "Delay",
+                    delayMs: DEFAULT_ENTER_DELAY_MS,
+                    action: {
+                        type: "Actions",
+                        actions: [
+                            {
+                                type: "AddText",
+                                randomText: [
+                                    "Is this a bad time to get a coffee?",
+                                    "Don't take this the wrong way, but I think you need a haircut.",
+                                    `I believe the scientific term for what's about to commence is "Spontaneous Combustion"`,
+                                    "Mom!! Get the Camera!",
+                                    "Yo. This is metal as fuck.",
+                                    "The subject seems a little... unstable",
+                                ],
                             },
-                        },
-                    ],
+                            {
+                                type: "SpawnSpeechBubble",
+                                randomText: [
+                                    "ÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆ",
+                                    " 	� 	� 	� 	� 	�",
+                                    "GNIDNECSA MA I",
+                                    "GGGNNNIIIDDDNNNEEECCCSSSAAA MMMAAA III",
+                                    "RIVERRUN ... FROM SWERVE OF SHORE ... VICUS OF RECIRCULATION",
+                                ],
+                                options: {
+                                    despawnMs: defaultSpeechBubbleDespawnMs,
+                                },
+                            },
+                        ],
+                    },
                 },
                 random: {
                     type: "SpawnSpeechBubble",

@@ -49,6 +49,11 @@ export type Action =
     | {
           type: "PlayCharacterAnimation";
           animation: string;
+      }
+    | {
+          type: "Delay";
+          delayMs: number;
+          action: Action;
       };
 
 export type ActionType = Action["type"];
