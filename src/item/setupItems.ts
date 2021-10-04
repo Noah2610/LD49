@@ -118,6 +118,7 @@ export function setupItems(): [Item[], () => void] {
 
         const spritesheet = createSpritesheet(randomItem.spritesheet);
         spritesheet.img.setAttribute("draggable", "false");
+        spritesheet.img.onmousedown = (e) => e.preventDefault();
 
         const item: Item = {
             type: itemConfig.type,
