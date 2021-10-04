@@ -33,6 +33,12 @@ export function setupItems(): [Item[], () => void] {
             itemEl.style.top = `${pos.y}px`;
             itemEl.style.left = `${pos.x}px`;
 
+            const parentEl = itemEl.parentElement;
+            if (parentEl) {
+                parentEl.style.width = `${itemEl.clientWidth}px`;
+                parentEl.style.height = `${itemEl.clientHeight}px`;
+            }
+
             item.draggingState = {
                 isDragging: true,
                 offset,
@@ -111,6 +117,7 @@ export function setupItems(): [Item[], () => void] {
         const itemConfig = ITEM_CONFIG.types[nextItemType()];
 
         const spritesheet = createSpritesheet(randomItem.spritesheet);
+        spritesheet.img.setAttribute("draggable", "false");
 
         const item: Item = {
             type: itemConfig.type,
@@ -155,6 +162,8 @@ export function setupItems(): [Item[], () => void] {
             () => document.removeEventListener("mousemove", onMouseMove),
             () => document.removeEventListener("touchmove", onMouseMove),
         );
+
+        item.spritesheet.insertDom(itemEl);
 
         itemWrapperEl.appendChild(itemEl);
         toolbarEl.appendChild(itemWrapperEl);
