@@ -78,7 +78,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
-            bgm: "sad3",
+            bgm: "suicidal",
             events: {
                 enter: {
                     type: "Delay",
@@ -157,7 +157,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
-            bgm: "sad2",
+            bgm: "depressed",
             events: {
                 enter: {
                     type: "Delay",
@@ -221,7 +221,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
-            bgm: "sad1",
+            bgm: "sad",
             events: {
                 enter: {
                     type: "Delay",
@@ -291,7 +291,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
-            bgm: "happy1",
+            bgm: "calm",
             events: {
                 enter: {
                     type: "Delay",
@@ -377,7 +377,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
-            bgm: "happy1",
+            bgm: "happy",
             events: {
                 enter: {
                     type: "Delay",
@@ -417,7 +417,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
-            bgm: "happy2",
+            bgm: "excited",
             events: {
                 enter: {
                     type: "Delay",
@@ -500,7 +500,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     },
                 },
             },
-            bgm: "happy2",
+            bgm: "manic",
             events: {
                 enter: {
                     type: "Delay",
