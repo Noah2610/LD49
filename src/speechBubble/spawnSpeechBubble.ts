@@ -8,7 +8,9 @@ export interface SpeechBubbleOptions {
     scrollConfig: TextScrollConfig;
 }
 
-export type PartialSpeechBubbleOptions = Partial<SpeechBubbleOptions> & {
+export type PartialSpeechBubbleOptions = {
+    despawnMs?: number;
+} & {
     scrollConfig?: Partial<TextScrollConfig>;
 };
 

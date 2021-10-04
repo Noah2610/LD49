@@ -119,6 +119,15 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
+                                    scrollConfig: {
+                                        updatePartEl(el) {
+                                            el.classList.add(
+                                                "text",
+                                                "text--shake",
+                                            );
+                                            return el;
+                                        },
+                                    },
                                 },
                             },
                         ],
