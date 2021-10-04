@@ -34,7 +34,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Suicidal: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/spr_suicidal.png"),
+                src: require("../assets/sprites/suicidal.png"),
             },
             animations: {
                 animations: {
@@ -104,7 +104,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Depressed: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/spr_depressed.png"),
+                src: require("../assets/sprites/depressed.png"),
             },
             animations: {
                 animations: {
@@ -133,7 +133,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Sad: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/spr_sad.png"),
+                src: require("../assets/sprites/sad.png"),
             },
             animations: {
                 animations: {
@@ -163,7 +163,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Calm: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/spr_calm.png"),
+                src: require("../assets/sprites/calm.png"),
             },
             animations: {
                 animations: {
@@ -213,7 +213,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Happy: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/spr_happy.png"),
+                src: require("../assets/sprites/happy.png"),
             },
             animations: {
                 animations: {
@@ -270,7 +270,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Excited: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/spr_excited.png"),
+                src: require("../assets/sprites/excited.png"),
             },
             animations: {
                 animations: {
@@ -306,7 +306,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Manic: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/spr_manic.png"),
+                src: require("../assets/sprites/manic.png"),
             },
             animations: {
                 animations: {
