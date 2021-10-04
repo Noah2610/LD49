@@ -1,21 +1,25 @@
 import { Timer } from "timesub";
 
 export interface Textbox {
-    rootEl: HTMLElement;
-    config: TextboxConfig;
-    parts: TextboxPart[];
-
-    add(text: string, options?: Partial<TextboxConfig>): void;
+    scroll: TextScroll;
 }
 
-export interface TextboxPart {
+export interface TextScroll {
+    rootEl: HTMLElement;
+    config: TextScrollConfig;
+    parts: TextScrollPart[];
+
+    add(text: string, options?: Partial<TextScrollConfig>): void;
+}
+
+export interface TextScrollPart {
     chars: string[];
     charTimer: Timer;
     sfxTimer: Timer;
     partEl: HTMLElement;
 }
 
-export interface TextboxConfig {
+export interface TextScrollConfig {
     charDelayMs: number;
     sfxDelayMs: number;
     sfx?: string;

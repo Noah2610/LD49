@@ -1,5 +1,5 @@
-import { SpawnSpeechBubbleOptions } from "../speechBubble";
-import { TextboxConfig } from "../textbox";
+import { PartialSpeechBubbleOptions } from "../speechBubble";
+import { TextScrollConfig } from "../textbox";
 import { Range } from "../util";
 
 export type Action =
@@ -29,22 +29,22 @@ export type Action =
     | {
           type: "AddText";
           text: string;
-          config?: Partial<TextboxConfig>;
+          config?: Partial<TextScrollConfig>;
       }
     | {
           type: "AddText";
           randomText: string[];
-          config?: Partial<TextboxConfig>;
+          config?: Partial<TextScrollConfig>;
       }
     | {
           type: "SpawnSpeechBubble";
           text: string;
-          options?: Partial<SpawnSpeechBubbleOptions>;
+          options?: PartialSpeechBubbleOptions;
       }
     | {
           type: "SpawnSpeechBubble";
           randomText: string[];
-          options?: Partial<SpawnSpeechBubbleOptions>;
+          options?: PartialSpeechBubbleOptions;
       };
 
 export type ActionType = Action["type"];

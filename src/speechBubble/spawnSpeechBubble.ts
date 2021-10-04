@@ -1,20 +1,35 @@
+import { SpeechBubble } from ".";
+import { TEXTBOX_CONFIG } from "../config/textbox";
+import { createTextScroll, TextScrollConfig } from "../textbox";
 import { expectEl, pick, Pos, randomRange, Range, Size } from "../util";
 
-export interface SpawnSpeechBubbleOptions {
+export interface SpeechBubbleOptions {
     despawnMs: number;
+    scrollConfig: TextScrollConfig;
 }
 
-const DEFAULT_SPAWN_SPEECH_BUBBLE_OPTIONS: SpawnSpeechBubbleOptions = {
-    despawnMs: 3000,
+export type PartialSpeechBubbleOptions = Partial<SpeechBubbleOptions> & {
+    scrollConfig?: Partial<TextScrollConfig>;
 };
+
+const DEFAULT_SPAWN_SPEECH_BUBBLE_OPTIONS: SpeechBubbleOptions = {
+    despawnMs: 3000,
+    scrollConfig: TEXTBOX_CONFIG,
+};
+
+const FADE_ANIM_DELAY_MS = 500;
 
 export function spawnSpeechBubble(
     text: string,
-    options?: Partial<SpawnSpeechBubbleOptions>,
-) {
+    options?: PartialSpeechBubbleOptions,
+): SpeechBubble {
     const opts = {
         ...DEFAULT_SPAWN_SPEECH_BUBBLE_OPTIONS,
         ...options,
+        scrollConfig: {
+            ...DEFAULT_SPAWN_SPEECH_BUBBLE_OPTIONS.scrollConfig,
+            ...options?.scrollConfig,
+        },
     };
 
     const rootEl = expectEl("#game #speech-bubbles");
@@ -91,7 +106,7 @@ export function spawnSpeechBubble(
     };
 
     const bubbleEl = document.createElement("div");
-    bubbleEl.innerText = text;
+    // bubbleEl.innerText = text;
     bubbleEl.classList.add(
         "speech-bubble",
         `speech-bubble--corner-${corner}`,
@@ -102,12 +117,20 @@ export function spawnSpeechBubble(
 
     rootEl.appendChild(bubbleEl);
 
+    const speechBubble: SpeechBubble = {
+        scroll: createTextScroll(bubbleEl, opts.scrollConfig),
+    };
+
     // setTimeout(() => bubbleEl.classList.remove("hidden"), 10);
+
+    setTimeout(() => speechBubble.scroll.add(text), FADE_ANIM_DELAY_MS / 2);
 
     setTimeout(() => {
         bubbleEl.classList.add("speech-bubble--fade-out");
-        setTimeout(() => rootEl.removeChild(bubbleEl), 500);
+        setTimeout(() => rootEl.removeChild(bubbleEl), FADE_ANIM_DELAY_MS);
     }, opts.despawnMs);
+
+    return speechBubble;
 }
 
 const SPEECH_BUBBLE_CORNERS = [

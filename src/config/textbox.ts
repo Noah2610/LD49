@@ -1,6 +1,6 @@
-import { TextboxConfig } from "../textbox";
+import { TextScrollConfig } from "../textbox";
 
-export const TEXTBOX_CONFIG: TextboxConfig = {
+export const TEXTBOX_CONFIG: TextScrollConfig = {
     charDelayMs: 20,
     sfxDelayMs: 100,
     sfx: "textbox-char",
