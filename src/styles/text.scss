@@ -1,6 +1,6 @@
 .text {
     &.text--shake {
-        animation: textShake 100ms steps(8, end) infinite;
+        animation: textShake 100ms steps(16, end) infinite;
     }
 }
 

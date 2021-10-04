@@ -72,6 +72,7 @@ export const ITEM_CONFIG: ItemConfig = {
                             randomText: [
                                 "Wakey wakey, sunshine! ",
                                 "Now now, don't be such a baby... ",
+                                "This'll get you on your feet again - not even close!",
                             ],
                         },
                     ],
@@ -81,7 +82,10 @@ export const ITEM_CONFIG: ItemConfig = {
                     actions: [
                         {
                             type: "AddText",
-                            randomText: ["Okok... happy now? "],
+                            randomText: [
+                                "Okok... happy now?",
+                                "There ya go. Enjoy!",
+                            ],
                         },
                     ],
                 },
@@ -90,7 +94,11 @@ export const ITEM_CONFIG: ItemConfig = {
                     actions: [
                         {
                             type: "AddText",
-                            randomText: ["Okok... happy now? "],
+                            randomText: [
+                                "Okok... happy now? ",
+                                "Have some backbone, man. ",
+                                "Cheer up, it's a beautiful day!",
+                            ],
                         },
                     ],
                 },
@@ -101,6 +109,8 @@ export const ITEM_CONFIG: ItemConfig = {
                             type: "AddText",
                             randomText: [
                                 "Let's put a smile on that face of yours! ",
+                                "Here comes the juice!",
+                                "Ominous substance of undisclosed effect - Coming right up!",
                             ],
                         },
                     ],
@@ -190,7 +200,9 @@ export const ITEM_CONFIG: ItemConfig = {
                             type: "AddText",
                             randomText: [
                                 "Why do I always get these mixed up...",
+                                "DAMN. Always getting these mixed up.....",
                                 "Oops... ",
+                                "Queue the violin...",
                             ],
                         },
                     ],
@@ -203,6 +215,8 @@ export const ITEM_CONFIG: ItemConfig = {
                             randomText: [
                                 "Oh, don't give me that look... ",
                                 "For SCIENCE!",
+                                "AGAIN! Why can't we just put labels on these?",
+                                "Red? No. Green. It's green, definitely green..... right?",
                             ],
                         },
                     ],
@@ -214,7 +228,8 @@ export const ITEM_CONFIG: ItemConfig = {
                             type: "AddText",
                             randomText: [
                                 "This might sting a little ",
-                                "Okok but... why not? ",
+                                "There you go.",
+                                "Fret not, I am a professional.",
                             ],
                         },
                     ],
@@ -224,7 +239,10 @@ export const ITEM_CONFIG: ItemConfig = {
                     actions: [
                         {
                             type: "AddText",
-                            randomText: [],
+                            randomText: [
+                                "Woah there, happiness is to be consumed responsibly.",
+                                "Balance is the key.",
+                            ],
                         },
                     ],
                 },
@@ -245,7 +263,10 @@ export const ITEM_CONFIG: ItemConfig = {
                     actions: [
                         {
                             type: "AddText",
-                            randomText: ["Let's cool down a little, ye? "],
+                            randomText: [
+                                "Let's cool down a little, ye?",
+                                "'Do No Harm'",
+                            ],
                         },
                     ],
                 },
