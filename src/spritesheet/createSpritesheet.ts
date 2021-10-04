@@ -5,17 +5,21 @@ export function createSpritesheet(config: SpritesheetConfig): Spritesheet {
     const img = createImage(config.src);
     const spriteSize = config.spriteSize;
 
-    const spriteMap: SpritesheetSpriteMap = new Map();
-    let i = 0;
-    for (let y = 0; y < img.height; y += spriteSize.h) {
-        for (let x = 0; x < img.width; x += spriteSize.w) {
-            const sIdx = config.spriteNames?.[i] ?? i;
-            spriteMap.set(sIdx, {
-                offset: { x, y },
-            });
-            i++;
+    const generateSpriteMap = (): SpritesheetSpriteMap => {
+        const spriteMap: SpritesheetSpriteMap = new Map();
+        let i = 0;
+        for (let y = 0; y < img.height; y += spriteSize.h) {
+            for (let x = 0; x < img.width; x += spriteSize.w) {
+                const sIdx = config.spriteNames?.[i] ?? i;
+                spriteMap.set(sIdx, {
+                    offset: { x, y },
+                });
+                i++;
+            }
         }
-    }
+        return spriteMap;
+    };
+
     const currentIdx = config.spriteNames?.[0] ?? 0;
 
     const scale: Pos = { x: 1, y: 1 };
@@ -72,7 +76,7 @@ export function createSpritesheet(config: SpritesheetConfig): Spritesheet {
         img,
         spritesheetSize: { w: 0, h: 0 },
         spriteSize,
-        spriteMap,
+        spriteMap: generateSpriteMap(),
         currentIdx,
         scale,
         insertDom,
@@ -87,6 +91,7 @@ export function createSpritesheet(config: SpritesheetConfig): Spritesheet {
             w: spritesheet.img.width,
             h: spritesheet.img.height,
         };
+        spritesheet.spriteMap = generateSpriteMap();
         spritesheet.resize(config.size ?? spritesheet.spriteSize);
     };
 

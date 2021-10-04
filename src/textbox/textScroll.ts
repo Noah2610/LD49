@@ -53,7 +53,7 @@ export function createTextScroll(
         textScroll.rootEl.appendChild(partEl);
 
         const charTimer = createTimer({
-            duration: (chars.length + 2) * opts.charDelayMs,
+            duration: (chars.length + 4) * opts.charDelayMs,
             updateInterval: opts.charDelayMs,
         });
 
