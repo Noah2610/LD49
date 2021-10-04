@@ -67,13 +67,22 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                             [9, 150],
                             [10, 150],
                             [11, 150],
-                            [12, 150],
-                            [13, 150],
-                            [14, 150],
-                            [15, 150],
+                            [12, 110],
+                            [13, 110],
+                            [14, 110],
+                            [15, 110],
                             [16, 150],
-                            [17, 150],
-                            [18, 150],
+                            [17, 220],
+                            [18, 300],
+                            [17, 200],
+                            [16, 150],
+                            [15, 100],
+                            [14, 100],
+                            [13, 100],
+                            [12, 100],
+                            [11, 130],
+                            [10, 150],
+                            [9, 250],
                         ],
                     },
                 },
@@ -120,13 +129,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
                                     scrollConfig: {
-                                        updatePartEl(el) {
-                                            el.classList.add(
-                                                "text",
-                                                "text--shake",
-                                            );
-                                            return el;
-                                        },
+                                        sfx: "text-suicidal1",
                                     },
                                 },
                             },
@@ -144,6 +147,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     ],
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                        scrollConfig: {
+                            sfx: "text-suicidal1",
+                        },
                     },
                 },
             },
@@ -189,9 +195,17 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                     "................",
                                     "*gulp*",
                                     "Oh.... oh God",
+                                    "I.. I am a snail.",
+                                    "...wh- why is it so c- co- cold..?",
+                                    "They told me it would be different...",
+                                    "Water... I need.. Wa-",
+                                    "This is awful... truly awful.",
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
+                                    scrollConfig: {
+                                        sfx: "text-sad2",
+                                    },
                                 },
                             },
                         ],
@@ -204,9 +218,17 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                         "................",
                         "*gulp*",
                         "Oh.... oh God",
+                        "I.. I am a snail.",
+                        "...wh- why is it so c- co- cold..?",
+                        "They told me it would be different...",
+                        "Water... I need.. Wa-",
+                        "This is awful... truly awful.",
                     ],
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                        scrollConfig: {
+                            sfx: "text-sad2",
+                        },
                     },
                 },
             },
@@ -251,12 +273,37 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                     "I...",
                                     "I'm feeling kind of down... ",
                                     ".....disgusting.",
+                                    "I... Can I get some new pants, please?",
+                                    "I always wanted to be a janitor...",
+                                    "...I could really use a hug right now",
+                                    "Man... this is awful.",
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
+                                    scrollConfig: {
+                                        sfx: "text-sad1",
+                                    },
                                 },
                             },
                         ],
+                    },
+                },
+                random: {
+                    type: "SpawnSpeechBubble",
+                    randomText: [
+                        "I...",
+                        "I'm feeling kind of down... ",
+                        ".....disgusting.",
+                        "I... Can I get some new pants, please?",
+                        "I always wanted to be a janitor...",
+                        "...I could really use a hug right now",
+                        "Man... this is awful.",
+                    ],
+                    options: {
+                        despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                        scrollConfig: {
+                            sfx: "text-sad1",
+                        },
                     },
                 },
             },
@@ -313,6 +360,9 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                 randomText: [
                                     "Subject exhibits no signs of unusual behavior. ",
                                     "Status: Subject seems exceptionally stable and healthy! ",
+                                    "Subject exhibits no signs of unusual behavior. ",
+                                    "Status: Subject seems exceptionally stable and healthy! ",
+                                    "Subject stabilized.",
                                 ],
                             },
                             {
@@ -323,9 +373,13 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                     "This is... alright... ",
                                     "... ",
                                     "Hmmmm.. now what? ",
+                                    "Can I uhh... get some.. bread?",
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
+                                    scrollConfig: {
+                                        sfx: "text-calm1",
+                                    },
                                 },
                             },
                         ],
@@ -333,9 +387,19 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                 },
                 random: {
                     type: "SpawnSpeechBubble",
-                    randomText: ["Hmm...", "C'est la vie. ...I guess"],
+                    randomText: [
+                        "Hmm... ",
+                        "C'est la vie. ...I guess ",
+                        "This is... alright... ",
+                        "... ",
+                        "Hmmmm.. now what? ",
+                        "Can I uhh... get some.. bread?",
+                    ],
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                        scrollConfig: {
+                            sfx: "text-calm1",
+                        },
                     },
                 },
             },
@@ -392,10 +456,50 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     type: "Delay",
                     delayMs: DEFAULT_ENTER_DELAY_MS,
                     action: {
-                        type: "SpawnSpeechBubble",
-                        randomText: ["Now that's a good one..", "hehe.."],
-                        options: {
-                            despawnMs: defaultSpeechBubbleDespawnMs,
+                        type: "Actions",
+                        actions: [
+                            {
+                                type: "AddText",
+                                randomText: [
+                                    "Subject exhibits no signs of unusual behavior. ",
+                                    "Status: Subject seems exceptionally stable and healthy! ",
+                                    "Subject exhibits no signs of unusual behavior. ",
+                                    "Status: Subject seems exceptionally stable and healthy! ",
+                                    "Subject stabalized.",
+                                ],
+                            },
+                            {
+                                type: "SpawnSpeechBubble",
+                                randomText: [
+                                    "Now that's a good one... hehe",
+                                    "Keep 'em coming, Doc!",
+                                    "I'll have two more of these!",
+                                    "More of the same, c'mon c'mon c'mon!!!",
+                                    "I'll have the green one - shaken, not stirred.",
+                                ],
+                                options: {
+                                    despawnMs: defaultSpeechBubbleDespawnMs,
+                                    scrollConfig: {
+                                        sfx: "text-happy1",
+                                    },
+                                },
+                            },
+                        ],
+                    },
+                },
+                random: {
+                    type: "SpawnSpeechBubble",
+                    randomText: [
+                        "Now that's a good one... hehe",
+                        "Keep 'em coming, Doc!",
+                        "I'll have two more of these!",
+                        "More of the same, c'mon c'mon c'mon!!!",
+                        "I'll have the green one - shaken, not stirred.",
+                    ],
+                    options: {
+                        despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                        scrollConfig: {
+                            sfx: "text-happy1",
                         },
                     },
                 },
@@ -441,6 +545,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                     "Don't worry about your face, common side-effect, y'know.",
                                     "Woah buddy, what's that on your face? You should really get that checked...",
                                     "Say CHEEEEESE...",
+                                    "So, when White Rabbit peaks...",
                                 ],
                             },
                             {
@@ -448,12 +553,19 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                                 randomText: [
                                     "ekEkkKEKKEkEekKEkEKKEkE",
                                     "AAAAAAAAAAAAAAAAAAAAAA",
-                                    "are- heh- you sure tha- that this is a go-od idea ?",
-                                    "I- i help with the need plea-",
-                                    "CROSSAINTS!",
+                                    "oksoheresthethingifchickenfromeggandeggfromchickesnthennwhrecmoetehuorignslhicknefro-",
+                                    "OkSoHeresTheThingIfChickenFromEggAndEggFromChickesnThennWhreCmoeTehuOrignslhCickneFro-",
+                                    "Woww it's.. heh.. i mean. isn't it? Ye? Like, i mean, really hot, isn't it? heh.. he-",
+                                    "FAAASTEEEEEEEEEEER  ",
+                                    "...TCHOO TCHOOO",
+                                    "STAND IN MY WAY AND I SHALL SWALLOW YOU WHOLE",
+                                    "RIVERRUN ... FROM SWERVE OF SHORE ... VICUS OF RECIRCULATION",
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
+                                    scrollConfig: {
+                                        sfx: "text-happy2",
+                                    },
                                 },
                             },
                         ],
@@ -468,9 +580,19 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                         "OkSoHeresTheThingIfChickenFromEggAndEggFromChickesnThennWhreCmoeTehuOrignslhCickneFro-",
                         "Woww it's.. heh.. i mean. isn't it? Ye? Like, i mean, really hot, isn't it? heh.. he-",
                         "FAAASTEEEEEEEEEEER  ",
+                        "...TCHOO TCHOOO",
+                        "STAND IN MY WAY AND I SHALL SWALLOW YOU WHOLE",
+                        "RIVERRUN ... FROM SWERVE OF SHORE ... VICUS OF RECIRCULATION",
                     ],
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                        scrollConfig: {
+                            sfx: "text-happy2",
+                            updatePartEl(el) {
+                                el.classList.add("text", "text--shake");
+                                return el;
+                            },
+                        },
                     },
                 },
             },
@@ -531,14 +653,31 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                             {
                                 type: "SpawnSpeechBubble",
                                 randomText: [
-                                    "ÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆ",
+                                    "ÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆ",
+                                    "ÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆ",
                                     " 	� 	� 	� 	� 	�",
                                     "GNIDNECSA MA I",
                                     "GGGNNNIIIDDDNNNEEECCCSSSAAA MMMAAA III",
-                                    "RIVERRUN ... FROM SWERVE OF SHORE ... VICUS OF RECIRCULATION",
+                                    "I AM A MONSTER TRUCK",
+                                    "THA MI GROINS A ’GABHAIL",
+                                    `मैं शुद्ध ऊर्जा हू`,
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
+                                    scrollConfig: {
+                                        sfx: [
+                                            "text-manic1",
+                                            "text-manic2",
+                                            "text-manic3",
+                                        ],
+                                        updatePartEl(el) {
+                                            el.classList.add(
+                                                "text",
+                                                "text--shake",
+                                            );
+                                            return el;
+                                        },
+                                    },
                                 },
                             },
                         ],
@@ -547,14 +686,24 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                 random: {
                     type: "SpawnSpeechBubble",
                     randomText: [
-                        "ÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆ",
+                        "ÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆ",
+                        "ÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆ",
                         " 	� 	� 	� 	� 	�",
                         "GNIDNECSA MA I",
                         "GGGNNNIIIDDDNNNEEECCCSSSAAA MMMAAA III",
-                        "RIVERRUN ... FROM SWERVE OF SHORE ... VICUS OF RECIRCULATION",
+                        "I AM A MONSTER TRUCK",
+                        "THA MI GROINS A ’GABHAIL",
+                        `मैं शुद्ध ऊर्जा हू`,
                     ],
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                        scrollConfig: {
+                            sfx: ["text-manic1", "text-manic2", "text-manic3"],
+                            updatePartEl(el) {
+                                el.classList.add("text", "text--shake");
+                                return el;
+                            },
+                        },
                     },
                 },
             },
@@ -579,15 +728,15 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     gameOver: {
                         loop: false,
                         frames: [
-                            [0, 500],
-                            [1, 500],
-                            [2, 500],
-                            [3, 500],
-                            [4, 500],
-                            [5, 500],
-                            [6, 500],
-                            [7, 500],
-                            [8, 500],
+                            [0, 600],
+                            [1, 400],
+                            [2, 200],
+                            [3, 200],
+                            [4, 200],
+                            [5, 200],
+                            [6, 300],
+                            [7, 350],
+                            [8, 380],
                             [9, 500],
                         ],
                     },
@@ -632,11 +781,11 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                             [13, 70],
                             [14, 70],
                             [15, 70],
-                            [16, 70],
-                            [17, 70],
-                            [18, 70],
-                            [19, 70],
-                            [20, 70],
+                            [16, 200],
+                            [17, 500],
+                            [18, 600],
+                            [19, 800],
+                            [20, 1000],
                         ],
                     },
                 },
