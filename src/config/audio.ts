@@ -6,7 +6,7 @@ const genFileConfig = (
 ): AudioFileConfig => ({
     name,
     src: require(`../assets/audio/bgm/${name}.ogg`),
-    volume: 1.0,
+    volume: 0.1,
     ...opts,
 });
 
@@ -22,6 +22,11 @@ export const AUDIO_CONFIG: AudioManagerConfig = {
     },
 
     sfx: {
-        files: [],
+        files: [
+            {
+                name: "textbox-char",
+                src: require("../assets/audio/sfx/neutralspeech.ogg"),
+            },
+        ],
     },
 };

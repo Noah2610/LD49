@@ -72,6 +72,7 @@ export function createTextbox(): Textbox {
             if (nextPart) {
                 nextPart.charTimer.play();
                 nextPart.sfxTimer.play();
+                updateSfx(opts);
             }
         });
 
@@ -94,6 +95,7 @@ export function createTextbox(): Textbox {
         if (textbox.parts.length === 1) {
             charTimer.play();
             sfxTimer.play();
+            updateSfx(opts);
         }
     };
 
