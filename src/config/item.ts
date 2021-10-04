@@ -1,6 +1,6 @@
 import { SpritesheetConfig } from "../spritesheet";
 import { Action } from "../action";
-import { ItemType } from "../item";
+import { EmotionActions, ItemType } from "../item";
 
 export interface ItemConfig {
     types: {
@@ -12,7 +12,8 @@ export interface ItemConfig {
 export interface ItemTypeConfig {
     type: ItemType;
     label?: string;
-    action: Action;
+    action?: Action;
+    emotionActions?: EmotionActions;
 }
 
 export type RandomItemConfig = {
@@ -58,6 +59,12 @@ export const ITEM_CONFIG: ItemConfig = {
         Upper: {
             type: "Upper",
             label: "Toy",
+            emotionActions: {
+                Calm: {
+                    type: "Debug",
+                    message: "LMAO",
+                },
+            },
             action: {
                 type: "Actions",
                 actions: [

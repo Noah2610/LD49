@@ -53,13 +53,23 @@ export function setupItems(): [Item[], () => void] {
         return (event) => {
             if (!item.draggingState.isDragging) return;
 
-            const rect = itemEl.getBoundingClientRect();
-            const charRect = characterEl.getBoundingClientRect();
-            const isOnCharacter = doRectsCollide(rect, charRect);
-
-            if (isOnCharacter) {
+            if (
+                doRectsCollide(
+                    itemEl.getBoundingClientRect(),
+                    characterEl.getBoundingClientRect(),
+                )
+            ) {
                 const ctx = expectContext();
-                ctx.actionEmitter.emit(item.action);
+
+                if (item.action) {
+                    ctx.actionEmitter.emit(item.action);
+                }
+
+                const emotionAction =
+                    item.emotionActions?.[ctx.character.mood.emotion];
+                if (emotionAction) {
+                    ctx.actionEmitter.emit(emotionAction);
+                }
             }
 
             itemEl.classList.remove("item--dragging");
@@ -114,7 +124,7 @@ export function setupItems(): [Item[], () => void] {
     };
 
     for (const randomItem of randomItems) {
-        const itemConfig = ITEM_CONFIG.types[nextItemType()];
+        const itemConfig = config.types[nextItemType()];
 
         const spritesheet = createSpritesheet(randomItem.spritesheet);
         spritesheet.img.setAttribute("draggable", "false");
@@ -126,6 +136,7 @@ export function setupItems(): [Item[], () => void] {
                 isDragging: false,
             },
             action: itemConfig.action,
+            emotionActions: itemConfig.emotionActions,
         };
 
         items.push(item);
