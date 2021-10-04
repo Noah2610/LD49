@@ -1,4 +1,6 @@
 .speech-bubbles {
+    user-select: text;
+
     position: absolute;
     z-index: 1;
     top: 20%;

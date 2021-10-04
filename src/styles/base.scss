@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "undefined-medium";
+    src: url("../assets/fonts/undefined-medium.woff2") format("woff2"),
+        url("../assets/fonts/undefined-medium.woff") format("woff");
+}
+
 :root {
     --game-width: 800px;
     --game-height: 720px;
@@ -12,7 +18,7 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    font-family: monospace;
+    font-family: undefined-medium, monospace;
     font-size: 20px;
 
     display: flex;
@@ -49,11 +55,11 @@ main {
 
 .btn {
     padding: 1em 2em;
-    border: 8px solid #ffffff;
+    border: 2px solid #ffffff;
     background-color: #000000;
     color: #ffffff;
     font-size: 1.25em;
-    font-weight: bold;
+    font-family: undefined-medium, monospace;
 
     cursor: pointer;
 
@@ -70,7 +76,7 @@ main {
     display: none;
     position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: 75%;
     left: 0;
     right: 0;
     justify-content: center;
