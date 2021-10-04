@@ -48,10 +48,6 @@ function updateMood(ctx: ContextWithUpdate, timer: Timer) {
             ctx.actionEmitter.emit(prevCharEmotion.events?.leave);
         }
 
-        if (charEmotion.events?.enter) {
-            ctx.actionEmitter.emit(charEmotion.events?.enter);
-        }
-
         const prevAnim =
             prevCharEmotion.animationContainer.getCurrentAnimation();
         if (prevAnim) {
@@ -62,6 +58,10 @@ function updateMood(ctx: ContextWithUpdate, timer: Timer) {
         characterEl.innerHTML = "";
         charEmotion.animationContainer.play(EMOTION_ANIMATIONS.idle);
         charEmotion.spritesheet.insertDom(characterEl);
+
+        if (charEmotion.events?.enter) {
+            ctx.actionEmitter.emit(charEmotion.events?.enter);
+        }
 
         ctx.update.lastEmotion = chr.mood.emotion;
         ctx.update.lastRandomEventAt = timer.time; // reset on emotion switch

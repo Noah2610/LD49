@@ -47,5 +47,10 @@ export function setupActionConsumer(ctx: Context): () => void {
         spawnSpeechBubble(text, action.options);
     });
 
+    listen("PlayCharacterAnimation", (action) => {
+        const charEmotion = ctx.character.getCurrentCharacterEmotion();
+        charEmotion.animationContainer.play(action.animation);
+    });
+
     return () => unsubs.forEach((cb) => cb());
 }

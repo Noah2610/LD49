@@ -45,6 +45,10 @@ export type Action =
           type: "SpawnSpeechBubble";
           randomText: string[];
           options?: PartialSpeechBubbleOptions;
+      }
+    | {
+          type: "PlayCharacterAnimation";
+          animation: string;
       };
 
 export type ActionType = Action["type"];
