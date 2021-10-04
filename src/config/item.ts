@@ -18,40 +18,42 @@ export interface ItemTypeConfig {
 
 export type RandomItemConfig = {
     spritesheet: SpritesheetConfig;
-    color: ItemColor;
 };
 
 export type ItemColor = "red";
 
 const ITEM_SRCS = {
-    red: require("../assets/sprites/syringe.png"),
+    blue: require("../assets/sprites/syringes/syringe-blue.png"),
+    green: require("../assets/sprites/syringes/syringe-green.png"),
+    red: require("../assets/sprites/syringes/syringe-red.png"),
+    yellow: require("../assets/sprites/syringes/syringe-yellow.png"),
 } as const;
 
 const genItemSpritesheet = (src: string): SpritesheetConfig => ({
     src,
     spriteSize: {
-        w: 32,
-        h: 32,
+        w: 24,
+        h: 24,
     },
     size: {
-        w: 128,
-        h: 128,
+        w: 96,
+        h: 96,
     },
 });
 
 export const ITEM_CONFIG: ItemConfig = {
     randomItems: [
         {
-            spritesheet: genItemSpritesheet(ITEM_SRCS.red),
-            color: "red",
+            spritesheet: genItemSpritesheet(ITEM_SRCS.blue),
+        },
+        {
+            spritesheet: genItemSpritesheet(ITEM_SRCS.green),
         },
         {
             spritesheet: genItemSpritesheet(ITEM_SRCS.red),
-            color: "red",
         },
         {
-            spritesheet: genItemSpritesheet(ITEM_SRCS.red),
-            color: "red",
+            spritesheet: genItemSpritesheet(ITEM_SRCS.yellow),
         },
     ],
 

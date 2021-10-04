@@ -46,7 +46,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Suicidal: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/sprites/suicidal.png"),
+                src: require("../assets/sprites/emotions/suicidal.png"),
             },
             animations: {
                 animations: {
@@ -144,7 +144,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Depressed: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/sprites/depressed.png"),
+                src: require("../assets/sprites/emotions/depressed.png"),
             },
             animations: {
                 animations: {
@@ -207,7 +207,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Sad: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/sprites/sad.png"),
+                src: require("../assets/sprites/emotions/sad.png"),
             },
             animations: {
                 animations: {
@@ -257,7 +257,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Calm: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/sprites/calm.png"),
+                src: require("../assets/sprites/emotions/calm.png"),
             },
             animations: {
                 animations: {
@@ -333,7 +333,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Happy: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/sprites/happy.png"),
+                src: require("../assets/sprites/emotions/happy.png"),
             },
             animations: {
                 animations: {
@@ -394,7 +394,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Excited: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/sprites/excited.png"),
+                src: require("../assets/sprites/emotions/excited.png"),
             },
             animations: {
                 animations: {
@@ -467,7 +467,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
         Manic: {
             spritesheet: {
                 ...baseSpritesheet,
-                src: require("../assets/sprites/manic.png"),
+                src: require("../assets/sprites/emotions/manic.png"),
             },
             animations: {
                 animations: {
@@ -552,7 +552,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
     gameOver: {
         Suicidal: {
             spritesheet: {
-                src: require("../assets/sprites/death_S.png"),
+                src: require("../assets/sprites/gameOver/death_S.png"),
                 spriteSize: {
                     w: 80,
                     h: 32,
@@ -589,7 +589,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
 
         Manic: {
             spritesheet: {
-                src: require("../assets/sprites/death_M.png"),
+                src: require("../assets/sprites/gameOver/death_M.png"),
                 spriteSize: {
                     w: 160,
                     h: 140,
