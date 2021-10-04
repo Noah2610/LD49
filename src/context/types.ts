@@ -12,6 +12,8 @@ export interface Context {
     actionEmitter: ActionEmitter;
     audio: AudioManager;
     textbox: Textbox;
+    difficulty: number;
+    isGameOver: boolean;
 
     update?: {
         timer: Timer;
@@ -19,5 +21,6 @@ export interface Context {
         lastEmotion?: Emotion;
         lastMoodSwingAt: number;
         lastRandomEventAt: number;
+        lastDifficultyIncreaseAt: number;
     };
 }

@@ -29,15 +29,20 @@ export function createMood(): Mood {
 
     const emotion = emotionForMood(0) || "Calm";
 
-    const update: Mood["update"] = () => {
+    const update: Mood["update"] = (ctx) => {
         mood.value = Math.max(
             Math.min(mood.value + mood.velocity, MOOD_RANGE.max),
             MOOD_RANGE.min,
         );
 
+        const velocityRange: Range = {
+            min: VELOCITY_CONFIG.range.min * ctx.difficulty,
+            max: VELOCITY_CONFIG.range.max * ctx.difficulty,
+        };
+
         if (
-            mood.velocity > VELOCITY_CONFIG.range.max ||
-            mood.velocity < VELOCITY_CONFIG.range.min
+            mood.velocity > velocityRange.max ||
+            mood.velocity < velocityRange.min
         ) {
             mood.velocity +=
                 Math.max(

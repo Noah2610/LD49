@@ -1,5 +1,5 @@
 import { createTimer } from "timesub";
-import { Context, expectContext } from "../context";
+import { Context, createContext } from "../context";
 import { expectEl } from "../util";
 import { GAME_CONFIG } from "../config/game";
 import { update } from ".";
@@ -10,7 +10,7 @@ export function startGame() {
     const characterEl = expectEl("#game #character");
     characterEl.innerHTML = "";
 
-    const ctx = expectContext();
+    const ctx = createContext();
 
     startUpdateLoop(ctx);
 }
@@ -29,6 +29,7 @@ function startUpdateLoop(ctx: Context) {
         lastEmotion: undefined,
         lastMoodSwingAt: 0,
         lastRandomEventAt: 0,
+        lastDifficultyIncreaseAt: 0,
     };
 
     ctx.update.timer.on("update", (timer) => update(ctx, timer));

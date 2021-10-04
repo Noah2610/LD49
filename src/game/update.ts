@@ -2,13 +2,16 @@ import { Timer } from "timesub";
 import { Context } from "../context";
 import { expectEl } from "../util";
 import { GAME_CONFIG } from "../config/game";
+import { MOOD_RANGE } from "../config/mood";
 import { moodSwing } from ".";
+import { CharacterPresentation } from "../character";
 
 const UPS = GAME_CONFIG.ups;
 
-const EMOTION_ANIMATIONS = {
+const ANIMATION_NAMES = {
     idle: "idle",
-};
+    gameOver: "gameOver",
+} as const;
 
 type ContextWithUpdate = Context & Required<Pick<Context, "update">>;
 
@@ -17,6 +20,10 @@ function isContextWithUpdate(ctx: Context): ctx is ContextWithUpdate {
 }
 
 export function update(ctx: Context, timer: Timer) {
+    if (ctx.isGameOver) {
+        return;
+    }
+
     if (!isContextWithUpdate(ctx)) {
         console.error(
             "[update] window.CTX.update should exist before update() call",
@@ -30,6 +37,8 @@ export function update(ctx: Context, timer: Timer) {
     updateEmotionRandomEvent(ctx, timer);
     updateMoodSwing(ctx, timer);
     updateBgm(ctx, timer);
+    updateDifficulty(ctx, timer);
+    updateGameOver(ctx, timer);
 
     ctx.update.lastUpdateAt = timer.time;
 }
@@ -39,7 +48,7 @@ function updateMood(ctx: ContextWithUpdate, timer: Timer) {
 
     const prevCharEmotion = chr.getCurrentCharacterEmotion();
 
-    chr.mood.update();
+    chr.mood.update(ctx);
 
     const charEmotion = chr.getCurrentCharacterEmotion();
 
@@ -48,16 +57,7 @@ function updateMood(ctx: ContextWithUpdate, timer: Timer) {
             ctx.actionEmitter.emit(prevCharEmotion.events?.leave);
         }
 
-        const prevAnim =
-            prevCharEmotion.animationContainer.getCurrentAnimation();
-        if (prevAnim) {
-            prevAnim.reset();
-        }
-
-        const characterEl = expectEl("#game #character");
-        characterEl.innerHTML = "";
-        charEmotion.animationContainer.play(EMOTION_ANIMATIONS.idle);
-        charEmotion.spritesheet.insertDom(characterEl);
+        switchCharacterPresentation(ctx, charEmotion, prevCharEmotion);
 
         if (charEmotion.events?.enter) {
             ctx.actionEmitter.emit(charEmotion.events?.enter);
@@ -100,4 +100,74 @@ function updateEmotionRandomEvent(ctx: ContextWithUpdate, timer: Timer) {
 
         ctx.update.lastRandomEventAt = timer.time;
     }
+}
+
+function updateDifficulty(ctx: ContextWithUpdate, timer: Timer) {
+    const timeSinceDifficultyIncrease =
+        timer.time - ctx.update.lastDifficultyIncreaseAt;
+    if (timeSinceDifficultyIncrease > GAME_CONFIG.difficulty.increaseEveryMs) {
+        ctx.difficulty += GAME_CONFIG.difficulty.increaseBy;
+        ctx.update.lastDifficultyIncreaseAt = timer.time;
+    }
+}
+
+function updateGameOver(ctx: ContextWithUpdate, timer: Timer) {
+    const mood = ctx.character.mood.value;
+
+    let didGameOver = false;
+
+    if (mood >= MOOD_RANGE.max) {
+        didGameOver = true;
+        const prevPres = ctx.character.getCurrentCharacterEmotion();
+        const nextPres = ctx.character.gameOver.Manic;
+        switchCharacterPresentation(ctx, nextPres, prevPres);
+        if (
+            nextPres.animationContainer.animations.has(ANIMATION_NAMES.gameOver)
+        ) {
+            nextPres.animationContainer.play(ANIMATION_NAMES.gameOver);
+        }
+    }
+
+    if (mood <= MOOD_RANGE.min) {
+        didGameOver = true;
+        const prevPres = ctx.character.getCurrentCharacterEmotion();
+        const nextPres = ctx.character.gameOver.Suicidal;
+        switchCharacterPresentation(ctx, nextPres, prevPres);
+        if (
+            nextPres.animationContainer.animations.has(ANIMATION_NAMES.gameOver)
+        ) {
+            nextPres.animationContainer.play(ANIMATION_NAMES.gameOver);
+        }
+    }
+
+    if (didGameOver) {
+        ctx.isGameOver = true;
+        ctx.update.timer.reset();
+    }
+}
+
+function switchCharacterPresentation(
+    ctx: Context,
+    pres: CharacterPresentation,
+    prevPres: CharacterPresentation,
+) {
+    const prevAnim = prevPres.animationContainer.getCurrentAnimation();
+    if (prevAnim) {
+        prevAnim.reset();
+    }
+
+    const characterEl = expectEl("#game #character");
+    characterEl.innerHTML = "";
+    if (pres.animationContainer.animations.has(ANIMATION_NAMES.idle)) {
+        pres.animationContainer.play(ANIMATION_NAMES.idle);
+    }
+
+    const parentEl = pres.spritesheet.img.parentElement;
+    if (parentEl) {
+        parentEl.style.transform = pres.posOffset
+            ? `translate(${pres.posOffset.x}px, ${pres.posOffset.y}px)`
+            : "none";
+    }
+
+    pres.spritesheet.insertDom(characterEl);
 }

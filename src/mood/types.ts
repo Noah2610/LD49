@@ -1,9 +1,11 @@
+import { Context } from "../context";
+
 export interface Mood {
     value: number;
     velocity: number;
     emotion: Emotion;
 
-    update(): void;
+    update(ctx: Context): void;
     setVelocity(vel: number): void;
     addVelocity(vel: number): void;
 }

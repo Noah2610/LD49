@@ -2,18 +2,29 @@ import { CharacterEmotion, CharacterEmotionEvents } from "../character";
 import { AnimationContainerConfig } from "../animation";
 import { Emotion } from "../mood";
 import { SpritesheetConfig } from "../spritesheet";
+import { Pos } from "../util";
 
 export interface CharacterConfig {
     emotions: {
         [E in Emotion]: CharacterEmotionConfig;
     };
+    gameOver: CharacterGameOverConfig;
 }
 
-export interface CharacterEmotionConfig {
+export interface CharacterEmotionConfig extends CharacterPresentationConfig {
+    events?: CharacterEmotionEvents;
+}
+
+export interface CharacterGameOverConfig {
+    Suicidal: CharacterPresentationConfig;
+    Manic: CharacterPresentationConfig;
+}
+
+export interface CharacterPresentationConfig {
     spritesheet: SpritesheetConfig;
     animations: AnimationContainerConfig;
     bgm?: CharacterEmotion["bgm"];
-    events?: CharacterEmotionEvents;
+    posOffset?: Pos;
 }
 
 const baseSpritesheet: Omit<SpritesheetConfig, "src"> = {
@@ -532,6 +543,89 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                     ],
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,
+                    },
+                },
+            },
+        },
+    },
+
+    gameOver: {
+        Suicidal: {
+            spritesheet: {
+                src: require("../assets/sprites/death_S.png"),
+                spriteSize: {
+                    w: 80,
+                    h: 32,
+                },
+                size: {
+                    w: 320,
+                    h: 128,
+                },
+            },
+            animations: {
+                animations: {
+                    gameOver: {
+                        loop: false,
+                        frames: [
+                            [0, 500],
+                            [1, 500],
+                            [2, 500],
+                            [3, 500],
+                            [4, 500],
+                            [5, 500],
+                            [6, 500],
+                            [7, 500],
+                            [8, 500],
+                            [9, 500],
+                        ],
+                    },
+                },
+            },
+            posOffset: {
+                x: 0,
+                y: 128,
+            },
+        },
+
+        Manic: {
+            spritesheet: {
+                src: require("../assets/sprites/death_M.png"),
+                spriteSize: {
+                    w: 160,
+                    h: 140,
+                },
+                size: {
+                    w: 640,
+                    h: 560,
+                },
+            },
+            animations: {
+                animations: {
+                    gameOver: {
+                        loop: false,
+                        frames: [
+                            [0, 500],
+                            [1, 500],
+                            [2, 500],
+                            [3, 500],
+                            [4, 500],
+                            [5, 500],
+                            [6, 500],
+                            [7, 500],
+                            [8, 500],
+                            [9, 500],
+                            [10, 500],
+                            [11, 500],
+                            [12, 500],
+                            [13, 500],
+                            [14, 500],
+                            [15, 500],
+                            [16, 500],
+                            [17, 500],
+                            [18, 500],
+                            [19, 500],
+                            [20, 500],
+                        ],
                     },
                 },
             },

@@ -28,7 +28,7 @@ export function setupActionConsumer(ctx: Context): () => void {
     });
 
     listen("MoodChange", (action) => {
-        ctx.character.mood.addVelocity(randomRange(action.velocity));
+        ctx.character.mood.setVelocity(randomRange(action.velocity));
     });
 
     listen("PlaySfx", (action) => {

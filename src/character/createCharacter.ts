@@ -1,28 +1,34 @@
 import { createAnimationContainer } from "../animation/createAnimationContainer";
 import { createSpritesheet } from "../spritesheet";
 import { createMood, EMOTIONS } from "../mood";
-import { CHARACTER_CONFIG } from "../config/character";
-import { Character, CharacterEmotions } from ".";
+import {
+    CharacterPresentationConfig,
+    CHARACTER_CONFIG,
+} from "../config/character";
+import { Character, CharacterEmotions, CharacterPresentation } from ".";
 
 export function createCharacter(): Character {
     const emotions: Partial<CharacterEmotions> = {};
 
     EMOTIONS.forEach((emotion) => {
-        const spritesheet = createSpritesheet(
-            CHARACTER_CONFIG.emotions[emotion].spritesheet,
-        );
         const emotionConfig = CHARACTER_CONFIG.emotions[emotion];
         emotions[emotion] = {
-            emotion,
-            spritesheet,
-            animationContainer: createAnimationContainer(
-                spritesheet,
-                emotionConfig.animations,
+            ...genCharacterPresentationFromConfig(
+                CHARACTER_CONFIG.emotions[emotion],
             ),
-            bgm: emotionConfig.bgm,
+            emotion,
             events: emotionConfig.events,
         };
     });
+
+    const gameOver: Character["gameOver"] = {
+        Suicidal: genCharacterPresentationFromConfig(
+            CHARACTER_CONFIG.gameOver.Suicidal,
+        ),
+        Manic: genCharacterPresentationFromConfig(
+            CHARACTER_CONFIG.gameOver.Manic,
+        ),
+    };
 
     const getCurrentCharacterEmotion: Character["getCurrentCharacterEmotion"] =
         () => {
@@ -33,8 +39,25 @@ export function createCharacter(): Character {
     const character: Character = {
         mood: createMood(),
         emotions: emotions as CharacterEmotions,
+        gameOver,
         getCurrentCharacterEmotion,
     };
 
     return character;
+}
+
+function genCharacterPresentationFromConfig(
+    config: CharacterPresentationConfig,
+): CharacterPresentation {
+    const spritesheet = createSpritesheet(config.spritesheet);
+    const animationContainer = createAnimationContainer(
+        spritesheet,
+        config.animations,
+    );
+    return {
+        spritesheet,
+        animationContainer,
+        bgm: config.bgm,
+        posOffset: config.posOffset,
+    };
 }

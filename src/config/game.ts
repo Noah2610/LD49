@@ -9,6 +9,10 @@ export interface GameConfig {
     randomEvent: {
         intervalMs: number;
     };
+    difficulty: {
+        increaseEveryMs: number;
+        increaseBy: number;
+    };
 }
 
 export const GAME_CONFIG: GameConfig = {
@@ -22,5 +26,9 @@ export const GAME_CONFIG: GameConfig = {
     },
     randomEvent: {
         intervalMs: 2000,
+    },
+    difficulty: {
+        increaseEveryMs: 2000,
+        increaseBy: 0.2,
     },
 };
