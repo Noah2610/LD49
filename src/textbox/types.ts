@@ -17,6 +17,7 @@ export interface TextScrollPart {
     charTimer: Timer;
     sfxTimer: Timer;
     partEl: HTMLElement;
+    config: TextScrollConfig;
 }
 
 export interface TextScrollConfig {

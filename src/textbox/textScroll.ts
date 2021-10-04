@@ -11,7 +11,21 @@ export function createTextScroll(
         if (!part) return;
 
         const [chr] = part.chars.splice(0, 1);
-        if (chr === undefined) return;
+        if (chr === undefined) {
+            part.charTimer.reset();
+            part.sfxTimer.reset();
+
+            textScroll.parts.splice(0, 1);
+
+            const nextPart = textScroll.parts[0];
+            if (nextPart) {
+                nextPart.charTimer.play();
+                nextPart.sfxTimer.play();
+                updateSfx(nextPart.config);
+            }
+
+            return;
+        }
 
         part.partEl.innerHTML += chr;
         part.partEl.scrollIntoView(false);
@@ -53,26 +67,26 @@ export function createTextScroll(
         textScroll.rootEl.appendChild(partEl);
 
         const charTimer = createTimer({
-            duration: chars.length * opts.charDelayMs + 100,
+            duration: "infinite",
             updateInterval: opts.charDelayMs,
         });
 
         charTimer.on("update", () => updateTextbox(opts));
-        charTimer.on("finish", () => {
-            // updateTextbox(opts);
-            const [part] = textScroll.parts.splice(0, 1);
+        // charTimer.on("finish", () => {
+        //     // updateTextbox(opts);
+        //     const [part] = textScroll.parts.splice(0, 1);
 
-            if (part) {
-                part.sfxTimer.reset();
-            }
+        //     if (part) {
+        //         part.sfxTimer.reset();
+        //     }
 
-            const nextPart = textScroll.parts[0];
-            if (nextPart) {
-                nextPart.charTimer.play();
-                nextPart.sfxTimer.play();
-                updateSfx(opts);
-            }
-        });
+        //     const nextPart = textScroll.parts[0];
+        //     if (nextPart) {
+        //         nextPart.charTimer.play();
+        //         nextPart.sfxTimer.play();
+        //         updateSfx(opts);
+        //     }
+        // });
 
         const sfxTimer = createTimer({
             duration: "infinite",
@@ -86,6 +100,7 @@ export function createTextScroll(
             charTimer,
             sfxTimer,
             partEl,
+            config: opts,
         };
 
         textScroll.parts.push(part);
