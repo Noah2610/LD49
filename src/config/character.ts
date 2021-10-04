@@ -38,8 +38,8 @@ const baseSpritesheet: Omit<SpritesheetConfig, "src"> = {
     },
 };
 
-const defaultSpeechBubbleDespawnMs = 3000;
-const DEFAULT_ENTER_DELAY_MS = 3000;
+const defaultSpeechBubbleDespawnMs = 4000;
+const DEFAULT_ENTER_DELAY_MS = 3500;
 
 export const CHARACTER_CONFIG: CharacterConfig = {
     emotions: {
@@ -310,8 +310,11 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                             {
                                 type: "SpawnSpeechBubble",
                                 randomText: [
-                                    "Hmm...",
-                                    "C'est la vie. ...I guess",
+                                    "Hmm... ",
+                                    "C'est la vie. ...I guess ",
+                                    "This is... alright... ",
+                                    "... ",
+                                    "Hmmmm.. now what? ",
                                 ],
                                 options: {
                                     despawnMs: defaultSpeechBubbleDespawnMs,
@@ -456,6 +459,7 @@ export const CHARACTER_CONFIG: CharacterConfig = {
                         "oksoheresthethingifchickenfromeggandeggfromchickesnthennwhrecmoetehuorignslhicknefro-",
                         "OkSoHeresTheThingIfChickenFromEggAndEggFromChickesnThennWhreCmoeTehuOrignslhCickneFro-",
                         "Woww it's.. heh.. i mean. isn't it? Ye? Like, i mean, really hot, isn't it? heh.. he-",
+                        "FAAASTEEEEEEEEEEER  ",
                     ],
                     options: {
                         despawnMs: defaultSpeechBubbleDespawnMs / 2,

@@ -98,7 +98,6 @@ export const ITEM_CONFIG: ItemConfig = {
                         {
                             type: "AddText",
                             randomText: [
-                                "You seem exceptionally stable and healthy. How boring... ",
                                 "Let's put a smile on that face of yours! ",
                             ],
                         },
