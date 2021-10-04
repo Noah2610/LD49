@@ -17,6 +17,7 @@ export interface AudioSfx {
     audio: AudioMap;
 
     play(name: string): void;
+    pause(name: string): void;
 }
 
 export type AudioMap = Map<string, HTMLAudioElement>;

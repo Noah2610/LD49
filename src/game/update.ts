@@ -124,6 +124,11 @@ function gameOver(ctx: ContextWithUpdate, type: "Suicidal" | "Manic") {
 
     ctx.isGameOver = true;
     ctx.update.timer.reset();
+
+    const resetBtnEl = document.querySelector("#reset-btn-wrapper");
+    if (resetBtnEl) {
+        resetBtnEl.classList.add("reset-btn-wrapper--active");
+    }
 }
 
 function switchCharacterPresentation(

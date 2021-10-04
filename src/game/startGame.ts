@@ -2,6 +2,7 @@ import { createTimer } from "timesub";
 import { Context, createContext } from "../context";
 import { expectEl } from "../util";
 import { GAME_CONFIG } from "../config/game";
+import { showScreen } from "../screen";
 import { update } from ".";
 
 const UPS = GAME_CONFIG.ups;
@@ -9,10 +10,17 @@ const UPS = GAME_CONFIG.ups;
 export function startGame() {
     const characterEl = expectEl("#game #character");
     characterEl.innerHTML = "";
+    showScreen("Game");
 
     const ctx = createContext();
 
     startUpdateLoop(ctx);
+}
+
+export function stopGame() {
+    // showScreen("MainMenu");
+    // studid
+    location.reload();
 }
 
 function startUpdateLoop(ctx: Context) {
