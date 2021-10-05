@@ -11,6 +11,7 @@ export function createAudioMap(configs: AudioFileConfig[]): AudioMap {
 function createAudio(config: AudioFileConfig): HTMLAudioElement {
     const audio = new Audio(config.src);
     audio.preload = "auto";
+    audio.load();
     audio.volume = config.volume ?? 1.0;
     audio.loop = !!config.loop;
     audio.playbackRate = config.playbackRate ?? 1.0;
