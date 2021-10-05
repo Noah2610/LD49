@@ -27,6 +27,10 @@ export type Action =
           sfx: string;
       }
     | {
+          type: "PauseSfx";
+          sfx: string;
+      }
+    | {
           type: "AddText";
           text: string;
           config?: Partial<TextScrollConfig>;

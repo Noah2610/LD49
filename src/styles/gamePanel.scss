@@ -2,8 +2,8 @@
     position: relative;
     display: block;
     max-width: var(--game-width);
-    border: 16px solid #000000;
-    box-sizing: border-box;
+    // border: 16px solid #000000;
+    // box-sizing: border-box;
 }
 
 .game-panel-group {
@@ -15,7 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    grid-gap: 16px;
+    grid-gap: 32px;
 
     &.game-panel-group--horz {
         flex-direction: row;

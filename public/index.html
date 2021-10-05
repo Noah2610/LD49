@@ -3,29 +3,48 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>LD49 Emotionally Unstable</title>
+        <title>LD49 Sitter</title>
     </head>
     <body>
-        <main id="game">
-            <div class="game-panel-group game-panel-group--vert">
-                <div
-                    class="
-                        game-panel-group
-                        game-panel-group--horz
-                        game-panel-group--game-area
-                    "
-                >
-                    <div class="game-area game-panel">
-                        <div id="background" class="background"></div>
-                        <div id="character" class="character"></div>
-                        <div id="speech-bubbles" class="speech-bubbles"></div>
-                        <div class="mood-bar">
-                            <div class="mood-bar__bar" id="mood-bar"></div>
-                        </div>
-                    </div>
-                    <div id="toolbar" class="toolbar game-panel"></div>
+        <main>
+            <div class="screens">
+                <div id="main-menu" class="screen screen--active">
+                    <h1 class="main-menu__title">SITTER</h1>
+                    <button id="btn-start-game" class="btn">PLAY</button>
                 </div>
-                <div id="textbox" class="textbox game-panel"></div>
+
+                <div id="game" class="screen">
+                    <div class="game-panel-group game-panel-group--vert">
+                        <div
+                            class="
+                                game-panel-group
+                                game-panel-group--horz
+                                game-panel-group--game-area
+                            "
+                        >
+                            <div class="game-area game-panel">
+                                <div id="background" class="background"></div>
+                                <div id="character" class="character"></div>
+                                <div
+                                    id="speech-bubbles"
+                                    class="speech-bubbles"
+                                ></div>
+                                <!-- <div class="mood-bar"> -->
+                                <!--     <div -->
+                                <!--         class="mood-bar__bar" -->
+                                <!--         id="mood-bar" -->
+                                <!--     ></div> -->
+                                <!-- </div> -->
+                            </div>
+                            <div id="toolbar" class="toolbar game-panel"></div>
+                        </div>
+                        <div id="textbox" class="textbox game-panel"></div>
+                    </div>
+
+                    <div id="reset-btn-wrapper" class="reset-btn-wrapper">
+                        <button id="btn-reset" class="btn">RESET</button>
+                    </div>
+                </div>
             </div>
         </main>
 

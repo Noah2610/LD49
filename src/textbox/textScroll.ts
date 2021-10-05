@@ -1,5 +1,6 @@
 import { createTimer } from "timesub";
 import { expectContext } from "../context";
+import { pick } from "../util";
 import { TextScroll, TextScrollConfig, TextScrollPart } from ".";
 
 export function createTextScroll(
@@ -44,8 +45,9 @@ export function createTextScroll(
         if (!part) return;
 
         const ctx = expectContext();
-        if (ctx.audio.sfx.audio.has(config.sfx)) {
-            ctx.audio.sfx.play(config.sfx);
+        const sfx = Array.isArray(config.sfx) ? pick(config.sfx) : config.sfx;
+        if (sfx && ctx.audio.sfx.audio.has(sfx)) {
+            ctx.audio.sfx.play(sfx);
         }
     };
 

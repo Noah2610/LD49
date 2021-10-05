@@ -1,6 +1,6 @@
 {
-    "name": "ld49",
-    "version": "0.0.0",
+    "name": "ld49-sitter",
+    "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
     "scripts": {
