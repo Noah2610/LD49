@@ -33,13 +33,13 @@ const genSfx = (
 export const AUDIO_CONFIG: AudioManagerConfig = {
     bgm: {
         files: [
-            genBgm("suicidal"),
-            genBgm("depressed"),
-            genBgm("sad"),
-            genBgm("calm"),
-            genBgm("happy"),
-            genBgm("excited"),
-            genBgm("manic"),
+            genBgm("00-suicidal", { name: "suicidal" }),
+            genBgm("01-depressed", { name: "depressed" }),
+            genBgm("02-sad", { name: "sad" }),
+            genBgm("03-calm", { name: "calm" }),
+            genBgm("04-happy", { name: "happy" }),
+            genBgm("05-excited", { name: "excited" }),
+            genBgm("06-manic", { name: "manic" }),
         ],
     },
 
