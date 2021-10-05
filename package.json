@@ -5,7 +5,8 @@
     "license": "MIT",
     "scripts": {
         "dev": "NODE_ENV=development webpack serve",
-        "build": "webpack"
+        "build": "webpack",
+        "prebuild": "rm -rf ./public/build"
     },
     "devDependencies": {
         "css-loader": "^6.3.0",
